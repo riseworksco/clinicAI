@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8647754134355438"
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+        /*.container {*/
+        /*    background-color: #ffffff*/
+        /*}*/
+
+        .navbar {
+            background-color: #ffffff;
+            min-height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 9px 0px !important;
+        }
+
+        .navbar .navbar-brand {
+            position: 0;
+            color: #000000;
+            height: 60px;
+            line-height: 60px;
+            padding-top: 2px;
+        }
+
+        .navbar .navbar-brand:hover,
+        .navbar .navbar-brand:focus {
+            color: #fffefe;
+            /* background-color:#75787B; */
+        }
+
+        .navbar .navbar-text {
+            color: #000000;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-text a {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-text a:hover,
+        .navbar .navbar-text a:focus {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #000000;
+            border-radius: .25rem;
+            margin: 0 0.25em;
+        }
+
+        .navbar .navbar-nav .nav-link:not(.disabled):hover,
+        .navbar .navbar-nav .nav-link:not(.disabled):focus {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-nav .nav-item.active .nav-link,
+        .navbar .navbar-nav .nav-item.active .nav-link:hover,
+        .navbar .navbar-nav .nav-item.active .nav-link:focus,
+        .navbar .navbar-nav .nav-item.show .nav-link,
+        .navbar .navbar-nav .nav-item.show .nav-link:hover,
+        .navbar .navbar-nav .nav-item.show .nav-link:focus {
+            color: #fffefe;
+            background-color: #000000;
+        }
+
+        .navbar .navbar-toggle {
+            /* border-color: #000000; */
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+
+        .navbar .navbar-toggle:hover,
+        .navbar .navbar-toggle:focus {
+            background-color: #000000;
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+
+        .navbar .navbar-toggle .navbar-toggler-icon {
+            color: #000000;
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+
+        .navbar .navbar-collapse,
+        .navbar .navbar-form {
+            border-color: #000000;
+        }
+
+        .navbar .navbar-link {
+            color: #000000;
+        }
+
+        .navbar .navbar-link:hover {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        @media (max-width: 575px) {
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+            }
+
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+            }
+
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+
+
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+        }
+
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+            color: #000000;
+        }
+
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+            color: #fffefe;
+            background-color: #000000;
+        }
+
+        .index-header__logo {
+            height: 50px;
+            /*width: 50px;*/
+            padding-bottom: 0;
+        }
+
+        .jumbotron {
+            /* padding-top: 50px; */
+            background: white;
+            color: black;
+            padding-bottom: 50px
+        }
+
+        .jumbotron .btn-primary {
+            background: #C64600;
+            border: none;
+        }
+
+        .jumbotron .button-index {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .jumbotron .btn-primary:hover {
+            background: #E87722;
+            border: none;
+        }
+
+        .jumbotron p {
+            color: black;
+            max-width: 75%;
+            margin: 1em auto 2em
+        }
+
+        .navbar + .jumbotron {
+            margin-top: -20px
+        }
+
+        .jumbotron .lang-logo {
+            display: block;
+            background: white;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border: 2px solid white
+        }
+
+        .jumbotron .lang-logo img {
+            max-width: 100%
+        }
+
+        .center {
+            margin: auto;
+            text-align: center;
+        }
+
+
+        .clear {
+            padding-top: 50px;
+            background: white;
+            padding-bottom: 80px
+        }
+    </style>
+</head>
+<body>
+<div class="ku-accordion pt-0 pb-2 paragraph paragraph--type--accordions-body-1 paragraph--view-mode--default"
+     id="accordion2836">
+    <div class="row">
+        <div class="col-12">
+            <div class="container">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-0" data-toggle="collapse"
+                            data-target="#collapse-2836-0" aria-expanded="true" aria-controls="collapse-2836-0"><h3
+                            class="m-0 p-0">
+                        Alternative/Indie
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-0" class="collapse show" aria-labelledby="heading-2836-0"
+                         data-parent="#accordion2836" style="">
+                        <div class="wysiwyg card-body"><p>Burning Desire - Lana Del Rey - 2013</p>
+                            <p>Ophelia - Lumineers - 2016</p>
+                            <p>Ride - Twenty One Pilots - 2016</p>
+                            <p>Samson - Regina Spektor - 2001</p>
+                            <p>Watch - Billy Eillish - 2017</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-1" data-toggle="collapse"
+                            data-target="#collapse-2836-1" aria-expanded="false" aria-controls="collapse-2836-1"><h3
+                            class="m-0 p-0">
+                        Afro Punk
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-1" class="collapse" aria-labelledby="heading-2836-1"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>I Against I - Bad Brains - 1986</p>
+                            <p>Keep on Knocking - Death - 1976</p>
+                            <p>Ma and Pa - Fishbone (cross ref. Ska) - 1988</p>
+                            <p>No Lives Matter - Body Count - 2017</p>
+                            <p>Rock for Light - Bad Brains - 1983</p>
+                            <p>Static - Outface (Cleveland) - 1992</p>
+                            <p>Voodoo - Body Count - 1992</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-2" data-toggle="collapse"
+                            data-target="#collapse-2836-2" aria-expanded="false" aria-controls="collapse-2836-2"><h3
+                            class="m-0 p-0">
+                        Anthems/Patriotic Songs
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-2" class="collapse" aria-labelledby="heading-2836-2"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>America the Beautiful Katharine Lee Bates and Samuel A. Ward
+                            1895</p>
+                            <p>Arirang Korean folk song (cross ref. Global Roots) N/A Battle Hymn of the Republic Julia
+                                Ward Howe (cross ref. Spiritual) 1861</p>
+                            <p>God Bless the USA Lee Greenwood 1984</p>
+                            <p>Home on the Range Kelley/Higley (cross ref. Folk) 1874</p>
+                            <p>I’m a Yankee Doodle Dandy George M. Cohan (popular version) 1904</p>
+                            <p>Lift Every Voice and Sing Manhattan Harmony Four (music for poem) 1923</p>
+                            <p>Star Spangled Banner John Stafford Smith and Francis Scott Key 1814</p>
+                            <p>This Land is Your Land Woody Guthrie (cross ref. Folk) 1940</p>
+                            <p>Wavin’ Flag K’naan 2008</p>
+                            <p>Yankee Doodle Folk song. (cross ref. Folk) N/A</p>
+                            <p>You’re a Grand Old Flag George M. Cohan 1906</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-3" data-toggle="collapse"
+                            data-target="#collapse-2836-3" aria-expanded="false" aria-controls="collapse-2836-3"><h3
+                            class="m-0 p-0">
+                        Bluegrass
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-3" class="collapse" aria-labelledby="heading-2836-3"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Babel Mumford &amp; Sons 2013</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-4" data-toggle="collapse"
+                            data-target="#collapse-2836-4" aria-expanded="false" aria-controls="collapse-2836-4"><h3
+                            class="m-0 p-0">
+                        Blues
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-4" class="collapse" aria-labelledby="heading-2836-4"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Aint No Sunshine Bill Withers 1971</p>
+                            <p>Blue Suede Shoes Elvis Presley 1956</p>
+                            <p>Cold Shot Stevie Ray Vaughan 1984</p>
+                            <p>Give Me One Reason to Stay Here Tracy Chapman 1995</p>
+                            <p>Greased Lightning Grease (cross ref.- musicals) 1978</p>
+                            <p>Hound Dog Leiber/Stoller (Big Mama Thornton, Elvis Presley) 1952</p>
+                            <p>I Got You (I Feel Good) James Brown 1965</p>
+                            <p>Jailhouse Rock Elvis 1957</p>
+                            <p>Joe Turner’s Come and Gone Nat King Cole 1984</p>
+                            <p>Johnny B. Goode Chuck Berry 1958</p>
+                            <p>Jump, Jive, and Wail Louis Prima 1956</p>
+                            <p>Kansas City Leiber/ Stoller (Fats Domino) 1952</p>
+                            <p>Kindhearted Woman Robert Johnson 1936</p>
+                            <p>Maybelline Chuck Berry 1955</p>
+                            <p>Mercy Duffy 2008</p>
+                            <p>Pride and Joy Stevie Ray Vaughan 1983</p>
+                            <p>Rock Around the Clock Bill Haley &amp; The Comets 1954</p>
+                            <p>Shake, Rattle, and Roll Bill Haley and the Comets 1954</p>
+                            <p>The Thrill is Gone B.B. King 1969</p>
+                            <p>Unchain My Heart Joe Cocker 1961</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-5" data-toggle="collapse"
+                            data-target="#collapse-2836-5" aria-expanded="false" aria-controls="collapse-2836-5"><h3
+                            class="m-0 p-0">
+                        Children’s Songs
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-5" class="collapse" aria-labelledby="heading-2836-5"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Alphabet Song (A.B.C.) Charles Bradlee 1835</p>
+                            <p>Ants Go Marching Piggyback: “Johnny Comes Marching Home N/A</p>
+                            <p>A Ram Sam Sam Morocco (cross ref. Global Roots) N/A</p>
+                            <p>Alouette France (cross ref. Global Roots) N/A</p>
+                            <p>B-I-N-G-O Unknown N/A Baby Beluga Raffi 1980</p>
+                            <p>Baby Bumblebee Unknown N/A</p>
+                            <p>Baby Shark Unknown - Campfire Song N/A</p>
+                            <p>Bear Went Over the Mountain Piggyback “ For He’s a Jolly Good Fellow” N/A</p>
+                            <p>Best Friends Charlie Hope 2011</p>
+                            <p>Big Red Car The Wiggles 1995</p>
+                            <p>Bippidi Boppidi Boo (Cinderella Soundtrack) 1950</p>
+                            <p>C is for Cookie Joe Raposo (Sesame Street) 1978</p>
+                            <p>Che Che Kule Ghana (cross ref. Global Roots) N/A</p>
+                            <p>Chicken Dance Werner Thomas 1950’s</p>
+                            <p>Circle of Life Elton John? (Lion King) 1993</p>
+                            <p>Cowboy Boots Charllie Hope 2009</p>
+                            <p>Down by the Bay Raffi 1914-18</p>
+                            <p>Down by the Station Paul Millard and Slim Gaillard 1947</p>
+                            <p>Drumming Song Backyardigans 2006</p>
+                            <p>Farmer in the Dell Unknown, may have originated in Germany N/A</p>
+                            <p>Frog Song Charlie Hope 2009</p>
+                            <p>Fruit Salad The Wiggles 1994</p>
+                            <p>Hakuna Matata The Lion King 1994</p>
+                            <p>Head, Shoulders, Knees, and Toes Unknown 1961</p>
+                            <p>Hokey Pokey Campfire song N/A</p>
+                            <p>Hush Little Baby Unknown N/A</p>
+                            <p>I Can Be Your Friend Veggie Tales 1995</p>
+                            <p>I Know a Chicken Laurie Berkner 1997</p>
+                            <p>If You’re Happy and You Know it Children’s Song N/A</p>
+                            <p>Itsy Bitsy Spider Nursery Rhyme N/A</p>
+                            <p>Jungle Beat Lynn Kleiner 2005</p>
+                            <p>Mary Had a Little Lamb Nursery Rhyme N/A</p>
+                            <p>(I Like to) Move It (Madagascar; cross reference rap) 1983</p>
+                            <p>Mr. Sun Raffi 1976</p>
+                            <p>Old MacDonald Nettlingjham and d’Urley 1917</p>
+                            <p>On Top of Spaghetti Ruth/Anders. piggybacked: Old Smoky” 1962</p>
+                            <p>Opposite Song (Blues Clues) 2000’s</p>
+                            <p>Piggy Toes Hap Palmer 1981</p>
+                            <p>Planets (Blues Clues) 2001</p>
+                            <p>Puff the Magic Dragon Peter, Paul, and Mary 1962</p>
+                            <p>Rubber Ducky (Sesame Street) 1970</p>
+                            <p>Shake My Sillies Out Raffi 1977</p>
+                            <p>Silly Sam Lynn Kleiner 1998</p>
+                            <p>Sing Joe Raposo (Sesame Street) 1971</p>
+                            <p>Slippery Fish Richard Austin Tozzoli 2011</p>
+                            <p>Somewhere Out There Horner (American Tail)(ref. Musicals) 1986</p>
+                            <p>Song of the Cebu Nawrocki / Heinecke (Veggie Tales) 1998</p>
+                            <p>Supercalafragalisticexpialidociou s (Mary Poppins) Cross ref. Musicals 1964</p>
+                            <p>Tap Your Sticks (Hap Palmer) 1994</p>
+                            <p>The Best Day Ever (SpongeBob Square Pants) 2006</p>
+                            <p>The Old Gray Cat Nursery Rhyme - Dorothy Olsen N/A</p>
+                            <p>The Wheels on the Bus Verna Hills 1939</p>
+                            <p>This Old Man Children’s Song N/A</p>
+                            <p>Tingalayo Raffi 1985</p>
+                            <p>Tooty Ta Dr. Jean 1998</p>
+                            <p>Tuba Polka The Backyardigans 2008</p>
+                            <p>Twinkle Twinkle Little Star Lullabye: Jane Taylor (Poem) 1806</p>
+                            <p>Under the Sea Menken/Ashman (Little Mermaid) 1989</p>
+                            <p>We are the Dinosaurs Laurie Berkner 1997</p>
+                            <p>When You Wish Upon a Star Leigh Harline and Ned Washington (Pinnochio) 1940</p>
+                            <p>You’ve Got a Friend in Me Randy Newman (Toy Story) 1995</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-6" data-toggle="collapse"
+                            data-target="#collapse-2836-6" aria-expanded="false" aria-controls="collapse-2836-6"><h3
+                            class="m-0 p-0">
+                        Contemporary Praise/Worship Songs
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-6" class="collapse" aria-labelledby="heading-2836-6"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Amazing Love Hillsong 2002</p>
+                            <p>Best Friends Hillsong Young and Free 2020</p>
+                            <p>Better is One Day Matt Redman 1995</p>
+                            <p>Breathe Michael Smith 2001</p>
+                            <p>Coat of Many Colors Dolly Parton 1955</p>
+                            <p>Give Me Your Eyes Brandon Heath 2008</p>
+                            <p>I Believe Elvis Presley 1953</p>
+                            <p>I Can Only Imagine Mercy Me 1999</p>
+                            <p>I Surrender Hillsong 1993</p>
+                            <p>I Will Rise Chris Tomlin 2008</p>
+                            <p>I’m Not Who I Was Brandon Heath 2006</p>
+                            <p>Just Be Held Casting Crowns 2014</p>
+                            <p>Never Alone Barlow Girl 2004</p>
+                            <p>Oh My Soul Casting Crowns 2016</p>
+                            <p>One Day at a Time Marilyn Sellars 1974</p>
+                            <p>Open My Eyes Christian Gospel 2012</p>
+                            <p>Our God Chris Tomlin 2010</p>
+                            <p>Soul’s Anthem (It is Well) Tori Kelly 2018</p>
+                            <p>Shout to the Lord Hillsong 1997</p>
+                            <p>Truth I’m Standing On Leanna Crawford 2020</p>
+                            <p>We Fall Down Chris Tomlin 2001</p>
+                            <p>Who Am I Casting Crowns 2003</p>
+                            <p>You Raise Me Up Josh Groban 2003</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-7" data-toggle="collapse"
+                            data-target="#collapse-2836-7" aria-expanded="false" aria-controls="collapse-2836-7"><h3
+                            class="m-0 p-0">
+                        Country/Bluegrass/Folk
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-7" class="collapse" aria-labelledby="heading-2836-7"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>9 to 5 Dolly Parton 1980</p>
+                            <p>Achey Breaky Heart Billy Ray Cyrus 1992</p>
+                            <p>All American Girl Carrie Underwood 2007</p>
+                            <p>Always Patsy Cline 1980</p>
+                            <p>Amarillo by Morning George Strait 1982</p>
+                            <p>Amazed Lonestar 1999</p>
+                            <p>And So it Goes Billy Joel 1989</p>
+                            <p>Angels Among Us Alabama 1993</p>
+                            <p>Annie’s Song John Denver 1974</p>
+                            <p>Better Days Zac Brown Band 2005</p>
+                            <p>By the Light of a Burning Bridge George Strait 2005</p>
+                            <p>Coalminer’s Daughter Loretta Lynn 1971</p>
+                            <p>Could I Have This Dance? Anne Murray 2017</p>
+                            <p>Country Roads John Denver 1971</p>
+                            <p>Crazy Patsy Cline 1961</p>
+                            <p>Crowded Table The Highwomen 2019</p>
+                            <p>Days Go By Keith Urban 2004</p>
+                            <p>Don’t Blink Kenny Chesney 2007</p>
+                            <p>Drive Alan Jackson 2001</p>
+                            <p>Folsom Prison Blues Johnny Cash 1957</p>
+                            <p>Free Zac Brown Band 2006</p>
+                            <p>Gentle On My Mind Glen Campbell 1967</p>
+                            <p>Give It Away George Strait 2006</p>
+                            <p>God Bless the Broken Road Rascal Flatts 2000</p>
+                            <p>Grandma’s Feather Bed John Denver 1974</p>
+                            <p>Hey Good Lookin’ Hank Williams 1953 Green Light Sarah Jarosz 2016</p>
+                            <p>How Do I Live LeeAnn Rimes 1997</p>
+                            <p>I Fall to Pieces Patsy Cline 1961</p>
+                            <p>I Go Back Kenny Chesney 2004</p>
+                            <p>I Hope You Dance LeeAnn Womack 2000</p>
+                            <p>I Like It, I Love It Tim McGraw 1995</p>
+                            <p>I Swear John Michael Montgomery 1994</p>
+                            <p>I Walk the Line Johnny Cash 1956</p>
+                            <p>I Wanna Dance With You George Strait 1998</p>
+                            <p>If I Die young The Band Perry 2010</p>
+                            <p>Is Anybody Going to San Antone Charley Pride 1970</p>
+                            <p>Jesus, Take the Wheel Carrie Underwood 2005</p>
+                            <p>Jolene Dolly Parton 1974</p>
+                            <p>Kiss an Angel Good Mornin’ Charley Pride 1971</p>
+                            <p>Last Dollar Tim Mcgraaw 2007</p>
+                            <p>Leavin’ On a Jet Plane John Denver 1966</p>
+                            <p>Live Like You Were Dyin’ Tim McGraw 2004</p>
+                            <p>Lovesick Blues Hank Williams 1952</p>
+                            <p>Margaritaville Alan Jackson/Jimmy Buffett 1977</p>
+                            <p>My Tennessee Mountain Home Dolly Parton 1972</p>
+                            <p>On the Road Again Willie Nelson 1980</p>
+                            <p>One More Day Diamond Rio 2001</p>
+                            <p>Rhinestone Cowboy Glen Campbell 1975</p>
+                            <p>Ring of Fire Johnny Cash 1963</p>
+                            <p>Silver Wings Merle Haggard 1969</p>
+                            <p>Stand By Your Man Loretta 1969</p>
+                            <p>Summertime Blues Alan Jackson 1994</p>
+                            <p>Tennessee Waltz Red Stewart and Pee Wee King (Patti Page) 1948</p>
+                            <p>Tequila Dan and Shay 2018</p>
+                            <p>The Devil Went Down To Georgia The Charlie Daniels Band 1979</p>
+                            <p>The Gambler Kenny Rogers 1978</p>
+                            <p>This One’s for the Girls Martha McBride 2003</p>
+                            <p>Two Doors Down Dolly Parton 1977</p>
+                            <p>Unanswered Prayers Garth Brooks 1990</p>
+                            <p>Wagon Wheel Darius Rucker 2013</p>
+                            <p>Walkin’ After Midnight Patsy Cline 1957</p>
+                            <p>When You Say Nothing At All Allison Krauss 1994</p>
+                            <p>Wide Open Spaces Dixie Chicks 1998</p>
+                            <p>You Gonna Fly Keith Urban 2011</p>
+                            <p>You Lie The Band Perry 2010</p>
+                            <p>You’re Stil the One Shania Twain 1997</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-8" data-toggle="collapse"
+                            data-target="#collapse-2836-8" aria-expanded="false" aria-controls="collapse-2836-8"><h3
+                            class="m-0 p-0">
+                        Disco
+                    </h3>
+                    </button>
+                    <div id="collapse-2836-8" class="collapse" aria-labelledby="heading-2836-8"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Boogie Fever The Sylvers (cross ref. R&amp;B) 1975</p>
+                            <p>Boogie Man KC and the Sunshine Band 1976</p>
+                            <p>Boogie Wonderland Earth, Wind, &amp; Fire 1979</p>
+                            <p>Disco Inferno The Trammps 1976</p>
+                            <p>Get Down Tonight KC and the Sunshine Band 1975</p>
+                            <p>Get Lucky Daft Punk 2013</p>
+                            <p>I Love the Night Live Alicia Bridges 1978</p>
+                            <p>I Will Survive Gloria Gaynor 1978</p>
+                            <p>Le Freak Chic 1978</p>
+                            <p>Macho Man YMCA 1978 Night Fever Bee Gees 1977</p>
+                            <p>September Earth, Wind, and Fire 1978</p>
+                            <p>Shake Your Groove Thing Peaches and Herb 1978</p>
+                            <p>Stayin’ Alive Bee Gees 1977</p>
+                            <p>That’s the Way I Like It KC and the Sunshine Band 1975</p>
+                            <p>Y.M.C.A. The Village People 1978</p>
+                            <p>You Should Be Dancing Bee Gees 1976</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-9" data-toggle="collapse"
+                            data-target="#collapse-2836-9" aria-expanded="false" aria-controls="collapse-2836-9"><h3
+                            class="m-0 p-0">
+                        Early American Classics
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-9" class="collapse" aria-labelledby="heading-2836-9"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Ain’t Misbehavin’ Fats Waller (cross ref. Jazz) 1929</p>
+                            <p>Ain’t She Sweet Milton Ager/Jack Yellen 1927</p>
+                            <p>Always Irving Berlin 1925</p>
+                            <p>Bicycle Built for Two (Daisy Bell) Harry Dacre (Nat King Cole) 1892</p>
+                            <p>Blue Moon Elvis Presley 1956</p>
+                            <p>Blue Skies Irving Berlin (Ella Fitzgerald) - cross ref Jazz 1926</p>
+                            <p>Boogie Woogie Bugle Boy Andrews Sisters 1941</p>
+                            <p>Chattanooga Choo Choo Glenn Miller Orchestra 1941</p>
+                            <p>Daisy Bell (Bicycle Built for Two) Harry Dacre 1892</p>
+                            <p>Don’t Fence Me In Cole Porter 1944</p>
+                            <p>Don’t Sit Under the Apple Tree Andrews Sisters 1942</p>
+                            <p>Dream a Little Dream Andre/Schwandt/Kahn (cross reference Jazz) 1931</p>
+                            <p>Five Foot Two, Eyes of Blue Art Landry 1925</p>
+                            <p>The Glory of Love Billy Hill (Benny Goodman) 1936</p>
+                            <p>Goodnight Irene Lead Belly 1943</p>
+                            <p>Happy Days are Here Again Milton Ager/Jack Yellen 1929</p>
+                            <p>I Got Rhythm George and Ira Gershwin (Cross ref. Jazz) 1930</p>
+                            <p>L-O-V-E Nat King Cole (cross reference Jazz) 1964</p>
+                            <p>Let Me Call You Sweetheart Leo Freedman 1910</p>
+                            <p>Music! Music! Music! Stephen Weiss/Bernie Baum (Teresa Brewer) 1949</p>
+                            <p>Red Sails in the Sunset Hugh Williams/Jimmy Kennedy 1935</p>
+                            <p>School Days Will Cobb and Gus Edwards 1907</p>
+                            <p>Sentimental Journey Les Brown/Ben Homer (Doris Day) 1944</p>
+                            <p>Shout! Isley Brothers (cross ref. R&amp;B) 1959</p>
+                            <p>Side By Side Harry Woods 1927</p>
+                            <p>Smiles Judy Garland 1963</p>
+                            <p>When the Red, Red Robin Harry Woods 1926</p>
+                            <p>Wild Irish Rose Chauncey Olcott 1913</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-10" data-toggle="collapse"
+                            data-target="#collapse-2836-10" aria-expanded="false" aria-controls="collapse-2836-10"><h3
+                            class="m-0 p-0">
+                        Folk: General/Traditional
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-10" class="collapse" aria-labelledby="heading-2836-10"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>500 Miles Peter, Paul, and Mary 1962</p>
+                            <p>Beautiful Dreamer Stephen Foster 1864</p>
+                            <p>Goodnight Ladies Edwin Pearce 1864</p>
+                            <p>Happy Birthday Patty and Mildred Hill 1912</p>
+                            <p>Home on the Range Kelley/Higley (cross ref Anthems) 1874</p>
+                            <p>Morning Has Broken Morning Has Broken 1971</p>
+                            <p>My Bonnie Lies Over the Ocean Scottish folk song 18th century</p>
+                            <p>Oh Danny Boy Frederic Weatherly 1913</p>
+                            <p>Oh Shenandoah Folk Song 1800’s</p>
+                            <p>Red River Valley Folk song 1870’s</p>
+                            <p>School Days Will D. Cobb and Gus Edwards 1907</p>
+                            <p>She’ll Be Comin’ Around the Mountain Folk song 1890’s</p>
+                            <p>Skip to My Lou Folk song N/A</p>
+                            <p>Take Me Out to the Ball Game Jack Norworth and Albert Von Tilzer 1908</p>
+                            <p>This Land is Your Land Woody Guthrie (cross ref. Anthems) 1940</p>
+                            <p>This Little LIght of Mine Folk (cross ref. Gospel songs) 1920’s</p>
+                            <p>Top of the World Carpenters 1972</p>
+                            <p>When Irish Eyes are Smiling Chauncey Olcott and Ernest Ball 1912</p>
+                            <p>When the Saints Go Marching In Spiritual song (cross ref. Spiritual) N/A</p>
+                            <p>Yankee Doodle Folk song. (cross ref. Patriotic) N/A</p>
+                            <p>Yesterday Once More Carpenters (cross ref. Pop) 1973</p>
+                            <p>You Are My Sunshine Jimmie Davis and Charles Mitchell 1939</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-11" data-toggle="collapse"
+                            data-target="#collapse-2836-11" aria-expanded="false" aria-controls="collapse-2836-11"><h3
+                            class="m-0 p-0">
+                        Folk: Indie/Neo-Folk
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-11" class="collapse" aria-labelledby="heading-2836-11"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Babel Mumford &amp; Sons 2012</p>
+                            <p>Holocene Bon Iver 2011</p>
+                            <p>Home Phillip Phillips (cross ref. Pop) 2012</p>
+                            <p>Hopeless Wanderer Mumford &amp; Sons 2012</p>
+                            <p>I Will Wait Mumford and Sons (cross ref. Pop) 2012</p>
+                            <p>Loving Strangers Russian Red 2010</p>
+                            <p>Ophelia The Lumineers 2016</p>
+                            <p>When We Were Young Hollow Coves 2019</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-12" data-toggle="collapse"
+                            data-target="#collapse-2836-12" aria-expanded="false" aria-controls="collapse-2836-12"><h3
+                            class="m-0 p-0">
+                        Funk
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-12" class="collapse" aria-labelledby="heading-2836-12"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Brick House Commodores 1977</p>
+                            <p>Don’t Stop Til You Get Enough Michael Jackson 1979</p>
+                            <p>Give It Away Now Red Hot Chili Peppers 1991</p>
+                            <p>Give Up the Funk Parliament Funkadelic 1976</p>
+                            <p>Got the Love Average White Band 1974</p>
+                            <p>Higher Ground Stevie Wonder 1973</p>
+                            <p>I Feel For You Chaka Khan (cross ref. R&amp;B, Rap) 1984</p>
+                            <p>It’s Your Thing The Isley Brothers 1969</p>
+                            <p>Jungle Boogie Kool and the Gang 1973</p>
+                            <p>Lovely Day Bill Withers 1997</p>
+                            <p>Low Rider War 1975</p>
+                            <p>More Bounce to the Ounce Zapp 1980</p>
+                            <p>One Nation Under a Groove Parliament Funkadelic 1978</p>
+                            <p>Papas Got a Brand New Bag James Brown 1965</p>
+                            <p>Rapture Blondie 1980 Rock Steady Aretha Franklin 1972</p>
+                            <p>She a Bad Mama Jama Carl Carlton 1981</p>
+                            <p>Shining Star Earth Wind and Fire 1975</p>
+                            <p>Superstition Stevie Wonder 1972</p>
+                            <p>Super Freak Rick James 1981</p>
+                            <p>Tell Me Something Good Rufus and Chaka Khan 1974</p>
+                            <p>That’s the Way I Like It KC and the Sunshine Band 1975</p>
+                            <p>Uptown Funk Mark Ronson and Bruno Mars 2015</p>
+                            <p>You Dropped a Bomb on Me The Gap Band 1982</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-13" data-toggle="collapse"
+                            data-target="#collapse-2836-13" aria-expanded="false" aria-controls="collapse-2836-13"><h3
+                            class="m-0 p-0">
+                        Global Roots and International Music
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-13" class="collapse" aria-labelledby="heading-2836-13"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>A Ram Sam Sam Morocco (cross ref. Children’s Songs) N/A</p>
+                            <p>Aiken Drum Scotland - Nursery Rhyme Song N/A</p>
+                            <p>Alouette France (cross ref. Children’s Songs) N/A</p>
+                            <p>Arirang Korean folk song (cross ref. Anthem) N/A</p>
+                            <p>Che Che Kule Ghana (cross ref. Children’s Songs) N/A</p>
+                            <p>Canten Señores Cantores Mexican Folk Song N/A</p>
+                            <p>De Colores Mexican folk song N/A</p>
+                            <p>Fanga Liberian invocation song N/A</p>
+                            <p>Frere Jacques French nursery rhythm N/A</p>
+                            <p>Funiculi Funicula Italy - Castellammare di Stabia 1880</p>
+                            <p>La Bamba Trad. Veracruz, Mexico/ Ritchie Valens N/A</p>
+                            <p>Oye Como Va Puerto Rico - Tito Puente 1962</p>
+                            <p>Sakura Japanese Traditional Folk Song N/A</p>
+                            <p>Scarborough Fair English Ballad (cross ref. Popular) N/A</p>
+                            <p>Siyahamba Zulu Folk Song (cross reference Hymn) N/A</p>
+                            <p>Zum Gali Gali Israel - Hewbrew Folk Song N/A</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-14" data-toggle="collapse"
+                            data-target="#collapse-2836-14" aria-expanded="false" aria-controls="collapse-2836-14"><h3
+                            class="m-0 p-0">
+                        Holiday Music
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-14" class="collapse" aria-labelledby="heading-2836-14"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>All I Want for Christmas is You Mariah Carey 1994</p>
+                            <p>Auld Lang Syne Scottish origin poem/song 1500’s</p>
+                            <p>Baby It’s Cold Outside Frank Loesser (composer) 1949</p>
+                            <p>Betelehemu Babatunde Olatunji 1950’s</p>
+                            <p>Christmas Time is Here Lee Mendelssohn and Vince Guaraldi 1965</p>
+                            <p>Do You Hear What I Hear Gloria Shayne 1962</p>
+                            <p>Felliz Navidad José Feliciano 1970</p>
+                            <p>Frosty the Snowman Walter Rollins and Steve Nelson 1950</p>
+                            <p>Go Tell It On the Mountain African American Spiritual Song 1865</p>
+                            <p>Happy Xmas (War is Over) John Lennon 1971</p>
+                            <p>Holly Jolly Christmas Johnny Marks (Burl Ives) 1964</p>
+                            <p>I Wanna Hippopotamus for Christmas John Rox 1953</p>
+                            <p>It’s Beginning to Look a Lot Like Christmas Meredith Wilson 1951</p>
+                            <p>It’s the Most Wonderful Time of the Year Edward Pola and George Wyle 1963</p>
+                            <p>Jingle Bell Rock Bobby Helms 1957</p>
+                            <p>Jingle Bells James Lord Pierpont 1857</p>
+                            <p>Joy to the World Isaac Watts and Lowell Mason 1719</p>
+                            <p>Let it Snow Sammy Cahn and Jule Styne 1945</p>
+                            <p>Light One Candle Chanukah Song (Peter, Paul, and Mary) 1982</p>
+                            <p>Monster Mash Bobby Pickett 1962</p>
+                            <p>O Chanukah, O Chanukah Mordkhe Rivesman 1971</p>
+                            <p>O Come All Ye Faithful (Disputed origin) 1700’s</p>
+                            <p>O Holy Night Adolphe Adam 1847</p>
+                            <p>Over the River Lydia Wood (poem) 1800’s</p>
+                            <p>Rockin’ Around the Christmas Tree Johnny Marks (Brenda Lee) 1958</p>
+                            <p>Rudolph the Red Nosed Reindeer Robert May 1939</p>
+                            <p>Santa Claus is Comin’ to Town J. Fred Kootz and Haven Gillespie 1934</p>
+                            <p>Shana Tova Levin Kipnis and Nahum Nardi 1923</p>
+                            <p>Silent Night Franz Xaver Gruber and Joseph Mohr 1818</p>
+                            <p>Thanksgiving Song Mary Chapin Carpenter 2008</p>
+                            <p>Twelve Days of Christmas Holiday folk song N/A</p>
+                            <p>Up On the Housetop Benjamin Hanby 1864</p>
+                            <p>White Christmas Irving Berlin 1942</p>
+                            <p>Winter Song Ingrid Michaelson Sara Bareilles 2017</p>
+                            <p>Winter Wonderland Felix and Richard Bernard 1934</p>
+                            <p>Wonderful Christmas Time Paul McCartney/Wings 1979</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-15" data-toggle="collapse"
+                            data-target="#collapse-2836-15" aria-expanded="false" aria-controls="collapse-2836-15"><h3
+                            class="m-0 p-0">
+                        Jazz
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-15" class="collapse" aria-labelledby="heading-2836-15"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>All of Me Billie Holiday/Frank Sinatra 1931</p>
+                            <p>Almost Like Being in Love Nat King Cole/Natalie Cole 1947</p>
+                            <p>Autumn Leaves Vaughan/Simone 1945</p>
+                            <p>Black Coffee Sarah Vaughan 1948</p>
+                            <p>Blue Moon Ella Fitzgerald 1934</p>
+                            <p>Blue Skies Ella Fitzgerald (cross ref. Early Amer.) 1926</p>
+                            <p>Cheek to Cheek Fred Astaire/Ella Fitzgerald 1935</p>
+                            <p>Come Fly With Me Frank Sinatra 1957</p>
+                            <p>Cry Me a River Julie London 1955</p>
+                            <p>Dream a Little Dream Andre/Schwandt/Kahn (cross. Early Am) 1931</p>
+                            <p>Fever Peggy Lee 1958</p>
+                            <p>Fly Me to the Moon Bart Howard (Frank Sinatra) 1954</p>
+                            <p>Girl From Ipanema Astrud Gilberto/Antonio Carlos Jobim 1964</p>
+                            <p>God Bless the Child Arthur Herzog/Billie Holiday 1939</p>
+                            <p>I Got Rhythm George and Ira Gershwin (Cross ref. Jazz) 1930</p>
+                            <p>I’ll Be Seeing You Sammy Fain/ Irving Kahal (Frank Sinatra) 1938</p>
+                            <p>It Don’t Mean a Thing Duke Ellington/Irving Mills 1932</p>
+                            <p>L.O.V.E. Nat King Cole (cross ref Early Am.) 1964</p>
+                            <p>My Favorite Things Rogers/Hammerstein (cross ref. musicals) 1959</p>
+                            <p>My Funny Valentine Rogers &amp; Hart (Vaughan/Sinatra) 1937</p>
+                            <p>New York New York Frank Sinatra (cross. Ref. Musicals) 1977</p>
+                            <p>Pennies From Heaven Arthur Johnston / Johnny Burke (Sinatra) 1936</p>
+                            <p>Someone to Watch Over Me George and Ira Gershwin (Ella Fitzgerald) 1926</p>
+                            <p>Stormy Weather Harold Arlen / Ted Koehler (Billie Holiday) 1933</p>
+                            <p>Summertime George Gershwin (Ella Fitzgerald) 1934</p>
+                            <p>Summer Wind Heinz Meier (Frank Sinatra) 1965</p>
+                            <p>The Best is Yet to Come Cy Colema / Carolyn Leigh (Frank Sinatra) 1959</p>
+                            <p>The Way You Look Tonight Kern/ Fields (Frank Sinatra) 1936</p>
+                            <p>They Can’t Take That Away From Me George Gershwin (Ella Fitzgerald) 1954</p>
+                            <p>Unforgettable Irving Gordon (Nat King Cole) 1951</p>
+                            <p>What a Wonderful World Thiele/Weiss Louis Armstrong 1967</p>
+                            <p>You Make Me Feel So Young Josef Myrow/ Frank Sinatra 1946</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-16" data-toggle="collapse"
+                            data-target="#collapse-2836-16" aria-expanded="false" aria-controls="collapse-2836-16"><h3
+                            class="m-0 p-0">
+                        Musicals/Showtunes/Soundtracks
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-16" class="collapse" aria-labelledby="heading-2836-16"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>All I Ask of You Weber (Phantom of the Opera) 1986</p>
+                            <p>As Time Goes By Herman Hupfeld (Casablanca) 1931</p>
+                            <p>Astonishing (Little Women the Musical) 2005</p>
+                            <p>Bushel and a Peck Frank Loesser (Guys and Dolls -Doris Day) 1950</p>
+                            <p>Can You Feel the Love Tonight Elton John (Lion King) 1993</p>
+                            <p>Castle on a Cloud (Les Miserables) 1980</p>
+                            <p>Chim Chim Cher-ee Sherman Brothers (Mary Poppins) 1964</p>
+                            <p>Circle of Life Elton John (Lion King) 1993</p>
+                            <p>Do-Re-Mi Rodgers and Hammerstein (Sound of Music) 1959</p>
+                            <p>Edelweiss Rodgers and Hammerstein (Sound of Music) 1959</p>
+                            <p>Everything’s Comin’ Up Roses Stephen Sondheim and Jule Styne (Gypsy) 1959</p>
+                            <p>For Good Idina Menzel and Kristen Chenoweth (Wicked) 2003</p>
+                            <p>Get Me to the Church On Time Frederick Loewe/Alan Lerner (My Fair Lady) 1956</p>
+                            <p>Getting to Know You Rogers and Hammerstein (King and I) 1951</p>
+                            <p>Grease Barry Gibb (Grease) 1978</p>
+                            <p>I Dreamed a Dream Claude-Michel Schönberg (Les Miserables) 1980</p>
+                            <p>If I Loved You Rodgers and Hammerstein (Carousel) 1945</p>
+                            <p>If I Were a Rich Man Sheldon Harnick/Jerry Bock (Fiddler on the Roof) 1964</p>
+                            <p>I Whistle a Happy Tune Rodgers and Hammerstein (The King and I) 1951</p>
+                            <p>Let it Go Anderson-Lopez/Lopez (Idina Menzel Frozen) 2013</p>
+                            <p>Mamma Mia ABBA (Mamma Mia) 1975</p>
+                            <p>Matchmaker Bock/Harnick (Fiddler on the Roof) 1964</p>
+                            <p>Meet Me in St. Louis Sterling/Mills (Meet Me in St. Louis) 1904</p>
+                            <p>Memory Weber/Nunn (Cats) 1981</p>
+                            <p>Moon River Mancini/Mercer (Hepburn: Breakfast at Tiffany’s) 1961</p>
+                            <p>My Favorite Things Rodgers and Hammerstein (Sound of Music) 1959</p>
+                            <p>My Heart Will Go On Horner/Jennings (Celine Dion: Titanic) 1997</p>
+                            <p>New York, New York Kramer/Ebb (cross ref. Jazz) 1977</p>
+                            <p>Oh, What a Beautiful Morning Rodgers and Hammerstein (Oklahoma) 1943</p>
+                            <p>Oklahoma Rodgers and Hammerstein (Oklahoma) 1943</p>
+                            <p>Old Man River Kern and Hammerstein (Showboat) 1927</p>
+                            <p>On My Own Claude Michel Schönberg (Les Miserables) 1980</p>
+                            <p>People Will Say We’re in Love Rodgers and Hammerstein (Oklahoma) 1943</p>
+                            <p>Put On a Happy Face Adams and Strouse (Bye Bye Birdie) 1960</p>
+                            <p>Screw Loose (Crybaby) 2007</p>
+                            <p>Seasons of Love Jonathan Larson (Rent) 1996</p>
+                            <p>Seventy-six Trombones Meredith Willson (The Music Man) 1957</p>
+                            <p>Singin’ in the Rain Freed/Brown (Singin’ in the Rain) 1952</p>
+                            <p>Some Enchanted Evening Rodgers and Hammerstein (South Pacific) 1949</p>
+                            <p>Some Things are Meant to Be Garvin/Payne (Little Women the Musical) 1995</p>
+                            <p>Somewhere Out There Horner/Mann (Rondstadt: American Tail) 1999 (Somewhere)</p>
+                            <p>Over the Rainbow Arlen/Harburg (Judy Garland: Wizard of Oz) 1939</p>
+                            <p>Sunrise, Sunset Bock/Harnick (Fiddler on the Roof) 1964</p>
+                            <p>Supercalafragalistic… Julie Andrews (Mary Poppins) 1964</p>
+                            <p>The Impossible Dream Man of La Mancha 1965</p>
+                            <p>They Say It’s Wonderful Irving Berlin (Doris Day: Annie Get Your Gun) 1946</p>
+                            <p>Til There Was You Meredith Willson (The Music Man) 1950</p>
+                            <p>Tomorrow Strouse/Charnin (Annie) 1977</p>
+                            <p>Tonight Bernstein/Sondheim (West Side Story) 1956</p>
+                            <p>Try to Remember (The Fantastics) 1960</p>
+                            <p>Wouldn’t it be Lovely Lerner/Loewe (Julie Andrews: My Fair Lady) 1956</p>
+                            <p>You Are My Lucky Star (Debbie Reynolds: Singin’ in the Rain) 1952</p>
+                            <p>You’ll Never Walk Alone Rodgers and Hammerstein (Carousel) 1945</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-17" data-toggle="collapse"
+                            data-target="#collapse-2836-17" aria-expanded="false" aria-controls="collapse-2836-17"><h3
+                            class="m-0 p-0">
+                        New Wave
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-17" class="collapse" aria-labelledby="heading-2836-17"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Come on Eileen Dexys Midnight Runners 1982</p>
+                            <p>Enjoy the Silence Depeche Mode 1990</p>
+                            <p>Friday, I’m in Love The Cure 1992</p>
+                            <p>The Reflex Duran Duran 1983</p>
+                            <p>Don’t You Forget About Me Simple Minds 1984</p>
+                            <p>I Ran Flock of Seagulls 1982</p>
+                            <p>Just Can’t Get Enough Depeche Mode 1981</p>
+                            <p>Love Shack B-52s 1989</p>
+                            <p>Peek-A-Boo Siouxsie and the Banshees 1988</p>
+                            <p>Pride (In the Name of Love) U2 1984</p>
+                            <p>Rain The Cult 1985</p>
+                            <p>Safety Dance Men Without Hats 1982</p>
+                            <p>She Sells Sanctuary The Cult 1985</p>
+                            <p>You Spin Me Round Dead or Alive 1987</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header collapsed" id="heading-2836-18" data-toggle="collapse"
+                            data-target="#collapse-2836-18" aria-expanded="false" aria-controls="collapse-2836-18"><h3
+                            class="m-0 p-0">
+                        Popular Music
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-18" class="collapse" aria-labelledby="heading-2836-18"
+                         data-parent="#accordion2836" style="">
+                        <div class="wysiwyg card-body"><p>1000 Miiles Vanessa Carlton 2001</p>
+                            <p>500 Miles Peter, Paul, and Mary (cross ref. folk) 1962</p>
+                            <p>Again Doris Day 1949</p>
+                            <p>All I Have to Do is Dream The Everly Brothers 1958</p>
+                            <p>All the Small Things Blink 182 (cross ref. Punk) 2000</p>
+                            <p>American Pie Don McLean 1971</p>
+                            <p>Armor Sara Bareilles 2019</p>
+                            <p>Baby Justin Bieber 2010</p>
+                            <p>Bad Day Daniel Powter 2005</p>
+                            <p>Banana Boat Song (Day-O) Harry Belafonte 1956</p>
+                            <p>Be OK Ingrid Michaelson 2008</p>
+                            <p>Beat It Michael Jackson 1982</p>
+                            <p>Big Yellow Taxi Joni Mitchell 2002</p>
+                            <p>Boulevard of Broken Dreams Green Day (cross ref. Punk) 2004</p>
+                            <p>Blackbird Beatles 1968</p>
+                            <p>Blowin’ in the Wind Simon and Garfunkel 1963</p>
+                            <p>Brave Sara Bareilles 2013</p>
+                            <p>Breakfast at Tiffany’s Deep Blue Something 1994</p>
+                            <p>Breathe Anna Nalick 2005</p>
+                            <p>Bridge Over Troubled Water Simon and Garfunkel 1970</p>
+                            <p>Brown Eyed Girl Van Morrison 1967</p>
+                            <p>Bulletproof La Roux 2009</p>
+                            <p>Bye Bye Love The Everly Brothers 1958</p>
+                            <p>Candle in the Wind Elton John 1973</p>
+                            <p>Can’t Buy Me Love Beatles 1964</p>
+                            <p>Can’t Help Falling in Love Elvis Presley 1973</p>
+                            <p>Carry On My Wayward Son Kansas 1976</p>
+                            <p>Cecilia Simon Garfunkel 1970</p>
+                            <p>Change the World Eric Clapton 1996</p>
+                            <p>Cheeseburger in Paradise Jimmy Buffett 1978</p>
+                            <p>Closer to Fine Indigo Girls 1989</p>
+                            <p>Complicated Avril Lavigne 2002</p>
+                            <p>Counting Stars One Republic 2014</p>
+                            <p>Crocodile Rock Elton John 1973</p>
+                            <p>Cups Anna Kendrick 2012</p>
+                            <p>Danger Zone Kenny Loggins 1986</p>
+                            <p>Don’t Stop Fleetwood Mac 1977</p>
+                            <p>Don’t Stop Believin’ Journey 1981</p>
+                            <p>Down on the Corner Creedence Clearwater Revival 1969</p>
+                            <p>Downtown Petula Clark 1965</p>
+                            <p>Eight Days a Week Beatles 1964</p>
+                            <p>Every Little Thing She Does is Magic The Police (cross ref. Pop) 1981</p>
+                            <p>Fight Song Rachel Platten 2014</p>
+                            <p>Fire and Rain James Taylor (cross ref. Singer/Songwriter) 1970</p>
+                            <p>Firework Katy Perry 2016</p>
+                            <p>Fly Away Lenny Kravitz 1998</p>
+                            <p>Fly Me To the Moon Frank Sinatra (cross reference-Jazz) 1954</p>
+                            <p>Free Fallin’ Tom Petty 1989</p>
+                            <p>From a Distance Bette Midler 1990</p>
+                            <p>Fun, Fun, Fun Beach Boys 1964</p>
+                            <p>Girls Just Wanna Have Fun Cyndi Lauper 1983</p>
+                            <p>Give Yourself to Love Kate Wolf 1983</p>
+                            <p>Goodbye Yellow Brick Road Elton John 1973</p>
+                            <p>Hallelujah Cohen (cross ref. Singer/Songwriter) 1984</p>
+                            <p>Happy Together The Turtles 1967</p>
+                            <p>Happy Trails Dale Evans Rogers 1952</p>
+                            <p>Have I Told You Lately Rod Stewart 1991</p>
+                            <p>Here Comes the Sun Beatles 1969</p>
+                            <p>Hero Mariah Carey 1993</p>
+                            <p>Hey Jude Beatles 1968</p>
+                            <p>Hey Soul Sister Train 2009</p>
+                            <p>Hold On Wilson Phillips 1990</p>
+                            <p>Home Phillip Phillips (cross ref. Neo-Folk) 2012</p>
+                            <p>Hopeless Wanderer Mumford &amp; Sons (cross ref. Neo-Folk) 2012</p>
+                            <p>Hotel California Eagles 1977</p>
+                            <p>House of the Rising Sun` The Animals 1983</p>
+                            <p>How Much is that Doggie in the Window Bob Merrill (Patti Page) 1952</p>
+                            <p>I Can See Clearly Now Johnny Nash (cross reference Reggae) 1993</p>
+                            <p>I Do it For You Bryan Adams 1991</p>
+                            <p>I Don’t Wanna Miss a Thing Aerosmith 1998</p>
+                            <p>I Just Called to Say I Love You Stevie Wonder (cross ref. R&amp;B) 1984</p>
+                            <p>I Love Rock and Roll Joan Jett 1981</p>
+                            <p>I’ll Be There For You Rembrandts 1995</p>
+                            <p>I’m Alright Kenny Loggins 1980</p>
+                            <p>I Wanna Hold Your Hand Beatles 1964</p>
+                            <p>I Will Remember You McLachlan (cross ref. Sing/Songwriter) 1993</p>
+                            <p>I Will Survive Gloria Gaynor (cross reference Disco) 1978</p>
+                            <p>I Will Wait Mumford and Sons (cross ref.Neo-Folk) 2012</p>
+                            <p>Imagine John Lennon 1971 I’m a Believer The Monkees 1966</p>
+                            <p>I’m Gonna Be (500 Miles)</p>
+                            <p>The Proclaimers 1988</p>
+                            <p>I'm Like a Bird Nelly Furtado 2000</p>
+                            <p>It’s Not Unusual Tom Jones 1965</p>
+                            <p>Jack and Diane John Mellencamp 1992</p>
+                            <p>Jailhouse Rock Elvis Presley (cross reference Blues) 1957</p>
+                            <p>Just My Imagination The Temptations (cross ref. Soul) 1971</p>
+                            <p>Just the Way You Are Billy Joel 1977</p>
+                            <p>Kokomo Beach Boys 1988</p>
+                            <p>Lean On Me Bill Withers (cross ref. Soul/R&amp;B/Motown) 1972</p>
+                            <p>Let it Be Beatles 1968</p>
+                            <p>Livin’ on a Prayer Bon Jovi 1986</p>
+                            <p>Love On Top Beyonce 2011</p>
+                            <p>Love Me Tender Elvis Presley 1957</p>
+                            <p>Love Potion Number 9 The Searchers 1964</p>
+                            <p>My Boyfriend’s Back The Angels 1988</p>
+                            <p>One and Only Adele 2011</p>
+                            <p>(On) Moonlight Bay Doris Day 1912</p>
+                            <p>Perfect Pink 2010</p>
+                            <p>Price Tag Jessie J. 2011</p>
+                            <p>Piano Man Billy Joel 1973</p>
+                            <p>Put a Little Love in Your Heart Jackie DeShannon 1968</p>
+                            <p>Que Sera Sera Doris Day 1956</p>
+                            <p>Raindrops Keep Falling on My Head Burt Bacharach 1969</p>
+                            <p>Raspberry Beret Prince 1985</p>
+                            <p>Rise McCain Sisters 2012 Roar Katy Perry 2013</p>
+                            <p>Rock Around the Clock Bill Haley &amp; the Comets (Cross ref. Blues) 1954</p>
+                            <p>Run-Around Blues Traveler 1994</p>
+                            <p>Say John Mayer 2007</p>
+                            <p>Say Something Ian Axel (A Great Big World) 2014</p>
+                            <p>Scarborough Fair Ballad (Simon/Garfunkel; cross ref. Global) N/A</p>
+                            <p>Selective Memory Eels 2000</p>
+                            <p>Sha La La Walkers 2009</p>
+                            <p>She’s Always a Woman to Me Billy Joel 1973</p>
+                            <p>Sound of Silence Simon and Garfunkel 1965</p>
+                            <p>Some Nights Fun 2012 Somebody That I Used to Know Gotye 2011</p>
+                            <p>Someone Like You Adele 2011</p>
+                            <p>Stand By Me Ben E. King 1961</p>
+                            <p>Stayin’ Alive Bee Gees 1977</p>
+                            <p>Stronger Kelly Clarkson 2011</p>
+                            <p>Stuck in the Middle With You Stealers Wheel 1972</p>
+                            <p>Summer of ‘69 Bryan Adams 1984</p>
+                            <p>Superman Five for Fighting 2000</p>
+                            <p>Surfin’ USA Beach Boys 1963</p>
+                            <p>Sweet Caroline Neil Diamond 1969</p>
+                            <p>Sweet Child O’ Mine Guns N’ Roses (cross ref. Rock) 1987</p>
+                            <p>Sweet Home Alabama Lynyrd Skynard (cross ref. Rock) 1974</p>
+                            <p>Take it Easy Eagles (cross ref. Rock) 1972</p>
+                            <p>Tears in Heaven Eric Clapton 1992</p>
+                            <p>Thank You Dido 1998</p>
+                            <p>That’ll Be the Day Buddy Holly 1957</p>
+                            <p>That’s What Friends are For Rod Stewart/Dionne (Warwick) &amp; Friends 1985</p>
+                            <p>The Climb Mylie Cyrus 2009</p>
+                            <p>The Middle Jimmy Eat World (Cross ref. punk) 2001</p>
+                            <p>The Rose Bette Middler 1979</p>
+                            <p>The Sign Ace of Base 1992</p>
+                            <p>This Ole House Stuart Hamblen 1954</p>
+                            <p>Time After Time Cyndi Lauper 1983</p>
+                            <p>Titanium David Guetta/Sia 2011</p>
+                            <p>Treasure Bruno Mars 2012</p>
+                            <p>True Colors Cyndi Lauper 1986</p>
+                            <p>Truly, Madly, Deeply Savage Garden 1997</p>
+                            <p>Twist and Shout The Isley Brothers 1963</p>
+                            <p>Unforgettable Nat King Cole 1951</p>
+                            <p>Unwritten Natasha Bedingfield 2004</p>
+                            <p>Uptown Girl Billy Joel 1983</p>
+                            <p>Vacation The Gogos (cross ref. Pop) 1982</p>
+                            <p>Waiting on the World to Change John Mayer 2006</p>
+                            <p>Wake Me Up Avicii 2013</p>
+                            <p>Wake Me Up Before You Go Go Wham 1984</p>
+                            <p>Waterfalls TLC (cross ref. R&amp;B) 1994</p>
+                            <p>We Are the World USA for Africa 1985</p>
+                            <p>We Are Young Fun 2012</p>
+                            <p>What a Wonderful World Louis Armstrong 1967</p>
+                            <p>When I Look to the Sky Train 2003</p>
+                            <p>Wind Beneath My Wings Bette Midler 1988</p>
+                            <p>With a Little Help From My Friends Joe Cocker 1969</p>
+                            <p>With Arms Wide Open Creed 1999</p>
+                            <p>Wouldn’t it Be Nice Beach Boys 1966</p>
+                            <p>Yakety Yak The Coasters 1959 Yellow Submarine Beatles 1966 Yesterday Beatles 1965
+                                Yesterday Once More Carpenters (cross reference Folk) 1973 You and Me Lifehouse 2005 You
+                                Can’t Always Get What You Want Rolling Stones 1969 Your Song Elton John 1970 You’ve Got
+                                a Friend James Taylor (Cross ref.singer/songwriter) 1971</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-19" data-toggle="collapse"
+                            data-target="#collapse-2836-19" aria-expanded="false" aria-controls="collapse-2836-19"><h3
+                            class="m-0 p-0">
+                        Punk/Hardcore/Post Punk
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-19" class="collapse" aria-labelledby="heading-2836-19"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>All the Small Things Blink 182 2000</p>
+                            <p>Another State of Mind Social Distortion 1983</p>
+                            <p>Basket Case Green Day 1994</p>
+                            <p>Betray Minor Threat 1983</p>
+                            <p>Blitzkrieg Bop The Ramones 1976</p>
+                            <p>Boulevard of Broken Dreams Green Day 2004</p>
+                            <p>Come As You Are Nirvana 1991</p>
+                            <p>FR I FL Reason to Believe 1990</p>
+                            <p>Good Riddance Green Day 1997</p>
+                            <p>Every Little Thing She Does is Magic The Police (cross ref. Pop) 1981</p>
+                            <p>Everything Turns Grey Agent Orange 1981</p>
+                            <p>Halloween Misfits 1985</p>
+                            <p>I Wanna Be Sedated The Ramones 1978</p>
+                            <p>Just a Girl No Doubt 1995</p>
+                            <p>No Spiritual Surrender Inside Out 1990</p>
+                            <p>Omission Quicksand 1993</p>
+                            <p>Rise Above Black Flag 1981</p>
+                            <p>Rock for Light Bad Brains (cross-ref/Afropunk) 1983</p>
+                            <p>Rock the Casbah The Clash 1982</p>
+                            <p>Roxanne Police (cross ref. Reggae) 1978</p>
+                            <p>Sailin’ On Bad Brains (cross-ref/Afropunk) 1982</p>
+                            <p>Save Yourself Sensefield 2001</p>
+                            <p>Should I Stay or Should I Go The Clash 1981</p>
+                            <p>Silly Girl Descendents 1985</p>
+                            <p>Sink With California Youth Brigade 1983</p>
+                            <p>Smells Like Teen Spirit Nirvana 1991</p>
+                            <p>Soulcraft Bad Brains (cross-ref/Afropunk) 1989</p>
+                            <p>Start Today Gorilla Biscuits 1989 Take Me Away Judge 1989 The Middle Jimmy Eat World 2001
+                                Under Your Influence Dag Nasty 1986 Vacation The Gogos (cross ref. Pop) 1982 Values Here
+                                Dag Nasty 1986 Waiting Room Fugazi 1989 Walk Together Rock Together 7 Seconds 1985 We
+                                Gotta Know Cro Mags 1986 Young Til I Die 7 Seconds 1984</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-20" data-toggle="collapse"
+                            data-target="#collapse-2836-20" aria-expanded="false" aria-controls="collapse-2836-20"><h3
+                            class="m-0 p-0">
+                        Rap/Hip Hop
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-20" class="collapse" aria-labelledby="heading-2836-20"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Airplanes B.O.B. and Hayley Williams 2010</p>
+                            <p>Beat Street Grandmaster Flash and the Furious Five 1984</p>
+                            <p>Bombtrack Rage Against the Machine 1993</p>
+                            <p>Boys in the Hood Easy E 1987</p>
+                            <p>California Dreamin’ Tupac Shakur 1996</p>
+                            <p>Check The Rhyme A Tribe Called Quest 2009</p>
+                            <p>Colors Ice T. 1988</p>
+                            <p>Drop it Like it’s Hot Snoop Dogg 2004</p>
+                            <p>Empire State of Mind Jay Z. with Alicia Keyes 2009</p>
+                            <p>Everything is Everything Lauryn Hill 1998</p>
+                            <p>Express Yourself NWA 1988 Fight the Power Public Enemy 1989</p>
+                            <p>Gangsta’s Paradise Coolio 2010</p>
+                            <p>Heya OutKast 2003</p>
+                            <p>I Feel For You Chaka Khan (cross ref. Rap/R&amp;B) 1984</p>
+                            <p>I Like it Like That Cardi B. 2020</p>
+                            <p>(I Like to) Move It Real 2 Real (cross reference Children’s) 1983</p>
+                            <p>I’m On a New Level A$AP Ferg 2016 It’s Tricky Run DMC 1986</p>
+                            <p>I’ve Got the Magic in Me B.O.B. with Rivers Cuomo (crossover Pop) 2010</p>
+                            <p>Jump Around House of Pain 1989</p>
+                            <p>Know Thyself KRS One 2002 Land of the Free Joey Badass 2017</p>
+                            <p>Lose Control Missy Elliott 2013</p>
+                            <p>Lose Yourself Eminem 2002</p>
+                            <p>Love the Way You Lie Rihanna with Eminem 2010</p>
+                            <p>Mama Said Knock You Out L.L. Cool J. 1990</p>
+                            <p>Me, Myself, and I De La Soul 1989</p>
+                            <p>My Philosophy KRS One/Boogie Down Productions 1988</p>
+                            <p>No Lives Matter Body Count 2017</p>
+                            <p>No Sleep ‘til Brooklyn Beastie Boys 1986</p>
+                            <p>Old Town Road Lil Nas X 2019</p>
+                            <p>Planet Rock Afrika Bambaata/Soul Sonic Force 1986</p>
+                            <p>Price Tag B.O.B. &amp; Jesse J. 2011 Protect Ya Neck Wu Tang Clan 1993</p>
+                            <p>The Choice is Yours Black Sheep 1991</p>
+                            <p>The Truth KRS One 1991 Rapper’s Delight Sugarhill Gang 1980</p>
+                            <p>Same Drugs Chance the Rapper 2016</p>
+                            <p>Savage Megan Thee Stallion 2020 See You Again Wiz Khalifa and Charlie Pute 2015</p>
+                            <p>Straight Outta Compton NWA 2015</p>
+                            <p>Stronger Kanye West 2007</p>
+                            <p>Sunflower Post Malone 2018</p>
+                            <p>Super Bass Nicki Minaj 2010</p>
+                            <p>The Fresh Prince of Bel Air The Fresh Prince and Jazzy Jeff 1992</p>
+                            <p>This is America Childish Gambino 2018</p>
+                            <p>U Can’t Touch This MC Hammer 1990</p>
+                            <p>White Lines Grandmaster Flash and Mellie Mel 1983</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-21" data-toggle="collapse"
+                            data-target="#collapse-2836-21" aria-expanded="false" aria-controls="collapse-2836-21"><h3
+                            class="m-0 p-0">
+                        Reggae
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-21" class="collapse" aria-labelledby="heading-2836-21"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>007 Desmond Dekker 1967</p>
+                            <p>Baby I Love Your Way Big Mountain 1994</p>
+                            <p>Buffalo Soldier Bob Marley 1978</p>
+                            <p>Don’t Worry, Be Happy Bobby McFerrin 1988</p>
+                            <p>Get Up, Stand Up Bob Marley 1973</p>
+                            <p>Ghost Town The Specials 1981</p>
+                            <p>I’m Yours Jason Mraz 2008</p>
+                            <p>I Can See Clearly Now Johnny Nash 1971</p>
+                            <p>Israelites Desmond Dekker 1968</p>
+                            <p>No Woman No Cry Bob Marley 1974</p>
+                            <p>One Day Matisyahu 2009</p>
+                            <p>One Love Bob Marley 1977</p>
+                            <p>Only Human Jonas Brothers 2019</p>
+                            <p>Pressure Drop Toots and the Maytals 1968</p>
+                            <p>Red Red Wine UB40 1983</p>
+                            <p>Roxanne The Police (cross ref. Punk) 1978</p>
+                            <p>Santeria Sublime 1997</p>
+                            <p>Savage Love Jason DeRulo and Jawsh 685 2020</p>
+                            <p>Steppin Razor Peter Tosh 1977</p>
+                            <p>The Harder They Come Jimmy Cliff 1972</p>
+                            <p>The Tide is High The Paragons/Blondie 1967</p>
+                            <p>Three Little Birds Bob Marley 1977</p>
+                            <p>Underneath it All No Doubt 2001</p>
+                            <p>Walking on the Moon The Police 1979</p>
+                            <p>What I Got Sublime 1996</p>
+                            <p>With My Own Two Hands Ben Harper 2002</p>
+                            <p>You Can Get it If You Really Desmond Dekker 1972</p>
+                            <p>Want Your House Steel Pulse 1982</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-22" data-toggle="collapse"
+                            data-target="#collapse-2836-22" aria-expanded="false" aria-controls="collapse-2836-22"><h3
+                            class="m-0 p-0">
+                        Rock
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-22" class="collapse" aria-labelledby="heading-2836-22"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Ace of Spades Motorhead 1980</p>
+                            <p>All Along the Watchtower Jimi Hendrix 1968</p>
+                            <p>Any Way You Want It Journey 1980</p>
+                            <p>Brick in the Wall Pink Floyd 1979</p>
+                            <p>Come and Get Your Love Redbone (cross ref. R&amp;B) 1974</p>
+                            <p>Crossroads Cream 1966</p>
+                            <p>Cult of Personality Living Colour 1988</p>
+                            <p>Dirty Deeds Done Dirt Cheap AC/DC 1976</p>
+                            <p>Don’t Stop Believin’ Journey 1981</p>
+                            <p>Faded Ben Harper 1997</p>
+                            <p>House of the Rising Sun The Animals/Eric Burdon 1964</p>
+                            <p>It’s Love King’s X 1990</p>
+                            <p>Jesse’s Girl Rick Springfield 1981</p>
+                            <p>Joy to the World Three Dog Night 1970</p>
+                            <p>Open Arms Journey 1982</p>
+                            <p>Oye Como Va Santana 1962</p>
+                            <p>Pride (in the Name of Love) U2 1984</p>
+                            <p>Purple Haze Jimi Hendrix 1970</p>
+                            <p>Ripple The Grateful Dead 1970</p>
+                            <p>Say Hey Michael Franti and Spearhead 2008</p>
+                            <p>Sweet Child O’ Mine Guns N’ Roses (cross ref. Pop) 1987</p>
+                            <p>Sweet Home Alabama Lynyrd Skynard (cross ref. Pop) 1974</p>
+                            <p>Take it Easy Eagles (cross ref. Pop) 1972</p>
+                            <p>Touch of Grey Grateful Dead 1987</p>
+                            <p>The Sound of Sunshine Michael Franti and Spearhead 2010</p>
+                            <p>Wildflowers Tom Petty 1994</p>
+                            <p>Won’t Back Down Tom Petty and the Heartbreakers 1989</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-23" data-toggle="collapse"
+                            data-target="#collapse-2836-23" aria-expanded="false" aria-controls="collapse-2836-23"><h3
+                            class="m-0 p-0">
+                        Singer Songwriter
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-23" class="collapse" aria-labelledby="heading-2836-23"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>32 Flavors Ani DiFranco 1995</p>
+                            <p>All I Wanna Do Cheryl Crow 1993</p>
+                            <p>Angel Sarah McLachlan 1997</p>
+                            <p>Betty Taylor Swift 2020</p>
+                            <p>Between the Bars Elliott Smith 1997</p>
+                            <p>Big Yellow Taxi Joni Mitchell 1970</p>
+                            <p>Both Sides Now Joni Mitchell 1966</p>
+                            <p>Closer to Fine Indigo Girls 1989</p>
+                            <p>Come Away With Me Norah Jones 2002</p>
+                            <p>Crucify Tori Amos 1992</p>
+                            <p>Diamonds and Rust Joan Baez 1975</p>
+                            <p>Don’t Know Why Norah Jones 2002</p>
+                            <p>Don’t Stop Me Now Queen 1979</p>
+                            <p>Exile Taylor Swift/Bon Iver 2020</p>
+                            <p>Fast Car Tracy Chapman 1988</p>
+                            <p>Father and Son Yusuf/Cat Stevens 1970</p>
+                            <p>Fire and Rain James Taylor 1970</p>
+                            <p>Galileo Indigo Girls 1992</p>
+                            <p>Glory Days Bruce Springstein 1984</p>
+                            <p>Hallelujah Leonard Cohen 1984</p>
+                            <p>Hands Jewel 1998</p>
+                            <p>How Sweet It Is... James Taylor 1975</p>
+                            <p>I Love Tom T Hall 1973</p>
+                            <p>I Will Remember You Sarah McLachlan 1993</p>
+                            <p>If I Were a Man Roseanne Cash 1996</p>
+                            <p>If You Could Read My Mind Gordon Lightfoot 1970</p>
+                            <p>I’m On Fire Bruce Springstein 1984</p>
+                            <p>Our Song Taylor Swift 2006 Passionate Kisses Mary Chapin Carpenter 1992 Piano Man Billy
+                                Joel 1973 Possession Sarah McLachlan 1993 She’s Always a Woman Billy Joel 1977 Silent
+                                All These Years Tori Amos 1993 Sonny Came Home Shawn Colvin 1996 Sweet Surrender Sarah
+                                McLachlan 1997 The Wreck of the Edmund Fitzgerald Gordon Lightfoot 1976 Today John
+                                Denver 1975 Wait Sarah McLachlan 1993 Waltz #2 Elliott Smith 1998 Wild World Yusuf/Cat
+                                Stevens 1970 You’ve Got a Friend Carole King 1971</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-24" data-toggle="collapse"
+                            data-target="#collapse-2836-24" aria-expanded="false" aria-controls="collapse-2836-24"><h3
+                            class="m-0 p-0">
+                        Ska/Rocksteady
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-24" class="collapse" aria-labelledby="heading-2836-24"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>Canary in a Coalmine The Police 1980</p>
+                            <p>Guns of Navarone (Instrumental) Skatalites 1984</p>
+                            <p>Ma and Pa Fishbone (cross ref. Afro-punk) 1988</p>
+                            <p>Hey Little Rich Girl Amy Winehouse 2006</p>
+                            <p>Man in a Suitcase The Police 1980</p>
+                            <p>Mirror in the Bathroom English Beat 1980</p>
+                            <p>Monkey Man Toots and the Maytals 1968</p>
+                            <p>Rehab Amy Winehouse (cross ref. R&amp;B) 2006</p>
+                            <p>Rudy The Specials 1979</p>
+                            <p>Simmer Down Bob Marley and the Wailers 1963</p>
+                            <p>Sound System Operation Ivy 1989</p>
+                            <p>The Impression that I Get Bosstones 1996</p>
+                            <p>Valerie Amy Winehouse (cross reference Soul) 2007</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-25" data-toggle="collapse"
+                            data-target="#collapse-2836-25" aria-expanded="false" aria-controls="collapse-2836-25"><h3
+                            class="m-0 p-0">
+                        Soul/R&amp;B/Motown
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-25" class="collapse" aria-labelledby="heading-2836-25"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>ABC The Jackson Five 1970</p>
+                            <p>Ain’t No Mountain High Enough Marvin Gaye/Tammy Terrell 1966</p>
+                            <p>A Natural Woman Aretha Franklin 1968</p>
+                            <p>A Teenager in Love Dion and the Belmonts 1959</p>
+                            <p>Baby Love The Supremes 1964</p>
+                            <p>Baby, Now that I’ve Found You The Foundations 1967</p>
+                            <p>Boogie Fever The Sylvers (cross ref. Disco) 1975</p>
+                            <p>Celebration Kool and the Gang 1980</p>
+                            <p>Chain of Fools Aretha Franklin 1968</p>
+                            <p>Darlin’ Dear Jackson 5 1973 December, 1963</p>
+                            <p>Frankie Valli and the Four Seasons 1975</p>
+                            <p>Drift Away Mentor Williams/Dobie Grey 1972</p>
+                            <p>Duke of Earl Gene Chandler 1961</p>
+                            <p>Earth Angel The Penguins 1954</p>
+                            <p>Everyday People Sly and the Family Stone 1968</p>
+                            <p>Feel Like Summer Childish Gambino 2018</p>
+                            <p>Get Down On It Kool and the Gang 2016</p>
+                            <p>Heard it Through the Grapevine Marvin Gaye 1970</p>
+                            <p>I Feel For You Chaka Khan (cross ref. Rap/Funk) 1984</p>
+                            <p>I Got You (I Feel Good) James Brown 1965</p>
+                            <p>I Just Called to Say I Love You Stevie Wonder (cross ref. Pop) 1984</p>
+                            <p>I’ll Be There The Jackson Five 1970</p>
+                            <p>Isn’t She Lovely Stevie Wonder 1976</p>
+                            <p>Just My Imagination The Temptations 1971</p>
+                            <p>Lean On Me Bill Withers 1972</p>
+                            <p>Little Bitty Pretty One Thurston Harris 1957</p>
+                            <p>My Girl The Temptations 1965</p>
+                            <p>No Ordinary Love Sade Adu 1992</p>
+                            <p>Reach Out (I’ll Be There) The Four Tops 1966</p>
+                            <p>Rehab Amy Winehouse (cross ref. Ska) 2006</p>
+                            <p>Respect Aretha Franklin 1967</p>
+                            <p>Second that Emotion Smokey Robinson 1968</p>
+                            <p>Signed, Sealed, Delivered Stevie Wonder 1970</p>
+                            <p>Sitting on the Dock of the Bay Otis Redding 1968</p>
+                            <p>Shout The Isley Brothers (cross ref. Early Am.) 1959</p>
+                            <p>Shotgun Jr. Walker and the All Stars 1965</p>
+                            <p>Take Me as I Am Mary J. Blige 2005</p>
+                            <p>The Way You Do the Things You Do The Temptations 1989</p>
+                            <p>The Revolution Will Not Be Televised Gil Scott-Heron 1971</p>
+                            <p>The Sweetest Taboo Sade Adu 1985 Under the Boardwalk The Drifters 1964</p>
+                            <p>Valerie Amy Winehouse (cross ref. Ska/Rocksteady) 2007</p>
+                            <p>Waterfalls TLC 1994</p>
+                            <p>What’s Going On Marvin Gaye 1971</p>
+                            <p>What’s Love Got to Do With it? Tina Turner 1984</p>
+                            <p>Where is the Love Black Eyed Peas 2003</p>
+                            <p>Who’s Lovin’ You Jackson 5 1969</p>
+                            <p>You Can’t Hurry Love The Supremes 1966</p>
+                            <p>You Really Got a Hold On Me Smokey Robinson and the Miracles 1962</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <button class="card-header" id="heading-2836-26" data-toggle="collapse"
+                            data-target="#collapse-2836-26" aria-expanded="false" aria-controls="collapse-2836-26"><h3
+                            class="m-0 p-0">
+                        Spiritual Songs/Religious Songs/Hymns/Gospel Songs
+                    </h3>
+                        <svg class="svg-inline--fa fa-chevron-down fa-w-14 ku-accordion__icon" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="chevron-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                        </svg><!-- <i class="fas fa-chevron-down ku-accordion__icon"></i> --><span class="sr-only">Click to expand</span>
+                    </button>
+                    <div id="collapse-2836-26" class="collapse" aria-labelledby="heading-2836-26"
+                         data-parent="#accordion2836">
+                        <div class="wysiwyg card-body"><p>All to Jesus I Surrender Weeden/Van de Venter 1896</p>
+                            <p>Amazing Grace John Newton 1779</p>
+                            <p>As the Deer Martin Nystrom 1984</p>
+                            <p>Awesome God Rich Mullins 1988</p>
+                            <p>Battle Hymn of the Republic Julia Ward Howe (cross ref. Anthems) 1861</p>
+                            <p>Because He Lives Bill Gaither 2001</p>
+                            <p>Chag Purim Jewish Song N/A Do Lord African American Spiritual 1800’s</p>
+                            <p>Down by the Riverside African American Spiritual N/A</p>
+                            <p>Down to the River to Pray Folk Song (Allison Krause) 2000</p>
+                            <p>Father, I Adore You Christian Hymn N/A</p>
+                            <p>God Will Take Care of You Christian Hymn N/A</p>
+                            <p>He’s Got the Whole World In His Hands African American Spiritual N/A</p>
+                            <p>Here I am Lord Christian Hymn (Dan Schutte) 1979</p>
+                            <p>Heveinu Shalom Aleichum Jewish Song N/A</p>
+                            <p>Hine Matov Jewish Song N/A</p>
+                            <p>His Eye is on the Sparrow Martin/Gabriel 1905</p>
+                            <p>How Great Thou Art Carl Boberg 1885</p>
+                            <p>I’ll Fly Away Albert Brumley 1932</p>
+                            <p>Irish Blessing (May the Road Rise Up to Meet You Irish Spiritual N/A</p>
+                            <p>Jesus Loves Me Anna Bartlett Warner 1859</p>
+                            <p>Just a Closer Walk With Thee Spiritual N/A</p>
+                            <p>Kum Ba Ya African American Spiritual N/A</p>
+                            <p>Let There Be Peace on Earth Jackson-Miller/Miller 1955</p>
+                            <p>When the Saints Go Marching In Spiritual song (cross ref. Folk) N/A</p>
+                            <p>On Eagle’s Wings Michael Joncas 1976</p>
+                            <p>Peace Like a River African American Spiritual N/A</p>
+                            <p>Pescador de Hombres Cesario Gabaráin 1979</p>
+                            <p>Precious Lord, Take My Hand Thomas Dorsey 1932</p>
+                            <p>Put Your Hand in the Hand Gene Maclellan (Anne Murray) 1970</p>
+                            <p>Seek Ye First Karen Lafferty 1971</p>
+                            <p>Shalom Chaverim Jewish Song N/A</p>
+                            <p>Siyahamba Zulu Folk Song (cross reference Global Roots) N/A</p>
+                            <p>Standing on the Promises of God Christian Hymn N/A</p>
+                            <p>Sweet By and By Bennett/Webster 1800’s</p>
+                            <p>Swing Low, Sweet Chariot African American Spiritual N/A</p>
+                            <p>The Hannukah Dance Woody Guthrie ?</p>
+                            <p>The Old Rugged Cross George Benard 1912</p>
+                            <p>This Little LIght of Mine Popular (cross ref. Folk songs) 1920’s</p>
+                            <p>To God Be the Glory Crosby/Doane 1872</p>
+                            <p>What a Friend We Have in Jesus Scriven/Converse 1868</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

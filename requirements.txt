@@ -1,0 +1,6 @@
+asgiref @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_cchykh5sgr/croots/recipe/asgiref_1661287542702/work
+certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
+Django @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_eeor5o9jj8/croots/recipe/django_1661292534510/work
+sqlparse @ file:///C:/b/abs_83jn6owfpc/croot/sqlparse_1668793499314/work
+tzdata @ file:///tmp/build/80754af9/python-tzdata_1611693927741/work
+wincertstore==0.2
