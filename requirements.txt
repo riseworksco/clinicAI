@@ -6,3 +6,4 @@ gunicorn
 sqlparse
 tzdata
 wincertstore==0.2
+psycopg2
