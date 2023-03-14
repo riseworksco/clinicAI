@@ -7,39 +7,38 @@
 
     {% include 'patient/navbar.html' %}
 
+    <div class="container">
 
-    <div id="expanse" class="container-fluid tab-pane active">
+        <div class="gunicorn text-center">
+            <h1>Patients</h1>
+        </div>
+
+
+        <br>
         <br>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
-            <form class="form-inline" method="get">
-                {% for field in myFilter.form %}
-                    <p>&nbsp;</p>
-                    {#                            {{ field|as_crispy_field }}#}
-                    <p>&nbsp;</p>
-                {% endfor %}
-                <button class="btn btn-primary" type="submit">Search</button>
-                </table>
-            </form>
+            <p>Date From</p>
+            <span>To</span>
+            <span>Status</span>
+            <span>Email </span>
         </div>
+
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>分类</th>
-                <th>金额</th>
-                <th>账户</th>
-                <th>时间</th>
-                <th>备注</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Manage</th>
             </tr>
             </thead>
 
             <tbody>
-            {% for item in page_obj %}
+            {% for item in items %}
                 <tr>
-                    <td>{{ item.category }}</td>
+                    <td>{{ item.user }}</td>
                     <td>{{ item.amount }}</td>
                     <td>{{ item.account }}</td>
                     <td>{{ item.updated_date }}</td>
-                    <td>{{ item.comment }}</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -53,51 +52,9 @@
                 {% endfor %}
             </ul>
         </nav>
-    </div>
-    <div id="income" class="container-fluid tab-pane"><br>
-        income
-    </div>
-    <div id="transfer" class="container-fluid tab-pane"><br>
 
-        <br>
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
-            <p>时间从</p>
-            <span>到</span>
-            <span>分类：</span>
-            <span>账户：</span>
-            <span>来源：</span>
-        </div>
 
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>分类</th>
-                <th>金额</th>
-                <th>转出账户</th>
-                <th>转入账户</th>
-                <th>时间</th>
-                <th>来源</th>
-                <th>备注</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            {% for item in items %}
-                <tr>
-                    <td>{{ item.category }}</td>
-                    <td>{{ item.amount }}</td>
-                    <td>${{ item.price }}</td>
-                    <td>{{ item.account }}</td>
-                    <td>手动记一笔</td>
-                    <td>{{ item.VT_Tag }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-    </div>
-
-    <!-- <nav aria-label="Page navigation example">
+        <!-- <nav aria-label="Page navigation example">
             <ul class="pagination">
                 {% for page_num in paginator_obj.page_range %}
                 <li class="page-item">
@@ -107,7 +64,7 @@
             </ul>
         </nav> -->
 
-
+    </div>
     <!-- Bootstrap core JavaScript
   ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
