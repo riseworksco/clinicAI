@@ -17,11 +17,10 @@ from django.contrib import admin
 from django.db import router
 from django.urls import path, include
 
+from chat import views
+
 # import patient_management
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('patient/', include('patient_management.urls')),
-    path('music/', include('music_management.urls')),
-    path('chat/', include('chat.urls')),
+    path('', views.index, name='index'),
 ]

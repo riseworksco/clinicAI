@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'music_management',
-    'patient_management'
+    'patient_management',
+    'chat'
 ]
 
 MIDDLEWARE = [
