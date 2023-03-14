@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {#    {% load crispy_forms_tags %}#}
+
+    <body>
+
+    {% include 'patient/navbar.html' %}
+
+
+    <div id="expanse" class="container-fluid tab-pane active">
+        <br>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+            <form class="form-inline" method="get">
+                {% for field in myFilter.form %}
+                    <p>&nbsp;</p>
+                    {#                            {{ field|as_crispy_field }}#}
+                    <p>&nbsp;</p>
+                {% endfor %}
+                <button class="btn btn-primary" type="submit">Search</button>
+                </table>
+            </form>
+        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>分类</th>
+                <th>金额</th>
+                <th>账户</th>
+                <th>时间</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for item in page_obj %}
+                <tr>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.account }}</td>
+                    <td>{{ item.updated_date }}</td>
+                    <td>{{ item.comment }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% for page_num in paginator_obj.page_range %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+    <div id="income" class="container-fluid tab-pane"><br>
+        income
+    </div>
+    <div id="transfer" class="container-fluid tab-pane"><br>
+
+        <br>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+            <p>时间从</p>
+            <span>到</span>
+            <span>分类：</span>
+            <span>账户：</span>
+            <span>来源：</span>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>分类</th>
+                <th>金额</th>
+                <th>转出账户</th>
+                <th>转入账户</th>
+                <th>时间</th>
+                <th>来源</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>{{ item.account }}</td>
+                    <td>手动记一笔</td>
+                    <td>{{ item.VT_Tag }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% for page_num in paginator_obj.page_range %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav> -->
+
+
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    </body>
+{% endblock %}
