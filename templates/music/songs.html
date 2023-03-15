@@ -10,7 +10,7 @@
     <div class="container">
 
         <div class="gunicorn text-center">
-            <h1>Patients</h1>
+            <h1>Songs</h1>
         </div>
 
 
@@ -23,26 +23,35 @@
             <span>Email </span>
         </div>
 
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Manage</th>
-            </tr>
-            </thead>
 
-            <tbody>
-            {% for item in items %}
-                <tr>
-                    <td>{{ item.user }}</td>
-                    <td>{{ item.amount }}</td>
-                    <td>{{ item.account }}</td>
-                    <td>{{ item.updated_date }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% for item in items %}
+            {#                <tr>#}
+            {#                    <td>{{ item.user }}</td>#}
+            {#                    <td>{{ item.amount }}</td>#}
+            {#                    <td>{{ item.account }}</td>#}
+            {#                    <td>{{ item.updated_date }}</td>#}
+            {#                </tr>#}
+
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class=" embed-responsive embed-responsive-16by9" style="width: 18rem;">
+                        <iframe width="560" height="315" src="{{ item.youtube_link }}"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ item.id }}</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the
+                            card's content.</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 {% for page_num in paginator_obj.page_range %}
@@ -71,17 +80,5 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-        feather.replace()
-    </script>
-
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     </body>
 {% endblock %}

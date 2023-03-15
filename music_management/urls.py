@@ -9,5 +9,6 @@ router.register(r'playlists', views.PlaylistViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
+    path('songs/', views.display_songs, name="songs"),
 ]

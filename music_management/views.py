@@ -22,3 +22,12 @@ class PlaylistViewSet(viewsets.ModelViewSet):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+def display_songs(request):
+    items = Song.objects.all()
+    context = {
+        'items': items,
+    }
+    print(items)
+    return render(request, "music/songs.html", context)
