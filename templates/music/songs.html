@@ -25,27 +25,13 @@
 
 
         {% for item in items %}
-            {#                <tr>#}
-            {#                    <td>{{ item.user }}</td>#}
-            {#                    <td>{{ item.amount }}</td>#}
-            {#                    <td>{{ item.account }}</td>#}
-            {#                    <td>{{ item.updated_date }}</td>#}
-            {#                </tr>#}
+
 
             <div class="card">
                 <div class="card-horizontal">
-                    <div class=" embed-responsive embed-responsive-16by9" style="width: 18rem;">
-                        <iframe width="560" height="315" src="{{ item.youtube_link }}"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-
-                    </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ item.id }}</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of the
-                            card's content.</p>
+                        <p class="card-text"><a href="{{ item.youtube_link }}">YouTube</a></p>
                     </div>
                 </div>
             </div>
