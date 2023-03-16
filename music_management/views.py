@@ -28,6 +28,7 @@ def display_songs(request):
     items = Song.objects.all()
     context = {
         'items': items,
+        'header':'Songs'
     }
     print(items)
     return render(request, "music/songs.html", context)

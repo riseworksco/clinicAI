@@ -4,24 +4,30 @@
 
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom" style="background-color: white;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image" src="https://i.imgur.com/za9Otgl.png?1"
-                                              width=32 focusable="false" aria-hidden="true"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"></ul>
+        <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image"
+                                              src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
+                                              height=60 focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>
 
-            <ul class="navbar-nav mt-2 mt-lg-0">
-                <li><a class="nav-link" href="/pc/dashboard"><i class="bi-list"></i> 记账</a></li>
-                {% if user.is_authenticated %}
-                    <li><a class="nav-link" href=""><i class="bi-box-arrow-down"></i>登出</a></li>
-                {% else %}
-                    <li><a class="nav-link" href=""><i class="bi-person-circle"></i>登录</a></li>
-                {% endif %}
-            </ul>
-        </div>
+
+        <ul class="navbar-nav">
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li><a class="nav-link" href="/pc/dashboard"><i class="bi-list"></i> 记账</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="nav-link" href=""><i class="bi-box-arrow-down"></i>登出</a></li>
+                    {% else %}
+                        <li><a class="nav-link" href=""><i class="bi-person-circle"></i>登录</a></li>
+                    {% endif %}
+                </ul>
+            </div>
     </div>
 </nav>
 
