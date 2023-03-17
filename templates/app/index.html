@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {#    {% load crispy_forms_tags %}#}
+
+    <body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container-fluid">
+
+
+        <div class="clear"></div>
+
+        <div class="clear"></div>
+
+        <div class="jumbotron">
+            <h2>A ChatBot for Music Therapy</h2>
+        </div>
+        <button class="btn btn-lg btn-outline-primary">Sign Up Now</button>
+
+    </div>
+
+    <div class="container-fluid text-right">
+        <div class="jumbotron">
+            <h2>Discover Our Playlists for Music Therapy</h2>
+        </div>
+        {{ form.as_p }}
+        <form action="" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input name="s" type="text" class="form-control" placeholder="Indie">
+            </div>
+            <button type="submit" class="btn btn-lg btn-outline-primary">Search</button>
+        </form>
+    </div>
+    <div class="clear"></div>
+    <div class="container-fluid text-left">
+        <div class="jumbotron">
+            <h2>Bring SOJO to your therapy</h2>
+        </div>
+    </div>
+    <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+    <div class="container-fluid text-center">
+        <div class="jumbotron">
+            <h2 class="text-center">Try SOJO</h2>
+        </div>
+        <button class="btn btn-lg  btn-outline-primary" data-toggle="modal" data-target="#registerModal">Request
+            Demo
+        </button>
+    </div>
+    <div class="clear"></div>
+    <hr>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h2 class="text-center">Our Offerings</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-4">
+                <div class="thumbnail">
+                    <h3 class="index-footer__text">SOJO Chatbot</h3>
+                    <div class="index-footer__subtext">Hire qualified researchers and build
+                        the best teams in science.
+                    </div>
+                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="index-footer__info">
+                        <h3 class="index-footer__text">SOJO Dashboard</h3>
+                        <div class="index-footer__subtext">Grow your brand&#x27;s impact in the
+                            scientific community with the world&#x27;s leading network for
+                            scientists.
+                        </div>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details
+                            &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="index-footer__info">
+                        <h3 class="index-footer__text">SOJO Enterprise</h3>
+                        <div class="index-footer__subtext">Grow your brand&#x27;s impact in the
+                            scientific community with the world&#x27;s leading network for
+                            scientists.
+                        </div>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details
+                            &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="container-fluid text-center">
+        <div class="jumbotron">
+            <h2 class="text-center">Our Vendors</h2>
+        </div>
+        <button class="btn btn-lg  btn-outline-primary" data-toggle="modal" data-target="#registerModal">Request
+            Demo
+        </button>
+    </div>
+
+    </div>
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    </body>
+{% endblock %}

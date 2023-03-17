@@ -20,11 +20,11 @@
                 <ul class="navbar-nav mr-auto"></ul>
 
                 <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li><a class="nav-link" href="/pc/dashboard"><i class="bi-list"></i> 记账</a></li>
+                    <li><a class="nav-link" href="/pc/dashboard"><i class="bi-list"></i> Music</a></li>
                     {% if user.is_authenticated %}
-                        <li><a class="nav-link" href=""><i class="bi-box-arrow-down"></i>登出</a></li>
+                        <li><a class="nav-link" href=""><i class="bi-box-arrow-down"></i>Log out</a></li>
                     {% else %}
-                        <li><a class="nav-link" href=""><i class="bi-person-circle"></i>登录</a></li>
+                        <li><a class="nav-link" href=""><i class="bi-person-circle"></i>Log in</a></li>
                     {% endif %}
                 </ul>
             </div>
