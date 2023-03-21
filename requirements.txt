@@ -9,3 +9,4 @@ wincertstore==0.2
 psycopg2
 django_heroku
 djangorestframework
+cloudinary

@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-
 import django_heroku
+import cloudinary
 
 from pathlib import Path
 
@@ -23,6 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-1e3^*@tzw_wx1-_g9a^yhklm+-jotva27k8c2aooo@4sdo7%_t'
+
+cloudinary.config(
+    cloud_name="hq8x4kz7x",
+    api_key="966542976818381",
+    api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y",
+    secure=True
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

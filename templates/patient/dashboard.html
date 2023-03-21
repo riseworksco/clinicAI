@@ -8,12 +8,6 @@
     {% include 'navbar.html' %}
 
     <div class="container">
-
-        <div class="gunicorn text-center">
-            <h1>Patients</h1>
-        </div>
-
-
         <br>
         <br>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
@@ -37,8 +31,10 @@
                 <tr>
                     <td>{{ item.user }}</td>
                     <td>{{ item.amount }}</td>
-                    <td>{{ item.account }}</td>
-                    <td>{{ item.updated_date }}</td>
+                    <td data-label="Action">
+                        <a href="" class="btn btn-outline-info btn-sm" role="button">View</a>
+                        <a href="" class="btn btn-outline-info btn-sm" role="button">Edit</a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
