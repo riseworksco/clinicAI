@@ -40,3 +40,12 @@ def display_patients(request):
     }
     print(items)
     return render(request, "patient/dashboard.html", context)
+
+
+def view_patient(request, patient_username):
+    patient = Patient.objects.get(user__username=patient_username)
+    context = {
+        'item': patient,
+        'header': patient_username,
+    }
+    return render(request, "patient/patient_detail.html", context)
