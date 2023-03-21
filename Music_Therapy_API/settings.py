@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'app',
     'music_management',
     'patient_management',
-    'chat'
+    'chat',
+    'accounts'
+
 ]
 
 MIDDLEWARE = [
@@ -87,14 +89,14 @@ WSGI_APPLICATION = 'Music_Therapy_API.wsgi.application'
 # }
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'd926uqrvdhpv29',
-            'USER': 'jhrderrmwrpirt',
-            'PASSWORD': 'c13ac532f45ae264505d836ef58c548e1a6aaa090fda01f29dd88634c8933547',
-            'HOST': 'ec2-3-93-160-246.compute-1.amazonaws.com',
-            'PORT': '5432',
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd926uqrvdhpv29',
+        'USER': 'jhrderrmwrpirt',
+        'PASSWORD': 'c13ac532f45ae264505d836ef58c548e1a6aaa090fda01f29dd88634c8933547',
+        'HOST': 'ec2-3-93-160-246.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
