@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'Music_Therapy_API.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd926uqrvdhpv29',
-        'USER': 'jhrderrmwrpirt',
-        'PASSWORD': 'c13ac532f45ae264505d836ef58c548e1a6aaa090fda01f29dd88634c8933547',
-        'HOST': 'ec2-3-93-160-246.compute-1.amazonaws.com',
+        'NAME': 'db0ujq6iqpdmkp',
+        'USER': 'wzfzxufsxxoslw',
+        'PASSWORD': '82cdf92906569aa6a49547662a5a525d67ad0685561a766f3991329819badbce',
+        'HOST': 'ec2-3-92-151-217.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
