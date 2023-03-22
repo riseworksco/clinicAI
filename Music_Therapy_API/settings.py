@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'music_management',
     'patient_management',
     'chat',
-    'accounts'
+    'accounts',
+    'assessment'
 
 ]
 

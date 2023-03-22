@@ -1,0 +1,27 @@
+from django import forms
+
+
+class StompForm(forms.Form):
+    Alternative = forms.IntegerField(label='Alternative', min_value=1, max_value=5)
+    Bluegrass = forms.IntegerField(label='Bluegrass', min_value=1, max_value=5)
+    Blues = forms.IntegerField(label='Blues', min_value=1, max_value=5)
+    Classical = forms.IntegerField(label='Classical', min_value=1, max_value=5)
+    Country = forms.IntegerField(label='Country', min_value=1, max_value=5)
+    Dance_Electronica = forms.IntegerField(label='Dance/Electronica', min_value=1, max_value=5)
+    Folk = forms.IntegerField(label='Folk', min_value=1, max_value=5)
+    Funk = forms.IntegerField(label='Funk', min_value=1, max_value=5)
+    Gospel = forms.IntegerField(label='Gospel', min_value=1, max_value=5)
+    Heavy_Meta = forms.IntegerField(label=' Heavy Meta', min_value=1, max_value=5)
+    World = forms.IntegerField(label='World', min_value=1, max_value=5)
+    Jazz = forms.IntegerField(label='Jazz', min_value=1, max_value=5)
+    New_Age = forms.IntegerField(label='New_Age', min_value=1, max_value=5)
+    Oldies = forms.IntegerField(label='Oldies', min_value=1, max_value=5)
+    Opera = forms.IntegerField(label='Opera', min_value=1, max_value=5)
+    Pop = forms.IntegerField(label='Pop', min_value=1, max_value=7)
+    Punk = forms.IntegerField(label='Punk', min_value=1, max_value=7)
+    Rap_hip_hop = forms.IntegerField(label='Rap/hip-hop', min_value=1, max_value=7)
+    Reggae = forms.IntegerField(label='Reggae', min_value=1, max_value=7)
+    Religious = forms.IntegerField(label='Religious', min_value=1, max_value=7)
+    Rock = forms.IntegerField(label='Rock', min_value=1, max_value=7)
+    Soul_R_B = forms.IntegerField(label=' Soul/R&B', min_value=1, max_value=7)
+    Soundtracks_heme_song = forms.IntegerField(label='Soundtracks/theme song', min_value=1, max_value=7)
