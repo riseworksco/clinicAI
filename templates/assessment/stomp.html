@@ -1,6 +1,4 @@
 {% extends "base.html" %}
-<!-- templates/registration/login.html -->
-
 {% block title %}STOMP-Revised{% endblock %}
 {% block content %}
     <div class="container-fluid text-center">
@@ -11,12 +9,21 @@
         <p>Dislike Dislike Dislike a Neither like Like a Like Like</p>
     </div>
     <div class="container">
-        {% for field in form. %}
-            <div class="fieldWrapper">
-                {{ field.errors }}
-                {{ field.label_tag }} {{ field }}
-            </div>
-        {% endfor %}
+        <ul>
+            {% for field in form %}
+                <li>
+                    <div class="fieldWrapper">
+
+                        {{ field.errors }}
+                        {{ field }}
+                        {{ field.label_tag }}
+
+
+                    </div>
+
+                </li>
+            {% endfor %}
+        </ul>
     </div>
     ___________________________________________________________________________________________________
 
