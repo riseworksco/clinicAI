@@ -36,7 +36,7 @@ def display_patients(request):
     items = Patient.objects.filter(doctor=request.user.id)
     context = {
         'items': items,
-        'header': 'Patient',
+        'header': 'Patient Progress Tracker',
     }
     print(items)
     return render(request, "patient/dashboard.html", context)
