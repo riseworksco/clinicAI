@@ -1,12 +1,9 @@
 {% extends "base.html" %}
-{% block title %}STOMP-Revised{% endblock %}
+{% block title %}{{ header }}{% endblock %}
 {% block content %}
     <div class="container-fluid text-center">
-        <h2>STOMP-Revised</h2>
-        <p>Please indicate your basic preference for each of the following genres using the scale provided.</p>
-        <p>
-            1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7</p>
-        <p>Dislike Dislike Dislike a Neither like Like a Like Like</p>
+        <h2>{{ header }}</h2>
+        {{ description |escape|linebreaks }}
     </div>
     <div class="container">
         <ul>

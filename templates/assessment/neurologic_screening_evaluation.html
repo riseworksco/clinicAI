@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    <div class="container-fluid text-center">
+        <h2>{{ header }}</h2>
+        {{ description |escape|linebreaks }}
+    </div>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    Exists in Epic
+                </th>
+                <th>
+                    Single or Multiple
+                </th>
+            </tr>
+            {#            {% for field in form %}#}
+            <tr>
+                <td>
+                    Richmon Agitation Scale (RASS)
+                </td>
+                <td>
+                    <select class="form-control">
+                        <option>+4 = Combative</option>
+                        {#                        +3 = Very Agitated, +2 = Agitated, +1 = Restless, 0 = Alert and calm, -1 =#}
+                        {#                        Drowsy,#}
+                        {#                        -2 = Light sedatio, -3 = moderate sedation, -4 = Deep sedation, -5 = Unarousable#}
+                    </select>
+                </td>
+                <td>
+                    {{ form.feature1ExistsInEPIC }}
+{#                    placeholder#}
+                </td>
+                <td>
+                    {{ form.feature1Single }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature1 }}
+                </td>
+                <td>
+                    {{ form.feature1ExistsInEPIC }}
+                </td>
+                <td>
+                    {{ form.feature1Single }}
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature2.errors }}
+                    {{ form.feature2.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature2 }}
+                </td>
+                <td>
+                    {{ form.feature2ExistsInEPIC }}
+                </td>
+                <td>
+                    {{ form.feature2Single }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature3.errors }}
+                    {{ form.feature3.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature3 }}
+                </td>
+                <td>
+                    {{ form.feature3ExistsInEPIC }}
+                </td>
+                <td>
+                    {{ form.feature3Single }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature4.errors }}
+                    {{ form.feature4.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature4 }}
+                </td>
+                <td>
+                    {{ form.feature4ExistsInEPIC }}
+                </td>
+                <td>
+                    {{ form.feature4Single }}
+                </td>
+
+            </tr>
+            {#            {% endfor %}#}
+        </table>
+    </div>
+    ___________________________________________________________________________________________________
+
+{% endblock %}

@@ -22,5 +22,7 @@ from . import views
 # import patient_management
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('stomp/', views.stomp, name='stomp'),
+    path('neurologic_screening_evaluation/', views.neurologic_screening_evaluation,
+         name="Neurologic_Screening_Evaluation")
 ]

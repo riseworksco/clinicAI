@@ -1,5 +1,7 @@
 from django import forms
 
+from assessment.identifiers import Sign
+
 
 class StompForm(forms.Form):
     Alternative = forms.IntegerField(label='Alternative', min_value=1, max_value=5)
@@ -25,3 +27,26 @@ class StompForm(forms.Form):
     Rock = forms.IntegerField(label='Rock', min_value=1, max_value=7)
     Soul_R_B = forms.IntegerField(label=' Soul/R&B', min_value=1, max_value=7)
     Soundtracks_heme_song = forms.IntegerField(label='Soundtracks/theme song', min_value=1, max_value=7)
+
+
+class NeurologicScreeningEvaluationForm(forms.Form):
+    feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
+                                 choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    feature1Single = forms.CharField()
+    feature2 = forms.ChoiceField(label="Feature 2: Inattention",
+                                 choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    feature2ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    feature2Single = forms.CharField()
+    feature3 = forms.ChoiceField(label="Feature 3: Altered Level of Consciousness",
+                                 choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    feature3ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    feature3Single = forms.CharField()
+    feature4 = forms.ChoiceField(label="Feature 4: Disorganized Thinking",
+                                 choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    feature4ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    feature4Single = forms.CharField()
