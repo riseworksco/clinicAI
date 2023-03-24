@@ -50,3 +50,30 @@ class NeurologicScreeningEvaluationForm(forms.Form):
     feature4ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                              choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
     feature4Single = forms.CharField()
+
+
+class PrePostForm(forms.Form):
+    VITALSExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                           choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    BPExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    BPExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    LocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    PatientExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                            choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    positionExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    HRExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    RRExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    O2ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    PulseExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    OxExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    LocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])

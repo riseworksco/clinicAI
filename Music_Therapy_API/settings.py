@@ -48,13 +48,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'crispy_forms',
     'app',
     'music_management',
     'patient_management',
     'chat',
     'accounts',
-    'assessment'
-
+    'assessment',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +154,5 @@ STATIC_URL = "/static/"
 django_heroku.settings(locals())
 
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

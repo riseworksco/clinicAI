@@ -13,6 +13,27 @@ Version 07/18/2020 -->
     <div class="container-fluid text-center">
         <!-- <hr> -->
         <span class="text-muted"> Created with ❤️ by RiseWorks.</span>
+        <br>
+        <a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button"><i class="bi bi-arrow-up"></i>Back To
+            Top</a>
+        <script>
+            $(document).ready(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 50) {
+                        $('#back-to-top').fadeIn();
+                    } else {
+                        $('#back-to-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-to-top').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 400);
+                    return false;
+                });
+            });
+        </script>
 
     </div>
 </div>

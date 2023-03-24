@@ -10,3 +10,4 @@ psycopg2
 django_heroku
 djangorestframework
 cloudinary
+django-crispy-forms==1.14

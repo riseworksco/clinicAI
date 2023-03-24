@@ -24,5 +24,7 @@ from . import views
 urlpatterns = [
     path('stomp/', views.stomp, name='stomp'),
     path('neurologic_screening_evaluation/', views.neurologic_screening_evaluation,
-         name="Neurologic_Screening_Evaluation")
+         name="Neurologic_Screening_Evaluation"),
+    path('pre_post_tests/', views.pre_post_form,
+         name="pre_post_tests/")
 ]

@@ -1,8 +1,11 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block title %}{{ header }}{% endblock %}
 {% block content %}
     <div class="container-fluid text-center">
-        <h2>{{ header }}</h2>
+       <span><img alt="" class="vt-logo-image"
+                  src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
+                  height=60 focusable="false" aria-hidden="true"></span><span><h2>{{ header }}</h2></span>
         {{ description |escape|linebreaks }}
     </div>
     <div class="container">
@@ -35,11 +38,11 @@
                     </select>
                 </td>
                 <td>
-                    {{ form.feature1ExistsInEPIC }}
-{#                    placeholder#}
+                    {{ form.feature1ExistsInEPIC |as_crispy_field }}
+                    {#                    placeholder#}
                 </td>
                 <td>
-                    {{ form.feature1Single }}
+                    {{ form.feature1Single |as_crispy_field }}
                 </td>
             </tr>
             <tr>
@@ -48,13 +51,13 @@
                     {{ form.feature1.label_tag }}
                 </td>
                 <td>
-                    {{ form.feature1 }}
+                    {{ form.feature1|as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature1ExistsInEPIC }}
+                    {{ form.feature1ExistsInEPIC |as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature1Single }}
+                    {{ form.feature1Single|as_crispy_field }}
                 </td>
 
             </tr>
@@ -64,13 +67,13 @@
                     {{ form.feature2.label_tag }}
                 </td>
                 <td>
-                    {{ form.feature2 }}
+                    {{ form.feature2 |as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature2ExistsInEPIC }}
+                    {{ form.feature2ExistsInEPIC|as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature2Single }}
+                    {{ form.feature2Single|as_crispy_field }}
                 </td>
             </tr>
             <tr>
@@ -79,13 +82,13 @@
                     {{ form.feature3.label_tag }}
                 </td>
                 <td>
-                    {{ form.feature3 }}
+                    {{ form.feature3|as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature3ExistsInEPIC }}
+                    {{ form.feature3ExistsInEPIC|as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature3Single }}
+                    {{ form.feature3Single|as_crispy_field }}
                 </td>
             </tr>
             <tr>
@@ -94,19 +97,18 @@
                     {{ form.feature4.label_tag }}
                 </td>
                 <td>
-                    {{ form.feature4 }}
+                    {{ form.feature4 |as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature4ExistsInEPIC }}
+                    {{ form.feature4ExistsInEPIC|as_crispy_field }}
                 </td>
                 <td>
-                    {{ form.feature4Single }}
+                    {{ form.feature4Single|as_crispy_field }}
                 </td>
 
             </tr>
             {#            {% endfor %}#}
         </table>
     </div>
-    ___________________________________________________________________________________________________
 
 {% endblock %}
