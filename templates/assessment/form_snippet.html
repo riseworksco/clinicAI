@@ -1,6 +1,17 @@
-{% for field in form %}
-    <div class="fieldWrapper">
-        {{ field.errors }}
-        {{ field.label_tag }} {{ field }}
+<div class="row">
+    <div class="col-6 col-lg-2 mb-3">
+        <label>Therapist</label><input class="form-control" type="text" value="{{ therapist }}" readonly>
     </div>
-{% endfor %}
+    <div class="col-6 col-lg-2 mb-3">
+        <label>Patient</label><input class="form-control" type="text" value="{{ patient }}">
+    </div>
+    <div class="col-6 col-lg-2 mb-3">
+        <label>Date</label><input class="form-control" type="datetime-local">
+    </div>
+
+    <div>
+        <button class="btn btn-light">Save</button>
+        <button class="btn btn-light">Edit</button>
+        <button class="btn btn-light">Delete</button>
+    </div>
+</div>

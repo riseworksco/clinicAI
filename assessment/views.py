@@ -12,7 +12,11 @@ def stomp(request):
 1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7
 Dislike Dislike Dislike a Neither like Like a Like Like
     """
-    context = {'form': form, 'header': 'STOMP-Revised', 'description': description}
+    context = {
+        'form': form,
+        'header': 'STOMP-Revised',
+        'description': description,
+        'therapist': request.user.username}
     return render(request, 'assessment/stomp.html', context)
 
 
@@ -22,7 +26,12 @@ def neurologic_screening_evaluation(request):
     description = """
 Description for the form
         """
-    context = {'form': form, 'header': 'Neurologic Screening/Evaluation', 'description': description}
+    context = {
+        'form': form,
+        'header': 'Neurologic Screening/Evaluation',
+        'description': description,
+        'therapist': request.user.username
+    }
     return render(request, 'assessment/neurologic_screening_evaluation.html', context)
 
 

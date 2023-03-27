@@ -2,28 +2,18 @@
 {% load crispy_forms_tags %}
 {% block title %}{{ header }}{% endblock %}
 {% block content %}
+    {% include 'navbar.html' %}
     <div class="container text-center">
-        <span><img alt="" class="vt-logo-image"
-                   src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
-                   height=60 focusable="false" aria-hidden="true"></span><span><h2>{{ header }}</h2></span>
         {{ description |escape|linebreaks }}
     </div>
     <div class="container">
-        {#        <ul>#}
+        {% include 'assessment/form_snippet.html' %}
         {% for field in form %}
-            {#                <li>#}
             <div class="fieldWrapper">
-
-                {#                        {{ field.errors }}#}
                 {{ field|as_crispy_field }}
-                {#                        {{ field.label_tag }}#}
-
-
             </div>
-
-            {#                </li>#}
         {% endfor %}
-        {#        </ul>#}
+        {% include 'assessment/form_snippet.html' %}
     </div>
 
 {% endblock %}
