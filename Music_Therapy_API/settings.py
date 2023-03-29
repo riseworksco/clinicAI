@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'app',
     'music_management',
     'patient_management',
+    'email_service',
     'chat',
     'accounts',
     'assessment',
@@ -156,3 +157,13 @@ django_heroku.settings(locals())
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST_USER = 'support@sojoai.com'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = 'Lovelife099!'
+EMAIL_PORT = 587
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True
