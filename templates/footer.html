@@ -3,97 +3,45 @@
 Version 07/18/2020 -->
 <html>
 
-<body>
-<br>
-<br>
-<br>
-<br>
-<br>
 <footer class="footer">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-3 mb-3">
-                <ul class="list-unstyled small text-muted">
-                    <div class="container text-center">
-
-                        <p> © 2023 <img
-                                src="https://res.cloudinary.com/hq8x4kz7x/image/upload/v1678922213/output-onlinepngtools_jrafo1.png"
-                                alt="sojo" width="50"></p>
-                        <p>
-                            <a href="/about"> About</a> · <a href="/faq"> Faq</a> · <a href="/privacy-policy">
-                            Privacy Policy</a> · <a
-                                href="/terms">Term of use</a> · <a href="/contact"> Contact us</a>
-                        </p>
-                        <p>
-                    </div>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                <h5>Company</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="https://cs.vt.edu/">Virginia Tech CS</a></li>
-                    <li class="mb-2"><a
-                            href="https://csweb.rice.edu/academics/graduate-programs/online-mcs?utm_source=adwords&utm_medium=cpc&utm_campaign=seer_brand_computer-science_tm_m&gclid=CjwKCAjwh4ObBhAzEiwAHzZYUz40U_-bqJw-CzW1ijpAawHTvZ-w2TH1WIcsa9FYouhOHZ5DQW0u7hoCKqsQAvD_BwE">Rice
-                        University MCS</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-3">
-                <h5>fyi</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="https://levels.fyi">levels</a></li>
-                    <li class="mb-2"><a href="https://layoffs.fyi">layoffs</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-3">
-                <h5>Projects</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="https://github.com/twbs/bootstrap">Bootstrap 5</a></li>
-                    <li class="mb-2"><a href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a></li>
-                    <li class="mb-2"><a href="https://github.com/twbs/icons">Icons</a></li>
-                    <li class="mb-2"><a href="https://github.com/twbs/rfs">RFS</a></li>
-                    <li class="mb-2"><a href="https://github.com/twbs/bootstrap-npm-starter">npm starter</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-lg-2 mb-3">
-                <h5>Community</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
-                    <li class="mb-2"><a href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>
-                    <li class="mb-2"><a href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>
-                    <li class="mb-2"><a href="https://opencollective.com/bootstrap">Open Collective</a></li>
-                    <li class="mb-2"><a href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack Overflow</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="container-fluid text-center">
         <!-- <hr> -->
-        <span class="text-muted"> Created with ❤️ by RiseWorks.</span>
-        <br>
-        <a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button"><i class="bi bi-arrow-up"></i>Back To
-            Top</a>
-        <script>
-            $(document).ready(function () {
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 50) {
-                        $('#back-to-top').fadeIn();
-                    } else {
-                        $('#back-to-top').fadeOut();
-                    }
+        <p> © 2023 <img
+                src="https://res.cloudinary.com/hq8x4kz7x/image/upload/v1678922213/output-onlinepngtools_jrafo1.png"
+                alt="sojo" width="50"></p>
+        <p>
+            <a href="https://sojoai.notion.site/About-3e9d37c5ea094929a4ce9e094a27bd4a"> About</a> · <a
+                href="https://sojoai.notion.site/FAQ-157c26a9d286454f92dbcfb37b877f4b">
+            Faq</a> · <a href="https://sojoai.notion.site/Privacy-Policy-cde0ae428578489982a40c9bd91a12a4">
+            Privacy Policy</a> · <a
+                href="https://sojoai.notion.site/Term-of-Use-ef3c7c7871024ba18ff39366f4dc433a">Term of use</a> · <a
+                href="mailto: support@sojoai.com"> Contact us</a>
+        </p>
+        <p>
+            <span class="text-muted"> Created with ❤️ by RiseWorks.</span>
+            <br>
+            <span class="text-muted">
+            <a id="back-to-top" href="#">Top</a>
+            <script>
+                $(document).ready(function () {
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 50) {
+                            $('#back-to-top').fadeIn();
+                        } else {
+                            $('#back-to-top').fadeOut();
+                        }
+                    });
+                    // scroll body to 0px on click
+                    $('#back-to-top').click(function () {
+                        $('body,html').animate({
+                            scrollTop: 0
+                        }, 400);
+                        return false;
+                    });
                 });
-                // scroll body to 0px on click
-                $('#back-to-top').click(function () {
-                    $('body,html').animate({
-                        scrollTop: 0
-                    }, 400);
-                    return false;
-                });
-            });
-        </script>
-
+            </script>
+             </span>
     </div>
 </footer>
-</body>
 
 </html>
