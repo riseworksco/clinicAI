@@ -6,14 +6,16 @@
     <div class="container text-center">
         {{ description |escape|linebreaks }}
     </div>
-    <div class="container">
-        {% include 'assessment/form_snippet.html' %}
+    <form class="container" action="" method="post">
+        {#        {% include 'assessment/form_snippet.html' %}#}
+        {% csrf_token %}
         {% for field in form %}
             <div class="fieldWrapper">
                 {{ field|as_crispy_field }}
             </div>
         {% endfor %}
-        {% include 'assessment/form_snippet.html' %}
-    </div>
+        {#        {% include 'assessment/form_snippet.html' %}#}
+        <button class="btn btn-success my-3" type="submit">Send message</button>
+    </form>
 
 {% endblock %}

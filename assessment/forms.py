@@ -1,9 +1,16 @@
 from django import forms
+from django.conf import settings
+from django.template.loader import render_to_string
 
 from assessment.identifiers import Sign
+from django.core.mail import send_mail
 
 
 class StompForm(forms.Form):
+    """
+    Music Preference Form
+    """
+    TherapistEmail = forms.EmailField(label='Therapist Email')
     Alternative = forms.IntegerField(label='Alternative', min_value=1, max_value=5)
     Bluegrass = forms.IntegerField(label='Bluegrass', min_value=1, max_value=5)
     Blues = forms.IntegerField(label='Blues', min_value=1, max_value=5)
@@ -27,6 +34,35 @@ class StompForm(forms.Form):
     Rock = forms.IntegerField(label='Rock', min_value=1, max_value=7)
     Soul_R_B = forms.IntegerField(label=' Soul/R&B', min_value=1, max_value=7)
     Soundtracks_heme_song = forms.IntegerField(label='Soundtracks/theme song', min_value=1, max_value=7)
+
+    def get_info(self):
+        form = self
+        # rendered_form = form.render("form_snippet.html")
+        description = """
+                Please indicate your basic preference for each of the following genres using the scale provided.
+        1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7
+        Dislike Dislike Dislike a Neither like Like a Like Like
+            """
+        context = {
+            'form': form,
+            'header': 'STOMP-Revised',
+            'description': description, }
+
+        result = render_to_string('email/stomp.html', context)
+        # print(form.data)
+        recipient = form.data['TherapistEmail']
+        return 'STOMP-Revised', result, recipient
+
+    def send(self):
+        subject, msg, recipent = self.get_info()
+
+        send_mail(
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipent]
+        )
 
 
 class NeurologicScreeningEvaluationForm(forms.Form):

@@ -18,11 +18,15 @@ from django.db import router
 from django.urls import path, include
 
 from . import views
+from .views import StompView, StompSuccessView
 
 # import patient_management
+app_name = 'assessment'
 
 urlpatterns = [
-    path('stomp/', views.stomp, name='stomp'),
+    # path('stomp/', views.stomp, name='stomp'),
+    path('stomp/', StompView.as_view(), name="contact"),
+    path('success/', StompSuccessView.as_view(), name="success"),
     path('neurologic_screening_evaluation/', views.neurologic_screening_evaluation,
          name="Neurologic_Screening_Evaluation"),
     path('pre_post_tests/', views.pre_post_form,
