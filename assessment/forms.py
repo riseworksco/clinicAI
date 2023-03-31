@@ -66,6 +66,7 @@ class StompForm(forms.Form):
 
 
 class NeurologicScreeningEvaluationForm(forms.Form):
+    TherapistEmail = forms.EmailField(label='Therapist Email')
     feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
                                  choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
     feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
@@ -87,8 +88,34 @@ class NeurologicScreeningEvaluationForm(forms.Form):
                                              choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
     feature4Single = forms.CharField()
 
+    def get_info(self):
+        form = self
+        description = """
+            """
+        context = {
+            'form': form,
+            'header': 'Neurologic Screening/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/pre_post_form.html', context)
+        # print(form.data)
+        recipient = form.data['TherapistEmail']
+        return 'STOMP-Revised', result, recipient
+
+    def send(self):
+        subject, msg, recipent = self.get_info()
+
+        send_mail(
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipent]
+        )
+
 
 class PrePostForm(forms.Form):
+    TherapistEmail = forms.EmailField(label='Therapist Email')
     VITALSExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                            choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
     BPExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
@@ -113,3 +140,28 @@ class PrePostForm(forms.Form):
                                        choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
     LocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                              choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+
+    def get_info(self):
+        form = self
+        description = """
+            """
+        context = {
+            'form': form,
+            'header': 'Neurologic Screening/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/neurologic_screening_evaluation.html', context)
+        # print(form.data)
+        recipient = form.data['TherapistEmail']
+        return 'Pre/Post Tests', result, recipient
+
+    def send(self):
+        subject, msg, recipent = self.get_info()
+
+        send_mail(
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipent]
+        )

@@ -7,7 +7,7 @@
         {{ description |escape|linebreaks }}
     </div>
     <div class="container">
-        {#        {% include 'assessment/form_snippet.html' %}#}
+        {% include 'assessment/form_snippet.html' %}
         <table class="table">
             <tr>
                 <th>
@@ -108,8 +108,7 @@
             </tr>
             {#            {% endfor %}#}
         </table>
-        {#        {% include 'assessment/form_snippet.html' %}#}
-        <button class="btn btn-success my-3" type="submit">Send message</button>
+        {% include 'assessment/form_snippet.html' %}
     </div>
 
 {% endblock %}

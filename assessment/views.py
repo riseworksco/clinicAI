@@ -49,7 +49,7 @@ Description for the form
 
 # Stomp Form related view
 class StompView(FormView):
-    template_name = 'assessment/stomp.html'
+    template_name = 'assessment/pre_post_form.html'
     form_class = StompForm
     success_url = reverse_lazy('assessment:success')
 
@@ -60,4 +60,20 @@ class StompView(FormView):
 
 
 class StompSuccessView(TemplateView):
+    template_name = 'email/success.html'
+
+
+# Pre Post Form related view
+class PrePostView(FormView):
+    template_name = 'assessment/pre_post_form.html'
+    form_class = PrePostForm
+    success_url = reverse_lazy('assessment:success')
+
+    def form_valid(self, form):
+        # Calls the custom send method
+        form.send()
+        return super().form_valid(form)
+
+
+class PrePostSuccessView(TemplateView):
     template_name = 'email/success.html'
