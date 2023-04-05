@@ -1,11 +1,15 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
-from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm
+from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
+    PsychoemotionalScreeningEvaluationForm
 
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def stomp(request):
     form = StompForm()
     # rendered_form = form.render("form_snippet.html")
@@ -22,6 +26,7 @@ Dislike Dislike Dislike a Neither like Like a Like Like
     return render(request, 'assessment/stomp.html', context)
 
 
+@login_required(login_url='/accounts/login/')
 def neurologic_screening_evaluation(request):
     form = NeurologicScreeningEvaluationForm()
     # rendered_form = form.render("form_snippet.html")
@@ -37,6 +42,7 @@ Description for the form
     return render(request, 'assessment/neurologic_screening_evaluation.html', context)
 
 
+@login_required(login_url='/accounts/login/')
 def pre_post_form(request):
     form = PrePostForm()
     # rendered_form = form.render("form_snippet.html")
@@ -47,8 +53,8 @@ Description for the form
     return render(request, 'assessment/pre_post_form.html', context)
 
 
-# Stomp Form related view
-class StompView(FormView):
+# Stomp Form related views
+class StompView(LoginRequiredMixin, FormView):
     template_name = 'assessment/pre_post_form.html'
     form_class = StompForm
     success_url = reverse_lazy('assessment:success')
@@ -59,12 +65,12 @@ class StompView(FormView):
         return super().form_valid(form)
 
 
-class StompSuccessView(TemplateView):
+class StompSuccessView(LoginRequiredMixin, TemplateView):
     template_name = 'email/success.html'
 
 
 # Pre Post Form related view
-class PrePostView(FormView):
+class PrePostView(LoginRequiredMixin, FormView):
     template_name = 'assessment/pre_post_form.html'
     form_class = PrePostForm
     success_url = reverse_lazy('assessment:success')
@@ -75,5 +81,16 @@ class PrePostView(FormView):
         return super().form_valid(form)
 
 
-class PrePostSuccessView(TemplateView):
+class PrePostSuccessView(LoginRequiredMixin, TemplateView):
     template_name = 'email/success.html'
+
+
+class PsychoemotionalScreeningEvaluationView(LoginRequiredMixin, FormView):
+    template_name = 'assessment/Psychoemotional_Screening_Evaluation.html'
+    form_class = PsychoemotionalScreeningEvaluationForm
+    success_url = reverse_lazy('assessment:success')
+
+    def form_valid(self, form):
+        # Calls the custom send method
+        form.send()
+        return super().form_valid(form)

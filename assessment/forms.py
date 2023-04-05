@@ -1,9 +1,12 @@
 from django import forms
 from django.conf import settings
+from django.forms import ModelForm
 from django.template.loader import render_to_string
 
 from assessment.identifiers import Sign
 from django.core.mail import send_mail
+
+from assessment.models import PsychoemotionalScreeningRecord
 
 
 class StompForm(forms.Form):
@@ -156,12 +159,22 @@ class PrePostForm(forms.Form):
         return 'Pre/Post Tests', result, recipient
 
     def send(self):
-        subject, msg, recipent = self.get_info()
+        subject, msg, recipient = self.get_info()
 
         send_mail(
             subject=subject,
             message="",
             html_message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[recipent]
+            recipient_list=[recipient]
         )
+
+
+class PsychoemotionalScreeningEvaluationForm(ModelForm):
+    """
+    PsychoemotionalScreeningEvaluationForm
+    """
+
+    class Meta:
+        model = PsychoemotionalScreeningRecord
+        fields = ['doctor', 'patient']

@@ -18,7 +18,7 @@ from django.db import router
 from django.urls import path, include
 
 from . import views
-from .views import StompView, StompSuccessView
+from .views import StompView, StompSuccessView, PsychoemotionalScreeningEvaluationView
 
 # import patient_management
 app_name = 'assessment'
@@ -30,5 +30,7 @@ urlpatterns = [
     path('neurologic_screening_evaluation/', views.neurologic_screening_evaluation,
          name="Neurologic_Screening_Evaluation"),
     path('pre_post_tests/', views.pre_post_form,
-         name="pre_post_tests/")
+         name="pre_post_tests/"),
+    path('Psychoemotional_Screening_Evaluation/', PsychoemotionalScreeningEvaluationView.as_view(),
+         name="Psychoemotional_Screening_Evaluation")
 ]

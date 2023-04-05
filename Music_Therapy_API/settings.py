@@ -167,3 +167,6 @@ EMAIL_HOST_PASSWORD = 'Lovelife099!'
 EMAIL_PORT = 587
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
+
+# Account Setting
+LOGOUT_REDIRECT_URL = "/"  # new
