@@ -121,28 +121,39 @@ class PrePostForm(forms.Form):
     TherapistEmail = forms.EmailField(label='Therapist Email')
     VITALSExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                            choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    VITALSSingle = forms.CharField()
+
     BPExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                        choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
-    BPExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
-                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
-    LocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
-                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
-    PatientExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
-                                            choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
-    positionExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
-                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    BPSingle = forms.CharField()
+
+    BPLocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                               choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    BPLocationSingle = forms.CharField()
+
+    PatientPositionExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                                    choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    PatientPositionSingle = forms.CharField()
+
     HRExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                        choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    HRSingle = forms.CharField()
+
     RRExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                        choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    RRSingle = forms.CharField()
+    # O2
     O2ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                        choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    O2Single = forms.CharField()
+
     PulseExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                           choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
-    OxExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
-                                       choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
-    LocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
-                                             choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    PulseSingle = forms.CharField()
+
+    PulseOxLocationExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+                                                    choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    PulseOxLocationSingle = forms.CharField()
 
     def get_info(self):
         form = self

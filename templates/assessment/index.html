@@ -7,7 +7,6 @@
     <div class="container text-center">
         {{ description |escape|linebreaks }}
     </div>
-    {#    {% include 'assessment/form_snippet.html' %}#}
     <div class="container">
         <div class="row">
             <div class="col form-check">
@@ -27,32 +26,133 @@
                 <label for="type4_value">treatment post</label>
             </div>
         </div>
+    </div>
 
-        <div class="container" id="prePostForm">
-            <div class="text-center"><h2> Pre Post Form</h2></div>
-            <div class="row">
-                <div class="col">
-                    Column
-                </div>
-                <div class="col">
-                    Column
-                </div>
-                <div class="col">
-                    Column
-                </div>
-            </div>
-        </div>
+    <div class="container" id="prePostForm">
+        <div class="bg-light"><h2> Pre Post Form</h2></div>
+        {#            <div class="row">#}
+        {#                <div class="col">#}
+        {#                    Column#}
+        {#                </div>#}
+        {#                <div class="col">#}
+        {#                    Column#}
+        {#                </div>#}
+        {#                <div class="col">#}
+        {#                    Column#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        <table class="table">
+            <tr>
+                <td>
+                    Vitals
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.VITALSExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.VITALSSingle |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    BP
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.BPExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.BPSingle |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    BP Location
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.BPLocationExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.BPLocationSingle |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Patient Position
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.PatientPositionExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.PatientPositionSingle |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    HR
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.HRExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.HRSingle |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    RR
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.RRExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.RRSingle |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    O2
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.O2ExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.O2Single |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Pulse Ox Location
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ prePostForm.PulseOxLocationExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ prePostForm.PulseOxLocationSingle |as_crispy_field }}
+                </td>
+            </tr>
+        </table>
 
-        {% for field in prePostForm %}
-            <div class="fieldWrapper">
-                {{ field|as_crispy_field }}
-            </div>
-        {% endfor %}
-        {#    {% include 'assessment/form_snippet.html' %}#}
     </div>
 
     <div class="container">
-        <div class="text-center"><h2>Neurologic Screening/Evaluation</h2></div>
+        <div class="text-center bg-light"><h2>Neurologic Screening/Evaluation</h2></div>
         <table class="table">
 
             <tr>
