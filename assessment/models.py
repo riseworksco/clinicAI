@@ -121,7 +121,7 @@ class PHQ9(models.Model):
     q4_smf = models.IntegerField()
 
     q5_value = models.IntegerField()
-    q5_epic = models.CharField('No''No',max_length=30)
+    q5_epic = models.CharField('No''No', max_length=30)
     q5_smf = models.IntegerField()
 
     q6_value = models.IntegerField()
@@ -150,3 +150,24 @@ class PsychoemotionalScreeningRecord(models.Model):
     GAD7 = models.OneToOneField(GAD7, on_delete=models.CASCADE, )
     PHQ2 = models.OneToOneField(PHQ2, on_delete=models.CASCADE, )
     PHQ9 = models.OneToOneField(PHQ9, on_delete=models.CASCADE, )
+
+
+class CatCatFlowsheetRecord(models.Model):
+    """
+    CatCatFlowsheetRecord
+    """
+    type1_value = models.CharField('eval', max_length=30)
+    type1_epic = models.CharField('No', max_length=30)
+    type1_smf = models.IntegerField()
+
+    type2_value = models.CharField('treatment', max_length=30)
+    type2_epic = models.CharField('No', max_length=30)
+    type2_smf = models.IntegerField()
+
+    type3_value = models.CharField('treatment pre', max_length=30)
+    type3_epic = models.CharField('No', max_length=30)
+    type3_smf = models.IntegerField()
+
+    type4_value = models.CharField('treatment post', max_length=30)
+    type4_epic = models.CharField('No', max_length=30)
+    type4_smf = models.IntegerField()

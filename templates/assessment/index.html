@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    {#    {% include 'assessment/form_snippet.html' %}#}
+    <div class="container">
+        <div class="row">
+            <div class="col form-check">
+                <input class="form-check-input" type="radio" id="type1_value">
+                <label for="type1_value">eval</label>
+            </div>
+            <div class="col form-check">
+                <input class="form-check-input" type="radio" id="type2_value">
+                <label for="type2_value">treatment</label>
+            </div>
+            <div class="col form-check">
+                <input class="form-check-input" type="radio" id="type3_value">
+                <label for="type3_value">treatment pre</label>
+            </div>
+            <div class="col form-check">
+                <input class="form-check-input" type="radio" id="type4_value">
+                <label for="type4_value">treatment post</label>
+            </div>
+        </div>
+
+        <div class="container" id="prePostForm">
+            <div class="text-center"><h2> Pre Post Form</h2></div>
+            <div class="row">
+                <div class="col">
+                    Column
+                </div>
+                <div class="col">
+                    Column
+                </div>
+                <div class="col">
+                    Column
+                </div>
+            </div>
+        </div>
+
+        {% for field in prePostForm %}
+            <div class="fieldWrapper">
+                {{ field|as_crispy_field }}
+            </div>
+        {% endfor %}
+        {#    {% include 'assessment/form_snippet.html' %}#}
+    </div>
+
+    <div class="container">
+        <div class="text-center"><h2>Neurologic Screening/Evaluation</h2></div>
+        <table class="table">
+
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    Exists in Epic
+                </th>
+                <th>
+                    Single or Multiple
+                </th>
+            </tr>
+            {#            {% for field in form %}#}
+            <tr>
+                <td>
+                    Richmon Agitation Scale (RASS)
+                </td>
+                <td>
+                    <select class="form-control">
+                        <option>+4 = Combative</option>
+                        {#                        +3 = Very Agitated, +2 = Agitated, +1 = Restless, 0 = Alert and calm, -1 =#}
+                        {#                        Drowsy,#}
+                        {#                        -2 = Light sedatio, -3 = moderate sedation, -4 = Deep sedation, -5 = Unarousable#}
+                    </select>
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature1ExistsInEPIC |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature1Single |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ neurologicScreeningEvaluationForm.feature1.errors }}
+                    {{ neurologicScreeningEvaluationForm.feature1.label_tag }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature1|as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature1ExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature1Single|as_crispy_field }}
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ neurologicScreeningEvaluationForm.feature2.errors }}
+                    {{ neurologicScreeningEvaluationForm.feature2.label_tag }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature2 |as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature2ExistsInEPIC|as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature2Single|as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ neurologicScreeningEvaluationForm.feature3.errors }}
+                    {{ neurologicScreeningEvaluationForm.feature3.label_tag }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature3|as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature3ExistsInEPIC|as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature3Single|as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ neurologicScreeningEvaluationForm.feature4.errors }}
+                    {{ neurologicScreeningEvaluationForm.feature4.label_tag }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature4 |as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature4ExistsInEPIC|as_crispy_field }}
+                </td>
+                <td>
+                    {{ neurologicScreeningEvaluationForm.feature4Single|as_crispy_field }}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}
