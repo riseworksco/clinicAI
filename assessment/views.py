@@ -9,21 +9,21 @@ from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePo
 
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
-def stomp(request):
-    form = StompForm()
-    # rendered_form = form.render("form_snippet.html")
-    description = """
-        Please indicate your basic preference for each of the following genres using the scale provided.
-1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7
-Dislike Dislike Dislike a Neither like Like a Like Like
-    """
-    context = {
-        'form': form,
-        'header': 'STOMP-Revised',
-        'description': description,
-        'therapist': request.user.username}
-    return render(request, 'assessment/stomp.html', context)
+# @login_required(login_url='/accounts/login/')
+# def stomp(request):
+#     form = StompForm()
+#     # rendered_form = form.render("form_snippet.html")
+#     description = """
+#         Please indicate your basic preference for each of the following genres using the scale provided.
+# 1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7
+# Dislike Dislike Dislike a Neither like Like a Like Like
+#     """
+#     context = {
+#         'form': form,
+#         'header': 'STOMP-Revised',
+#         'description': description,
+#         'therapist': request.user.username}
+#     return render(request, 'assessment/stomp.html', context)
 
 
 @login_required(login_url='/accounts/login/')
@@ -42,20 +42,20 @@ Description for the form
     return render(request, 'assessment/neurologic_screening_evaluation.html', context)
 
 
-@login_required(login_url='/accounts/login/')
-def pre_post_form(request):
-    form = PrePostForm()
-    # rendered_form = form.render("form_snippet.html")
-    description = """
-Description for the form
-        """
-    context = {'form': form, 'header': 'Pre/Post Tests', 'description': description}
-    return render(request, 'assessment/pre_post_form.html', context)
+# @login_required(login_url='/accounts/login/')
+# def pre_post_form(request):
+#     form = PrePostForm()
+#     # rendered_form = form.render("form_snippet.html")
+#     description = """
+# Description for the form
+#         """
+#     context = {'form': form, 'header': 'Pre/Post Tests', 'description': description}
+#     return render(request, 'assessment/pre_post_form.html', context)
 
 
 # Stomp Form related views
 class StompView(LoginRequiredMixin, FormView):
-    template_name = 'assessment/pre_post_form.html'
+    template_name = 'assessment/stomp.html'
     form_class = StompForm
     success_url = reverse_lazy('assessment:success')
 
@@ -105,3 +105,17 @@ def index(request):
         'header': 'Assessment',
         'therapist': request.user.username}
     return render(request, "assessment/index.html", context)
+
+
+class NeurologicScreeningEvaluationView(LoginRequiredMixin, FormView):
+    template_name = 'assessment/neurologic_screening_evaluation.html'
+    form_class = NeurologicScreeningEvaluationForm
+    success_url = reverse_lazy('assessment:success')
+
+    def form_valid(self, form):
+        # Calls the custom send method
+        form.send()
+        return super().form_valid(form)
+
+class NeurologicScreeningEvaluationSuccessView(LoginRequiredMixin, TemplateView):
+    template_name = 'email/success.html'

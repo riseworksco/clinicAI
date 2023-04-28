@@ -100,10 +100,10 @@ class NeurologicScreeningEvaluationForm(forms.Form):
             'header': 'Neurologic Screening/Evaluation',
             'description': description, }
 
-        result = render_to_string('email/pre_post_form.html', context)
-        # print(form.data)
+        result = render_to_string('email/stomp.html', context)
+        print(form.data)
         recipient = form.data['TherapistEmail']
-        return 'STOMP-Revised', result, recipient
+        return 'Neurologic Screening/Evaluation', result, recipient
 
     def send(self):
         subject, msg, recipent = self.get_info()
@@ -161,11 +161,11 @@ class PrePostForm(forms.Form):
             """
         context = {
             'form': form,
-            'header': 'Neurologic Screening/Evaluation',
+            'header': 'PrePostForm',
             'description': description, }
 
-        result = render_to_string('email/neurologic_screening_evaluation.html', context)
-        # print(form.data)
+        result = render_to_string('email/stomp.html', context)
+        print(form.data)
         recipient = form.data['TherapistEmail']
         return 'Pre/Post Tests', result, recipient
 

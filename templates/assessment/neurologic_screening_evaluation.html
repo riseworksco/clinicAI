@@ -6,9 +6,16 @@
     <div class="container-fluid text-center">
         {{ description |escape|linebreaks }}
     </div>
-    <div class="container">
-        {#        {% include 'assessment/form_snippet.html' %}#}
+    <form class="container" action="" method="post">
+        {% csrf_token %}
+        <label for="id_TherapistEmail" class=" requiredField">
+            Therapist Email<span class="asteriskField">*</span>
+        </label>
+        <div>
+            <input type="email" name="TherapistEmail" class="emailinput form-control" required id="id_TherapistEmail">
+        </div>
         <table class="table">
+
             <tr>
                 <th>
 
@@ -108,8 +115,7 @@
             </tr>
             {#            {% endfor %}#}
         </table>
-        {#        {% include 'assessment/form_snippet.html' %}#}
         <button class="btn btn-success my-3" type="submit">Send message</button>
-    </div>
+    </form>
 
 {% endblock %}
