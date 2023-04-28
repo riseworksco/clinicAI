@@ -95,12 +95,13 @@ class PsychoemotionalScreeningEvaluationView(LoginRequiredMixin, FormView):
         form.send()
         return super().form_valid(form)
 
+
 def index(request):
     prePostForm = PrePostForm()
     neurologicScreeningEvaluationForm = NeurologicScreeningEvaluationForm()
     context = {
         'prePostForm': prePostForm,
         'neurologicScreeningEvaluationForm': neurologicScreeningEvaluationForm,
-        'header': 'STOMP-Revised',
+        'header': 'Assessment',
         'therapist': request.user.username}
-    return render(request, "assessment/index.html",context)
+    return render(request, "assessment/index.html", context)
