@@ -26,12 +26,12 @@ app_name = 'assessment'
 urlpatterns = [
     # path('stomp/', views.stomp, name='stomp'),
     path('', views.index, name='index'),
-    path('stomp/', StompView.as_view(), name="contact"),
+    path('stomp/', StompView.as_view(), name="stomp"),
     path('success/', StompSuccessView.as_view(), name="success"),
     path('neurologic_screening_evaluation/', views.neurologic_screening_evaluation,
          name="Neurologic_Screening_Evaluation"),
     path('pre_post_tests/', views.pre_post_form,
-         name="pre_post_tests/"),
+         name="pre_post_tests"),
     path('Psychoemotional_Screening_Evaluation/', PsychoemotionalScreeningEvaluationView.as_view(),
          name="Psychoemotional_Screening_Evaluation")
 ]
