@@ -32,3 +32,7 @@ def display_songs(request):
     }
     print(items)
     return render(request, "music/songs.html", context)
+
+
+def index(request):
+    return render(request, "music/index.html")
