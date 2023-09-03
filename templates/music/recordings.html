@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {#    {% load crispy_forms_tags %}#}
+
+    <body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+
+
+        <br>
+        <br>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+            <p>Title</p>
+            <label>
+                <input class="form-control" type="text">
+            </label>
+            <span>Artist</span><label>
+            <input class="form-control" type="text">
+        </label>
+            <span>Year</span><label>
+            <input class="form-control" type="text">
+        </label>
+        </div>
+
+
+        {% for item in items %}
+
+
+            <div class="card">
+                <div class="card-horizontal">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ item.id }}</h4>
+                        <p class="card-text"><a href="{{ item.youtube_link }}">YouTube</a></p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% for page_num in paginator_obj.page_range %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+
+        <!-- <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% for page_num in paginator_obj.page_range %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav> -->
+
+    </div>
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    </body>
+{% endblock %}
