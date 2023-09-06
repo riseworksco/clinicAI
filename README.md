@@ -23,6 +23,9 @@ prompt_message = "You are a music therapist. you are about treat {$patient name}
 
 
 '''
+## Chat
+
+![image](https://github.com/chenyuan99/Music-Therapy-API/assets/25518100/13143a27-531f-4a0c-a7c8-188cdd194545)
 
 ## Awards
 
