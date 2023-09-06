@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-
 import django_heroku
+import cloudinary
 
 from pathlib import Path
 
@@ -24,10 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-1e3^*@tzw_wx1-_g9a^yhklm+-jotva27k8c2aooo@4sdo7%_t'
 
+cloudinary.config(
+    cloud_name="hq8x4kz7x",
+    api_key="966542976818381",
+    api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y",
+    secure=True
+)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['https://sojoai.com', 'https://*.127.0.0.1']
 
 # Application definition
 
@@ -39,12 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'crispy_forms',
     'app',
     'music_management',
     'patient_management',
+    'email_service',
     'chat',
-    'accounts'
-
+    'accounts',
+    'assessment',
 ]
 
 MIDDLEWARE = [
@@ -91,10 +102,10 @@ WSGI_APPLICATION = 'Music_Therapy_API.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd926uqrvdhpv29',
-        'USER': 'jhrderrmwrpirt',
-        'PASSWORD': 'c13ac532f45ae264505d836ef58c548e1a6aaa090fda01f29dd88634c8933547',
-        'HOST': 'ec2-3-93-160-246.compute-1.amazonaws.com',
+        'NAME': 'db0ujq6iqpdmkp',
+        'USER': 'wzfzxufsxxoslw',
+        'PASSWORD': '82cdf92906569aa6a49547662a5a525d67ad0685561a766f3991329819badbce',
+        'HOST': 'ec2-3-92-151-217.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -144,3 +155,18 @@ STATIC_URL = "/static/"
 django_heroku.settings(locals())
 
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST_USER = 'support@sojoai.com'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = 'riseworks'
+EMAIL_PORT = 587
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True
+
+# Account Setting
+LOGOUT_REDIRECT_URL = "/"  # new

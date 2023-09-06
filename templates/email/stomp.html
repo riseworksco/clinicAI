@@ -1,0 +1,30 @@
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+
+    <div class="container text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    <table>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+
+        {% for field in form %}
+            <div class="fieldWrapper">
+                <tr>
+                    {{ field.errors }}
+                    <td>
+                        {{ field.label_tag }}
+                    </td>
+                    <td>{{ field.value }}
+                    </td>
+                </tr>
+            </div>
+
+        {% endfor %}
+    </table>
+
+{% endblock %}
+

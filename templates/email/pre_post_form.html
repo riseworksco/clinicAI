@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    {% include 'assessment/form_snippet.html' %}
+    <div class="container">
+        {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field|as_crispy_field }}
+            </div>
+        {% endfor %}
+    {% include 'assessment/form_snippet.html' %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container text-center">
+{#        <h2>Device {{ item.CS_Tag }} Detail Page</h2>#}
+        <table id="info-table" class="table table-striped text-left">
+            <tr>
+                <td align=left><b>CS_Tag</b></td>
+                <td data-label="CS_Tag">{{ item.CS_Tag }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>Type</b></td>
+                <td data-label="Type">{{ item.type }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>Price</b></td>
+                <td data-label="Price">${{ item.price }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>Description</b></td>
+                <td data-label="Description">{{ item.description }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>VT_Tag</b></td>
+                <td data-label="VT_Tag">{{ item.VT_Tag }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>Serial_Number</b></td>
+                <td data-label="Serial_Number">{{ item.Serial_Number }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>Status</b></td>
+                <td data-label="Status">{{ item.status }}</td>
+            </tr>
+            <tr>
+                <td align=left><b>Device Action</b></td>
+                <td data-label="Action">
+                    <a href="" class="btn btn-outline-info btn-sm" role="button">Edit</a>
+                    <a href="" class="btn btn-outline-danger btn-sm"
+                       role="button">Delete</a>
+                </td>
+            </tr>
+            {% for item in userdevices %}
+                <tr>
+                    <td><b>Custodian Pid</b></td>
+                    <td data-label="User PID">{{ item.UserPID }}</td>
+                </tr>
+                <tr>
+                    <td><b>Checkout Date</b></td>
+                    <td data-label="Check out Date">{% if item.isCheckedOut %}{{ item.CheckoutDate }}
+                    {% else %}Not Checked out
+                    {% endif %}</td>
+                </tr>
+                <tr>
+                    <td><b>Home Use</b></td>
+                    <td data-label="isHomeUse">{{ item.isHomeUse }}</td>
+                </tr>
+                <tr>
+                    <td><b>Address</b></td>
+                    <td data-label="Address">{{ item.Address }}</td>
+                </tr>
+                <tr>
+                    <td><b>Room</b></td>
+                    <td data-label="Room">{{ item.Room }}</td>
+                </tr>
+                <tr>
+                    <td><b>Return Date</b></td>
+                    <td data-label="Return Date">{{ item.ReturnDate }}</td>
+                </tr>
+                <tr>
+                    <td><b>Note</b></td>
+                    <td data-label="Note">{{ item.Note }}</td>
+                </tr>
+                <tr>
+                    <td><b>UserDevice Action</b></td>
+                    <td data-label="Action">
+                        <a href="{% url 'edit_userDevice' item.pk %}" class="btn btn-outline-info btn-sm" role="button">Edit</a>
+                        <a href="{% url 'delete_userDevice' item.pk %}" class="btn btn-outline-danger btn-sm"
+                           role="button">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% for item in networks %}
+                <tr>
+                    <td><b>Network Hostname</b></td>
+                    <td data-label="Hostname">{{ item.Hostname }}</td>
+                </tr>
+                <tr>
+                    <td><b>Network Aliases</b></td>
+                    <td data-label="Aliases">{{ item.Aliases }}</td>
+                </tr>
+                <tr>
+                    <td><b>Building Abbreviation</b></td>
+                    <td data-label="Building Abbreviation">{{ item.Building_Abbr }}</td>
+                </tr>
+
+
+            {% endfor %}
+        </table>
+    </div>
+
+    {# <div class="container text-center">#}
+    {# <div class="row">#}
+    {# <div class="col">#}
+    {# {% for e in history %}#}
+    {# <li>#}
+    {# {{ e.history_user }}#}
+    {# {{ e.history_type }} on {{ e.history_date }}#}
+    {# </li>#}
+    {# {% endfor %}#}
+    {# </div>#}
+    {# <div class="col">#}
+    {# {% for item in delta %}#}
+    {# {% if item.changes %}#}
+    {# <li>#}
+    {# {% for change in item.changes %}#}
+    {# {{ change.field }} changed from {{ change.old }} to {{ change.new }}#}
+    {# </li>#}
+    {# {% endfor %}#}
+    {# {% else %}#}
+    {# <li>No changes</li>#}
+    {# {% endif %}#}
+    {# {% endfor %}#}
+    {# <li>added item</li>#}
+    {# </div>#}
+    {# </div>#}
+    {# </div>#}
+    {# <div class="container text-center">#}
+    {# <table class="table table-bordered">#}
+    {# <thread>#}
+    {# <tr>#}
+    {# <th>User</th>#}
+    {# <th>Type</th>#}
+    {# <th>Change Date</th>#}
+    {# </tr>#}
+    {# </thread>#}
+    {##}
+    {# <tbody>#}
+    {# {% for e in history %}#}
+    {# <tr>#}
+    {# <td>#}
+    {# {{ e.history_user }}#}
+    {# </td>#}
+    {# <td>#}
+    {# {{ e.history_type }}#}
+    {# </td>#}
+    {# <td>#}
+    {# {{ e.history_date }}#}
+    {# </td>#}
+    {# </tr>#}
+    {# </tbody>#}
+    {# {% endfor %}#}
+    {# <table class="table table-bordered">#}
+    {# <thread>#}
+    {# <tr>#}
+    {# <th>Change Field</th>#}
+    {# <th>Change From</th>#}
+    {# <th>Change To</th>#}
+    {# </tr>#}
+    {# </thread>#}
+    {##}
+    {# <tbody>#}
+    {# {% for item in delta %}#}
+    {# {% for change in item.changes %}#}
+    {# <tr>#}
+    {# <td>#}
+    {# {{ change.field }} </td>#}
+    {##}
+    {# <td>{{ change.old }}</td>#}
+    {##}
+    {# <td> {{ change.new }}</td>#}
+    {# </tr>#}
+    {# {% endfor %}#}
+    {# {% endfor %}#}
+    {##}
+    {# </td>#}
+    {# </tbody>#}
+    {# </table>#}
+    {# </table>#}
+    {# </div>#}
+    <div class="container text-center">
+        <div id="hrow" class="container hrow">
+            <div id="action-col" class="hcolumn">
+                <table class="htable">
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                    {% for e in history %}
+                        <tr>
+                            <td>
+                                {{ e.history_user }}
+                                {{ e.history_type }} on {{ e.history_date }}
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="change-col" class="hcolumn">
+                <table class="htable">
+                    <tr>
+                        <th>changes</th>
+                    </tr>
+                    {% for item in delta %}
+                        <tr>
+                            <td>
+                                {% if item.changes %}
+                                    {% for change in item.changes %}
+                                        <b>{{ change.field }}</b> changes from <b>{{ change.old }}</b> to
+                                        <b>{{ change.new }}</b>
+                                        <br>
+                                    {% endfor %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>Added item</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

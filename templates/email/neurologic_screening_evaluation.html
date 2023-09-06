@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container-fluid text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    <div class="container">
+        {% include 'assessment/form_snippet.html' %}
+        <table class="table">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    Exists in Epic
+                </th>
+                <th>
+                    Single or Multiple
+                </th>
+            </tr>
+            {#            {% for field in form %}#}
+            <tr>
+                <td>
+                    Richmon Agitation Scale (RASS)
+                </td>
+                <td>
+                    <select class="form-control">
+                        <option>+4 = Combative</option>
+                        {#                        +3 = Very Agitated, +2 = Agitated, +1 = Restless, 0 = Alert and calm, -1 =#}
+                        {#                        Drowsy,#}
+                        {#                        -2 = Light sedatio, -3 = moderate sedation, -4 = Deep sedation, -5 = Unarousable#}
+                    </select>
+                </td>
+                <td>
+                    {{ form.feature1ExistsInEPIC |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+                <td>
+                    {{ form.feature1Single |as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature1|as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature1ExistsInEPIC |as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature1Single|as_crispy_field }}
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature2.errors }}
+                    {{ form.feature2.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature2 |as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature2ExistsInEPIC|as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature2Single|as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature3.errors }}
+                    {{ form.feature3.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature3|as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature3ExistsInEPIC|as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature3Single|as_crispy_field }}
+                </td>
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature4.errors }}
+                    {{ form.feature4.label_tag }}
+                </td>
+                <td>
+                    {{ form.feature4 |as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature4ExistsInEPIC|as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.feature4Single|as_crispy_field }}
+                </td>
+
+            </tr>
+            {#            {% endfor %}#}
+        </table>
+        {% include 'assessment/form_snippet.html' %}
+    </div>
+
+{% endblock %}

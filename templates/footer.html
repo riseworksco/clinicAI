@@ -3,19 +3,45 @@
 Version 07/18/2020 -->
 <html>
 
-<body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="footer">
+<footer class="footer">
     <div class="container-fluid text-center">
         <!-- <hr> -->
-        <span class="text-muted"> Created with ❤️ by RiseWorks.</span>
-
+        <p> © 2023 <img
+                src="https://res.cloudinary.com/hq8x4kz7x/image/upload/v1678922213/output-onlinepngtools_jrafo1.png"
+                alt="sojo" width="50"></p>
+        <p>
+            <a href="https://sojoai.notion.site/About-3e9d37c5ea094929a4ce9e094a27bd4a"> About</a> · <a
+                href="https://sojoai.notion.site/FAQ-157c26a9d286454f92dbcfb37b877f4b">
+            Faq</a> · <a href="https://sojoai.notion.site/Privacy-Policy-cde0ae428578489982a40c9bd91a12a4">
+            Privacy Policy</a> · <a
+                href="https://sojoai.notion.site/Term-of-Use-ef3c7c7871024ba18ff39366f4dc433a">Term of use</a> · <a
+                href="mailto: support@sojoai.com"> Contact us</a>
+        </p>
+        <p>
+            <span class="text-muted"> Created with ❤️ by RiseWorks.</span>
+            <br>
+            <span class="text-muted">
+            <a id="back-to-top" href="#">Top</a>
+            <script>
+                $(document).ready(function () {
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 50) {
+                            $('#back-to-top').fadeIn();
+                        } else {
+                            $('#back-to-top').fadeOut();
+                        }
+                    });
+                    // scroll body to 0px on click
+                    $('#back-to-top').click(function () {
+                        $('body,html').animate({
+                            scrollTop: 0
+                        }, 400);
+                        return false;
+                    });
+                });
+            </script>
+             </span>
     </div>
-</div>
-</body>
+</footer>
 
 </html>

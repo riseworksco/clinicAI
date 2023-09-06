@@ -1,11 +1,17 @@
-asgiref
-certifi
-Django
-django-heroku
-gunicorn
-sqlparse
-tzdata
+asgiref @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_cchykh5sgr/croots/recipe/asgiref_1661287542702/work
+certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
+cloudinary==1.32.0
+dj-database-url==1.2.0
+Django @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_eeor5o9jj8/croots/recipe/django_1661292534510/work
+django-crispy-forms==1.14.0
+django-heroku==0.3.1
+djangorestframework==3.14.0
+gunicorn==20.1.0
+psycopg2==2.9.5
+pytz==2022.7.1
+six==1.16.0
+sqlparse @ file:///C:/b/abs_83jn6owfpc/croot/sqlparse_1668793499314/work
+tzdata @ file:///tmp/build/80754af9/python-tzdata_1611693927741/work
+urllib3==1.26.15
+whitenoise==6.4.0
 wincertstore==0.2
-psycopg2
-django_heroku
-djangorestframework
