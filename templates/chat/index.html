@@ -3,21 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8647754134355438"
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+        /*.container {*/
+        /*    background-color: #ffffff*/
+        /*}*/
+
+        .navbar {
+            background-color: #ffffff;
+            min-height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 9px 0px !important;
+        }
+
+        .navbar .navbar-brand {
+            position: 0;
+            color: #000000;
+            height: 60px;
+            line-height: 60px;
+            padding-top: 2px;
+        }
+
+        .navbar .navbar-brand:hover,
+        .navbar .navbar-brand:focus {
+            color: #fffefe;
+            /* background-color:#75787B; */
+        }
+
+        .navbar .navbar-text {
+            color: #000000;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-text a {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-text a:hover,
+        .navbar .navbar-text a:focus {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #000000;
+            border-radius: .25rem;
+            margin: 0 0.25em;
+        }
+
+        .navbar .navbar-nav .nav-link:not(.disabled):hover,
+        .navbar .navbar-nav .nav-link:not(.disabled):focus {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar .navbar-nav .nav-item.active .nav-link,
+        .navbar .navbar-nav .nav-item.active .nav-link:hover,
+        .navbar .navbar-nav .nav-item.active .nav-link:focus,
+        .navbar .navbar-nav .nav-item.show .nav-link,
+        .navbar .navbar-nav .nav-item.show .nav-link:hover,
+        .navbar .navbar-nav .nav-item.show .nav-link:focus {
+            color: #fffefe;
+            background-color: #000000;
+        }
+
+        .navbar .navbar-toggle {
+            /* border-color: #000000; */
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+
+        .navbar .navbar-toggle:hover,
+        .navbar .navbar-toggle:focus {
+            background-color: #000000;
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+
+        .navbar .navbar-toggle .navbar-toggler-icon {
+            color: #000000;
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+
+        .navbar .navbar-collapse,
+        .navbar .navbar-form {
+            border-color: #000000;
+        }
+
+        .navbar .navbar-link {
+            color: #000000;
+        }
+
+        .navbar .navbar-link:hover {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        @media (max-width: 575px) {
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+            }
+
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+            }
+
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+
+
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+                color: #000000;
+            }
+
+            .navbar-nav > li > a {
+                /* (80px - line-height of 27px) / 2 = 26.5px */
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+                color: #fffefe;
+                background-color: #75787B;
+            }
+
+            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+                color: #fffefe;
+                background-color: #000000;
+            }
+        }
+
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+            color: #000000;
+        }
+
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+            color: #fffefe;
+            background-color: #75787B;
+        }
+
+        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+            color: #fffefe;
+            background-color: #000000;
+        }
+
+        .index-header__logo {
+            height: 50px;
+            /*width: 50px;*/
+            padding-bottom: 0;
+        }
+
+        .jumbotron {
+            /* padding-top: 50px; */
+            background: white;
+            color: black;
+            padding-bottom: 50px
+        }
+
+        .jumbotron .btn-primary {
+            background: #C64600;
+            border: none;
+        }
+
+        .jumbotron .button-index {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .jumbotron .btn-primary:hover {
+            background: #E87722;
+            border: none;
+        }
+
+        .jumbotron p {
+            color: black;
+            max-width: 75%;
+            margin: 1em auto 2em
+        }
+
+        .navbar + .jumbotron {
+            margin-top: -20px
+        }
+
+        .jumbotron .lang-logo {
+            display: block;
+            background: white;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border: 2px solid white
+        }
+
+        .jumbotron .lang-logo img {
+            max-width: 100%
+        }
+
+        .center {
+            margin: auto;
+            text-align: center;
+        }
+
+
+        .clear {
+            padding-top: 50px;
+            background: white;
+            padding-bottom: 80px
+        }
+    </style>
 </head>
+
+
 <body>
+{#<nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom" style="background-color: white;">#}
+{#    <div class="container-fluid">#}
+{#        <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image"#}
+{#                                              src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"#}
+{#                                              height=60 focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>#}
+{##}
+{##}
+{#        <ul class="navbar-nav">#}
+{##}
+{##}
+{#            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"#}
+{#                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#                <span class="navbar-toggler-icon"></span>#}
+{#            </button>#}
+{#            <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                <ul class="navbar-nav mr-auto"></ul>#}
+{##}
+{#                <ul class="navbar-nav mt-2 mt-lg-0">#}
+{#                    <li><a class="nav-link" href="/chat"> Chat</a></li>#}
+{#                    <li><a class="nav-link" href="/assessment"> Digital Forms</a></li>#}
+{#                    <li class="nav-item dropdown">#}
+{#                        <a class="nav-link dropdown-toggle" href="{% url "assessment:index" %}" id="dropdown01"#}
+{#                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Digital Forms</a>#}
+{#                        <div class="dropdown-menu" aria-labelledby="dropdown01">#}
+{#                            <a class="dropdown-item" href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Neurologic#}
+{#                                Screening Evaluation</a>#}
+{#                            <a class="dropdown-item" href="{% url "assessment:pre_post_tests" %}">Pre Post Tests</a>#}
+{#                            <a class="dropdown-item" href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">Psychoemotional#}
+{#                                Screening Evaluation</a>#}
+{#                            <a class="dropdown-item" href="{% url "assessment:stomp" %}">Music Preference</a>#}
+{#                        </div>#}
+{#                    </li>#}
+{#                    <li><a class="nav-link" href="/music/songs"> Media Library</a></li>#}
+{#                    {% if user.is_authenticated %}#}
+{#                        <li><a class="nav-link" href="/accounts/logout">Log out</a>#}
+{#                        </li>#}
+{#                    {% else %}#}
+{#                        <li><a class="nav-link" href=" {% url 'login' %}">Log in</a>#}
+{#                        </li>#}
+{#                    {% endif %}#}
+{#                </ul>#}
+{#            </div>#}
+{#    </div>#}
+{#</nav>#}
 <!-- Start of ChatBot (www.chatbot.com) code -->
-<script type="text/javascript">
-    window.__be = window.__be || {};
-    window.__be.id = "640e25c2ed57c0000643dcab";
-    (function () {
-        var be = document.createElement('script');
-        be.type = 'text/javascript';
-        be.async = true;
-        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(be, s);
-    })();
-</script>
-<!-- End of ChatBot code -->
+
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom" style="background-color: white;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image"
+                                              src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
+                                              height=60 focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>
+
+
+        <ul class="navbar-nav">
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li><a class="nav-link" href="/chat"> Chat</a></li>
+                    <li><a class="nav-link" href="/assessment"> Digital Forms</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url "assessment:index" %}" id="dropdown01"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Digital Forms</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Neurologic
+                                Screening Evaluation</a>
+                            <a class="dropdown-item" href="{% url "assessment:pre_post_tests" %}">Pre Post Tests</a>
+                            <a class="dropdown-item" href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">Psychoemotional
+                                Screening Evaluation</a>
+                            <a class="dropdown-item" href="{% url "assessment:stomp" %}">Music Preference</a>
+                        </div>
+                    </li>
+                    <li><a class="nav-link" href="/music/songs"> Media Library</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="nav-link" href="/accounts/logout">Log out</a>
+                        </li>
+                    {% else %}
+                        <li><a class="nav-link" href=" {% url 'login' %}">Log in</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+    </div>
+</nav>
+</div>
+<div class="clear"></div>
+<div class="container-fluid text-center">
+    <form class="text-center">
+        <div class="input-group mb-3">
+            <label>
+                <input type="text" class="form-control" placeholder="">
+            </label>
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Send</button>
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
