@@ -12,4 +12,5 @@ urlpatterns = [
     # path('', include(router.urls)),
     path('', views.index, name='index'),
     path('songs/', views.display_songs, name="songs"),
+    path('recording-detail', views.recording_details, name='recording-detail'),
 ]

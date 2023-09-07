@@ -36,3 +36,7 @@ def display_songs(request):
 
 def index(request):
     return render(request, "music/index.html")
+
+
+def recording_details(request):
+    return render(request, "music/recordings-detail.html")
