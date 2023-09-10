@@ -4,6 +4,11 @@
 
 ![image](https://github.com/chenyuan99/Music-Therapy-API/assets/25518100/3ca6646b-eee8-474e-a574-dd530d344190)
 
+## Related Project
+
+1. sojo-mychart-integration
+2. sojo-azure-integration
+
 
 ## Meeting Notes
 
