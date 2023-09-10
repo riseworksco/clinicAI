@@ -2,6 +2,9 @@
 
 ## Team
 
+![image](https://github.com/chenyuan99/Music-Therapy-API/assets/25518100/3ca6646b-eee8-474e-a574-dd530d344190)
+
+
 ## Meeting Notes
 
 https://docs.google.com/document/d/1ewrR5600d37p1CYT92cvO-7pFj8UaJEQxE2dD-HHYE0/edit
