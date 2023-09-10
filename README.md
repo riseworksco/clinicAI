@@ -1,4 +1,4 @@
-# Music Therapy API For ChatBot
+# SOJO: A platform that makes music-therapist-patient interactions easier before, between, and after sessions.
 
 ## Team
 
