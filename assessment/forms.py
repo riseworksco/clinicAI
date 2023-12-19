@@ -1,10 +1,16 @@
+import io
+
+from django.http import FileResponse
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
+
 from django import forms
 from django.conf import settings
 from django.forms import ModelForm
 from django.template.loader import render_to_string
 
 from assessment.identifiers import Sign
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 
 from assessment.models import PsychoemotionalScreeningRecord
 
@@ -108,12 +114,21 @@ class NeurologicScreeningEvaluationForm(forms.Form):
     def send(self):
         subject, msg, recipent = self.get_info()
 
-        send_mail(
-            subject=subject,
-            message="",
-            html_message=msg,
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[recipent]
+        # send_mail(
+        #     subject=subject,
+        #     message="",
+        #     html_message=msg,
+        #     from_email=settings.EMAIL_HOST_USER,
+        #     recipient_list=[recipent]
+        # )
+
+        email = EmailMessage(
+            subject,
+            "",
+            settings.EMAIL_HOST_USER,
+            [recipent],
+            reply_to=["another@example.com"],
+            headers={"Message-ID": "foo"},
         )
 
 
@@ -172,13 +187,31 @@ class PrePostForm(forms.Form):
     def send(self):
         subject, msg, recipient = self.get_info()
 
-        send_mail(
+        pdf = self.createPDF(msg)
+
+        email = EmailMessage(
             subject=subject,
-            message="",
-            html_message=msg,
+            body="",
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[recipient]
+            to=[recipient]
         )
+
+        email.attach('generated.pdf', pdf, 'application/pdf')
+
+        email.send(fail_silently=False)
+
+    def createPDF(self, data):
+        buffer = io.BytesIO()
+        c = canvas.Canvas(buffer, pagesize=A4)
+        # Start writing
+        c.drawString(100, 500, data)
+        # End writing
+        c.showPage()
+        c.save()
+        pdf = buffer.getvalue()
+        buffer.close()
+        print("pdf generation called")
+        return pdf
 
 
 class PsychoemotionalScreeningEvaluationForm(ModelForm):
