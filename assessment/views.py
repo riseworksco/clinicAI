@@ -144,3 +144,7 @@ def some_view(request):
     # present the option to save the file.
     buffer.seek(0)
     return FileResponse(buffer, as_attachment=True, filename='hello.pdf')
+
+
+def all_view(request):
+    return None

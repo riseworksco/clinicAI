@@ -15,11 +15,34 @@ from django.core.mail import send_mail, EmailMessage
 from assessment.models import PsychoemotionalScreeningRecord
 
 
-class StompForm(forms.Form):
+class AssessmentForm(forms.Form):
+    """
+    Generic class for assessment forms
+    """
+    TherapistEmail = forms.EmailField(label='Therapist Email')
+
+    def get_info(self):
+        pass
+
+    def createPDF(self, data):
+        buffer = io.BytesIO()
+        c = canvas.Canvas(buffer, pagesize=A4)
+        # Start writing
+        c.drawString(100, 500, data)
+        # End writing
+        c.showPage()
+        c.save()
+        pdf = buffer.getvalue()
+        buffer.close()
+        print("pdf generation called")
+        return pdf
+
+
+class StompForm(AssessmentForm):
     """
     Music Preference Form
     """
-    TherapistEmail = forms.EmailField(label='Therapist Email')
+    # TherapistEmail = forms.EmailField(label='Therapist Email')
     Alternative = forms.IntegerField(label='Alternative', min_value=1, max_value=5)
     Bluegrass = forms.IntegerField(label='Bluegrass', min_value=1, max_value=5)
     Blues = forms.IntegerField(label='Blues', min_value=1, max_value=5)
@@ -74,8 +97,8 @@ class StompForm(forms.Form):
         )
 
 
-class NeurologicScreeningEvaluationForm(forms.Form):
-    TherapistEmail = forms.EmailField(label='Therapist Email')
+class NeurologicScreeningEvaluationForm(AssessmentForm):
+    # TherapistEmail = forms.EmailField(label='Therapist Email')
     feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
                                  choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
     feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
@@ -132,8 +155,7 @@ class NeurologicScreeningEvaluationForm(forms.Form):
         )
 
 
-class PrePostForm(forms.Form):
-    TherapistEmail = forms.EmailField(label='Therapist Email')
+class PrePostForm(AssessmentForm):
     VITALSExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                            choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
     VITALSSingle = forms.CharField()
@@ -200,18 +222,18 @@ class PrePostForm(forms.Form):
 
         email.send(fail_silently=False)
 
-    def createPDF(self, data):
-        buffer = io.BytesIO()
-        c = canvas.Canvas(buffer, pagesize=A4)
-        # Start writing
-        c.drawString(100, 500, data)
-        # End writing
-        c.showPage()
-        c.save()
-        pdf = buffer.getvalue()
-        buffer.close()
-        print("pdf generation called")
-        return pdf
+    # def createPDF(self, data):
+    #     buffer = io.BytesIO()
+    #     c = canvas.Canvas(buffer, pagesize=A4)
+    #     # Start writing
+    #     c.drawString(100, 500, data)
+    #     # End writing
+    #     c.showPage()
+    #     c.save()
+    #     pdf = buffer.getvalue()
+    #     buffer.close()
+    #     print("pdf generation called")
+    #     return pdf
 
 
 class PsychoemotionalScreeningEvaluationForm(ModelForm):

@@ -3,10 +3,16 @@ from django.db import models
 from patient_management.models import Doctor, Patient
 
 
-# Create your models here.
-class Stomp(models.Model):
+class AssessmentModel(models.Model):
+    """
+    Generic Model for Assessment
+    """
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+
+
+# Create your models here.
+class Stomp(AssessmentModel):
     Alternative = models.IntegerField()
     Bluegrass = models.IntegerField()
     Blues = models.IntegerField()
@@ -21,7 +27,7 @@ class Stomp(models.Model):
 
 
 # PsychoemotionalScreeningRecord stuffs
-class GAD2(models.Model):
+class GAD2(AssessmentModel):
     # 1. Feeling nervous, anxious on edge
     q1_value = models.IntegerField()
     q1_epic = models.CharField('No', max_length=30)
@@ -42,7 +48,7 @@ class GAD2(models.Model):
     interpretation_smf = models.CharField('FR', max_length=30)
 
 
-class GAD7(models.Model):
+class GAD7(AssessmentModel):
     q1_value = models.IntegerField()
     q1_epic = models.CharField('No', max_length=30)
     q1_smf = models.IntegerField()
@@ -82,7 +88,7 @@ class GAD7(models.Model):
     interpretation_smf = models.CharField('FR', max_length=30)
 
 
-class PHQ2(models.Model):
+class PHQ2(AssessmentModel):
     # 1. Feeling nervous, anxious on edge
     q1_value = models.IntegerField()
     q1_epic = models.CharField('No', max_length=30)
@@ -103,7 +109,7 @@ class PHQ2(models.Model):
     interpretation_smf = models.CharField('FR', max_length=30)
 
 
-class PHQ9(models.Model):
+class PHQ9(AssessmentModel):
     q1_value = models.IntegerField()
     q1_epic = models.CharField('No', max_length=30)
     q1_smf = models.IntegerField()
@@ -143,16 +149,14 @@ class PHQ9(models.Model):
     interpretation_smf = models.CharField('FR', max_length=30)
 
 
-class PsychoemotionalScreeningRecord(models.Model):
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+class PsychoemotionalScreeningRecord(AssessmentModel):
     GAD2 = models.OneToOneField(GAD2, on_delete=models.CASCADE, )
     GAD7 = models.OneToOneField(GAD7, on_delete=models.CASCADE, )
     PHQ2 = models.OneToOneField(PHQ2, on_delete=models.CASCADE, )
     PHQ9 = models.OneToOneField(PHQ9, on_delete=models.CASCADE, )
 
 
-class CatCatFlowsheetRecord(models.Model):
+class CatCatFlowsheetRecord(AssessmentModel):
     """
     CatCatFlowsheetRecord
     """

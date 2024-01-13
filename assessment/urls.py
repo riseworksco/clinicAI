@@ -35,5 +35,6 @@ urlpatterns = [
          name="pre_post_tests"),
     path('Psychoemotional_Screening_Evaluation/', PsychoemotionalScreeningEvaluationView.as_view(),
          name="Psychoemotional_Screening_Evaluation"),
-    path('pdf/',views.some_view,name='pdf')
+    path('pdf/',views.some_view,name='pdf'),
+    path('pdf/',views.all_view,name='all')
 ]
