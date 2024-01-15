@@ -10,6 +10,9 @@ class AssessmentModel(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
 
+    class Meta:
+        abstract = True
+
 
 # Create your models here.
 class Stomp(AssessmentModel):
