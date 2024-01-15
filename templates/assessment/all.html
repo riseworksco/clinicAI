@@ -1,46 +1,65 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    {#    {% load crispy_forms_tags %}#}
-
     <body>
-
     {% include 'patient/../navbar.html' %}
 
     <div class="container">
-
-        <div class="gunicorn text-center">
-            <h1>Patients</h1>
-        </div>
-
-
         <br>
         <br>
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
-            <p>Date From</p>
-            <span>To</span>
-            <span>Status</span>
-            <span>Email </span>
+        <div>
         </div>
 
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Manage</th>
+                <th>Assessment Name</th>
+                <th>Action</th>
             </tr>
             </thead>
 
             <tbody>
-            {% for item in items %}
-                <tr>
-                    <td>{{ item.user }}</td>
-                    <td>{{ item.amount }}</td>
-                    <td>{{ item.account }}</td>
-                    <td>{{ item.updated_date }}</td>
-                </tr>
-            {% endfor %}
+            <tr>
+                <td>
+                    Neurologic Screening Evaluation
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-success"
+                       href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Create</a>
+                    <a class="btn btn-sm btn-outline-info"
+                       href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Previous</a>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Pre Post Tests
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-success" href="{% url "assessment:pre_post_tests" %}">Create</a>
+                    <a class="btn btn-sm btn-outline-info" href="{% url "assessment:pre_post_tests" %}">Previous</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Psychoemotional Screening Evaluation
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-success"
+                       href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">Create</a>
+                    <a class="btn btn-sm btn-outline-info" href="{% url "assessment:pre_post_tests" %}">Previous</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Music Preference
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-success" href="{% url "assessment:stomp" %}">Create</a>
+                    <a class="btn btn-sm btn-outline-info" href="{% url "assessment:pre_post_tests" %}">Previous</a>
+                </td>
+            </tr>
+
             </tbody>
         </table>
         <nav aria-label="Page navigation example">

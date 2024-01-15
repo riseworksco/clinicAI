@@ -147,4 +147,7 @@ def some_view(request):
 
 
 def all_view(request):
-    return None
+    context = {
+        'header': 'Digital Forms',
+        'therapist': request.user.username}
+    return render(request, 'assessment/all.html', context)

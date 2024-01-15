@@ -22,18 +22,7 @@
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li><a class="nav-link" href="/chat"> Chat</a></li>
                     <li><a class="nav-link" href="/patient"> Patient</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url "assessment:index" %}" id="dropdown01"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Digital Forms</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Neurologic
-                                Screening Evaluation</a>
-                            <a class="dropdown-item" href="{% url "assessment:pre_post_tests" %}">Pre Post Tests</a>
-                            <a class="dropdown-item" href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">Psychoemotional
-                                Screening Evaluation</a>
-                            <a class="dropdown-item" href="{% url "assessment:stomp" %}">Music Preference</a>
-                        </div>
-                    </li>
+                    <li><a class="nav-link" href="{% url "assessment:index" %}">Digital Forms</a></li>
                     <li><a class="nav-link" href="/music/songs"> Media Library</a></li>
                     {% if user.is_authenticated %}
                         <li><a class="nav-link" href="/accounts/logout">Log out</a>
