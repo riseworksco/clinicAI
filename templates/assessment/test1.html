@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+
+        <style>
+    /* 字体样式 */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* 表格样式 */
+    .table-striped th,
+    .table-striped td {
+        padding: 12px; /* 增加填充以创建更多空间 */
+        text-align: left; /* 左对齐表头和单元格内容 */
+    }
+
+    .table-striped th {
+        background-color: #00b7a6; /* 指定的颜色 */
+        color: #ffffff; /* 白色文本 */
+    }
+
+    .table-striped tbody tr:nth-child(odd) td {
+        background-color: #00b7a6; /* 指定的颜色 */
+        color: #ffffff; /* 白色文本 */
+    }
+
+    .table-striped tbody tr:nth-child(even) td {
+        background-color: #ffffff; /* 白色背景 */
+        color: #00b7a6; /* 深色文本 */
+    }
+
+    /* 按钮样式 */
+    .btn-success {
+        padding: 10px 20px; /* 增加按钮的填充 */
+        font-size: 18px; /* 增大字体大小 */
+        border-radius: 5px; /* 圆角按钮 */
+    }
+
+    .label-color {
+        color: #00b7a6; /* 这里是你选择的颜色 */
+        font-weight: bold; /* 字体加粗 */
+        font-size: 16px; /* 字体大小，根据需要调整 */
+    }
+
+</style>
+    <div class="container-fluid text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    <form class="container" action="" method="post">
+        {% csrf_token %}
+        <label for="id_TherapistEmail" class="requiredField label-color">
+            Patient<span class="asteriskField">*</span>
+        </label>
+        <div>
+             {{ form.patientName }}
+{#            <input type="number" name="TherapistEmail" class="emailinput form-control" required id="id_TherapistEmail">#}
+        </div>
+         <label for="id_TherapistEmail" class="requiredField label-color">
+           Initial Walk <span class="asteriskField">*</span>
+        </label>
+        <div>
+             {{ form.initialWalk }}
+{#            <input type="number" name="TherapistEmail" class="emailinput form-control" required id="id_TherapistEmail">#}
+        </div>
+        <table class="table table-striped">
+
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+
+            </tr>
+            {#            {% for field in form %}#}
+            <tr>
+                <td>
+                    The Time Taken for 10 meters
+                </td>
+                <td>
+                    {{ form.firstWalkSteps |as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.firstWalkSeconds |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                </td>
+                <td>
+                    {{ form.firstCadence|as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.firstVelocity |as_crispy_field }}
+                </td>
+                <td>
+                    {{ form.firstStrideLength|as_crispy_field }}
+                </td>
+
+            </tr>
+{#            <tr>#}
+{#                <td class="fieldWrapper">#}
+{#                    {{ form.feature2.errors }}#}
+{#                    {{ form.feature2.label_tag }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature2 |as_crispy_field }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature2ExistsInEPIC|as_crispy_field }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature2Single|as_crispy_field }}#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="fieldWrapper">#}
+{#                    {{ form.feature3.errors }}#}
+{#                    {{ form.feature3.label_tag }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature3|as_crispy_field }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature3ExistsInEPIC|as_crispy_field }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature3Single|as_crispy_field }}#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td class="fieldWrapper">#}
+{#                    {{ form.feature4.errors }}#}
+{#                    {{ form.feature4.label_tag }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature4 |as_crispy_field }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature4ExistsInEPIC|as_crispy_field }}#}
+{#                </td>#}
+{#                <td>#}
+{#                    {{ form.feature4Single|as_crispy_field }}#}
+{#                </td>#}
+{##}
+{#            </tr>#}
+            {#            {% endfor %}#}
+        </table>
+        <button class="btn my-3" type="submit" style="background-color: #00b7a6; color: #ffffff;">Send message</button>
+    </form>
+ <script>
+        function performDivision() {
+            // Get the values from the numerator and denominator input fields
+            var stepsValue = document.getElementById('id_firstWalkSteps').value;
+            var secondsValue = document.getElementById('id_firstWalkSeconds').value;
+
+            // Convert the values to numbers
+            stepsValue = parseFloat(stepsValue);
+            secondsValue = parseFloat(secondsValue);
+
+            // Perform the division and update the result input field
+            var CadenceValue = (secondsValue !== 0) ? 60/ secondsValue * stepsValue : 0;
+            var VelocityValue = (secondsValue !== 0) ? 60/ secondsValue * 10 : 0;
+            var StrideLengthValue = (secondsValue !== 0) ? 10 / stepsValue * 2 : 0;
+            document.getElementById('id_firstCadence').value = CadenceValue.toFixed(3);
+            document.getElementById('id_firstVelocity').value = VelocityValue.toFixed(3);
+            document.getElementById('id_firstStrideLength').value = StrideLengthValue.toFixed(3);
+        }
+    </script>
+{% endblock %}

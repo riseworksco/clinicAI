@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+
+    <style>
+    /* 字体样式 */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* 表格样式 */
+    .table-striped th,
+    .table-striped td {
+        padding: 12px; /* 增加填充以创建更多空间 */
+        text-align: left; /* 左对齐表头和单元格内容 */
+    }
+
+    .table-striped th {
+        background-color: #00b7a6; /* 指定的颜色 */
+        color: #ffffff; /* 白色文本 */
+    }
+
+    .table-striped tbody tr:nth-child(odd) td {
+        background-color: #00b7a6; /* 指定的颜色 */
+        color: #ffffff; /* 白色文本 */
+    }
+
+    .table-striped tbody tr:nth-child(even) td {
+        background-color: #ffffff; /* 白色背景 */
+        color: #00b7a6; /* 深色文本 */
+    }
+
+    /* 按钮样式 */
+    .btn-success {
+        padding: 10px 20px; /* 增加按钮的填充 */
+        font-size: 18px; /* 增大字体大小 */
+        border-radius: 5px; /* 圆角按钮 */
+    }
+
+    .label-color {
+        color: #00b7a6; /* 这里是你选择的颜色 */
+        font-weight: bold; /* 字体加粗 */
+        font-size: 16px; /* 字体大小，根据需要调整 */
+    }
+
+</style>
+
+
+<script>
+        function performDivision() {
+
+          document.getElementById('id_checkbox5').checked = false;
+           document.getElementById('id_checkbox6').checked = false;
+
+            // Get the values from the numerator and denominator input fields
+            var oneValue = document.getElementById('id_checkbox1');
+            var twosValue = document.getElementById('id_checkbox2');
+             var threeValue = document.getElementById('id_checkbox3');
+              var fourValue = document.getElementById('id_checkbox4');
+
+            // Convert the values to numbers
+            var check1 = oneValue.checked;
+            var check2 = twosValue.checked;
+            var check3 = threeValue.checked;
+            var check4 = fourValue.checked;
+            var index = false
+
+           if (check1 && check2 && (check3 || check4)) {
+                  index = true
+            }
+
+
+            if(index){
+             document.getElementById('id_checkbox5').checked = true;
+            }else{
+            document.getElementById('id_checkbox6').checked = true;
+            }
+            // Perform the division and update the result input field
+
+
+
+        }
+    </script>
+    <div class="container-fluid text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    <form class="container" action="" method="post">
+        {% csrf_token %}
+        <label for="id_patientName" class="requiredField label-color">
+            Patient<span class="asteriskField">*</span>
+        </label>
+        <div>
+             {{ form.patientName }}
+        </div>
+         <label for="id_my_datetime_field" class="requiredField label-color">
+          Time  <span class="asteriskField">*</span>
+        </label>
+        <div>
+             {{ form.my_datetime_field }}
+        </div>
+        <table class="table table-striped">
+
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+
+            </tr>
+            {#            {% for field in form %}#}
+            <tr>
+                <td>
+                    <div>
+                         1. Acute Onset or Fluctuating Course
+                    </div>
+                    <div>
+                         Is the pt different than his/her baseline mental status? OR
+Has the patient had any fluctuation in mental status in the past 24 hours as evidenced by fluctuation on a sedation scale (i.e., RASS), GCS, or previous delirium assessment?
+
+                    </div>
+                </td>
+
+                <td>
+                        Either question Yes ->
+                </td>
+                 <td>
+                    {{ form.checkbox1 |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                        <div>
+                            2. Inattention
+                        </div>
+                    <div>
+                          Directions: Say to the patient, "I am going to read you a series of 10 letters. Whenever you hear the letter 'A,' indicate by squeezing my hand.” Read letters from the following letter list in a normal tone 3 seconds apart.
+SAVEAHAART
+Errors are counted when patient fails to squeeze on the letter "A" and when the patient squeezes on any letter other than “A.”
+                    </div>
+
+                </td>
+
+                <td>
+                    Number of Errors >2 →→
+                </td>
+
+                  <td>
+                    {{ form.checkbox2 |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+
+            </tr>
+            <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                    <div>
+                        3. Altered Level of Consciousness
+                    </div>
+                    <div>
+                        Present if the Actual RASS score is anything other than alert and calm (zero)
+                    </div>
+                </td>
+                <td>
+                        RASS anything other than zero ->
+                </td>
+
+                  <td>
+                    {{ form.checkbox3 |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+
+            </tr>
+
+             <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                     <div>
+                        4. Disorganized Thinking
+                    </div>
+                    <div>
+                         Yes/No Questions (See training manual for alternate set of questions)
+                    1. Will a stone float on water?
+                    2. Are there fish in the sea?
+                    3. Does one pound weigh more than two pounds?
+                    4. Can you use a hammer to pound a nail?
+                    Errors are counted when the patient incorrectly answers a question.
+                    Command
+                    Say to patient: "Hold up this many fingers" (Hold 2 fingers in front of patient) "Now do the same thing with the other hand" (Do not repeat number of fingers) *If pt is unable to move both arms, for 2nd part of command ask patient to "Add one more finger"
+                    An error is counted if patient is unable to complete the entire command.
+                    </div>
+
+
+
+                </td>
+                <td>
+                     Combined number of errors > 1->
+
+                </td>
+
+
+                  <td>
+                    {{ form.checkbox4 |as_crispy_field }}
+                    {#                    placeholder#}
+                </td>
+
+            </tr>
+              <tr>
+                <td class="fieldWrapper">
+                    {{ form.feature1.errors }}
+                    {{ form.feature1.label_tag }}
+                    <div>
+                         Feature 1 plus 2 and either 3 or 4 present = CAM-ICU positive
+                    </div>
+
+
+                </td>
+                <td>
+                    <div>
+                        Criteria Met ->
+                    </div>
+                    <div>
+                        Criteria Not Met ->
+                    </div>
+
+                </td>
+                <td>
+                       <div>
+                           {{ form.checkbox5 |as_crispy_field }}
+                       </div>
+                    <div>
+                          {{ form.checkbox6 |as_crispy_field }}
+                    </div>
+
+
+                </td>
+
+            </tr>
+
+            {#            {% endfor %}#}
+        </table>
+        <button class="btn my-3" type="submit" style="background-color: #00b7a6; color: #ffffff;">Send message</button>
+    </form>
+
+{% endblock %}

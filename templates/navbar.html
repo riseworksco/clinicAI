@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image"
                                               src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
-                                              height=60 focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>
+                                              height="100"width="40" focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>
 
 
         <ul class="navbar-nav">
@@ -16,6 +16,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
 
@@ -32,6 +33,10 @@
                             <a class="dropdown-item" href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">Psychoemotional
                                 Screening Evaluation</a>
                             <a class="dropdown-item" href="{% url "assessment:stomp" %}">Music Preference</a>
+                             <a class="dropdown-item" href="{% url "sheetRAS:RAS" %}">RAS Evaluation</a>
+                               <a class="dropdown-item" href="{% url "sheet4AT:sheet4AT" %}">4AT Evaluation</a>
+                           <a class="dropdown-item" href="{% url "sheetCAM1:CAM1" %}">4AT Evaluation</a>
+
                         </div>
                     </li>
                     <li><a class="nav-link" href="/music/songs"> Media Library</a></li>

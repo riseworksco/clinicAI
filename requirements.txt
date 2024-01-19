@@ -4,10 +4,9 @@ cloudinary
 dj-database-url==1.2.0
 Django
 django-crispy-forms==1.14.0
-django-heroku==0.3.1
+
 djangorestframework==3.14.0
 gunicorn==20.1.0
-psycopg2==2.9.5
 pytz==2022.7.1
 six==1.16.0
 sqlparse

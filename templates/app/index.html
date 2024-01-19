@@ -7,50 +7,136 @@
 
     {% include 'navbar.html' %}
 
-    <div class="container-fluid">
+    <style>
+.jumbotron-new {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 40px 20px;  /* 增加上下内边距 */
 
 
-        <div class="clear"></div>
+}
 
-        <div class="clear"></div>
 
-        <div class="jumbotron">
-            <h2>A ChatBot for Music Therapy</h2>
-        </div>
-        <button class="btn btn-lg btn-outline-primary">Sign Up Now</button>
+.client-image {
+    max-width: calc((100% - (8 * 10px)) / 8); /* 根据容器宽度和图片数量计算图片的最大宽度 */
+    max-height: 80%;              /* 限制图片的最大高度为容器高度的80% */
+    height: auto;                 /* 高度自动调整，保持图片比例 */
+}
 
-    </div>
 
-    <div class="container-fluid text-right">
-        <div class="jumbotron">
-            <h2>Discover Our Playlists for Music Therapy</h2>
-        </div>
-        {{ form.as_p }}
-        <form action="" class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input name="s" type="text" class="form-control" placeholder="Indie">
+
+    </style>
+
+
+
+         <!-- banner section start -->
+      <div id="main_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="banner_section">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <h1 class="banner_taital">Music <br><span style="color: #151515;">Care</span></h1>
+                           <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
+                           <div class="btn_main">
+                              <div class="more_bt"><a href="mailto: support@sojoai.com">Contact Now</a></div>
+                              <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="image_1"><img src="{% static 'images/music_band.jpeg' %} " alt=""></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <button type="submit" class="btn btn-lg btn-outline-primary">Search</button>
-        </form>
-    </div>
-    <div class="clear"></div>
-    <div class="container-fluid text-left">
-        <div class="jumbotron">
-            <h2>Bring SOJO to your therapy</h2>
-        </div>
-    </div>
-    <div class="clear"></div>
-    </div>
 
-    <div class="clear"></div>
-    <div class="container-fluid text-center">
-        <div class="jumbotron">
-            <h2 class="text-center">Try SOJO</h2>
-        </div>
-        <button class="btn btn-lg  btn-outline-primary" data-toggle="modal" data-target="#registerModal">Request
-            Demo
-        </button>
-    </div>
+            <div class="carousel-item">
+               <div class="banner_section">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <h1 class="banner_taital">A ChatBot<br><span style="color: #151515;">Music Therapy</span></h1>
+                           <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
+                           <div class="btn_main">
+                              <div class="more_bt"><a href="#">Contact Now</a></div>
+                              <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="image_1"><img src="{% static 'images/img-1.png' %}" alt=""></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-long-arrow-left" style="font-size:24px; padding-top: 4px;"></i>
+         </a>
+         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-long-arrow-right" style="font-size:24px; padding-top: 4px;"></i>
+         </a>
+      </div>
+
+   <!-- banner section end -->
+
+
+
+
+  <div class="health_section layout_padding">
+      <div class="container">
+         <h1 class="health_taital">Best Of Health care for you</h1>
+         <p class="health_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+         <div class="health_section layout_padding">
+            <div class="row">
+               <div class="col-sm-7">
+                  <div class="image_main">
+                     <div class="main">
+                        <img src="{% static 'images/discover1.png' %}" alt="Avatar" class="image" style="width:100%; height:50%">
+                     </div>
+                     <div class="middle">
+                        <div class="text"><img src="{% static 'images/icon-1.png' %}" style="width: 40px;" alt=""></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-5">
+                  <div class="image_main_1">
+                     <div class="main">
+                        <img src="{% static 'images/discover2.png' %}" alt="Avatar" class="image" style="width:100%; height:60%">
+                     </div>
+                     <div class="middle">
+                        <div class="text"><img src="{% static 'images/icon-1.png' %}" style="width: 40px;" alt=""></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="getquote_bt_1"><a href="#">Bring SOJO to your therapy <span><img src="{% static 'images/right-arrow.png' %}" alt=""></span></a></div>
+         </div>
+      </div>
+   </div>
+
+
+<div class="knowledge_section layout_padding">
+      <div class="container">
+         <div class="knowledge_main">
+            <div class="left_main">
+               <h1 class="knowledge_taital">Knowledge of center</h1>
+               <p class="knowledge_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="right_main">
+               <div class="play_icon"><a href="#"><img src="{% static 'images/play-icon.png' %}" alt=""></a></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+
     <div class="clear"></div>
     <hr>
 
@@ -66,8 +152,10 @@
                         <div class="index-footer__subtext">Hire qualified researchers and build
                             the best teams in science.
                         </div>
-                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-                        </p>
+                            <p>
+                             <a class="btn my-3" href="#" role="button" style="background-color: #00b7a6; color: #ffffff;">View details &raquo;</a>
+                            </p>
+
                     </div>
                 </div>
             </div>
@@ -79,8 +167,10 @@
                             scientific community with the world&#x27;s leading network for
                             scientists.
                         </div>
-                        <p><a class="btn btn-secondary" href="#" role="button">View details
-                            &raquo;</a></p>
+                       <p>
+                        <a class="btn my-3" href="#" role="button" style="background-color: #00b7a6; color: #ffffff;">View details &raquo;</a>
+                       </p>
+
                     </div>
                 </div>
             </div>
@@ -92,26 +182,54 @@
                             scientific community with the world&#x27;s leading network for
                             scientists.
                         </div>
-                        <p><a class="btn btn-secondary" href="#" role="button">View details
-                            &raquo;</a></p>
+                        <p>
+                        <a class="btn my-3" href="#" role="button" style="background-color: #00b7a6; color: #ffffff;">View details &raquo;</a>
+                        </p>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
+   <!-- knowledge section end -->
+
     <div class="clear"></div>
 
-    <div class="container-fluid text-center">
-        <div class="jumbotron">
-            <h2 class="text-center">Our Vendors</h2>
-        </div>
+<div class="container-fluid text-center">
+
+
+
+    <div class="jumbotron-new" style="background-color: #00e5d0;">
+
+
+            <img src="{% static 'images/client-1.png' %}" alt=""  class="client-image">
+            <img src="{% static 'images/client-2.png' %}" alt=""  class="client-image">
+            <img src="{% static 'images/client-3.png' %}" alt=""  class="client-image">
+            <img src="{% static 'images/client-4.png' %}" alt=""  class="client-image">
+            <img src="{% static 'images/client-5.png' %}" alt="" class="client-image" >
+            <img src="{% static 'images/client-6.png' %}" alt=""  class="client-image">
+            <img src="{% static 'images/client-7.png' %}" alt=""  class="client-image">
+            <img src="{% static 'images/client-8.png' %}" alt="" class="client-image" >
+
+
+    </div>
+</div>
+
+
+
+
+
+
+    <div>
         <button class="btn btn-lg  btn-outline-primary" data-toggle="modal" data-target="#registerModal">Request
             Demo
         </button>
     </div>
 
-    </div>
+
     <!-- Bootstrap core JavaScript
   ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

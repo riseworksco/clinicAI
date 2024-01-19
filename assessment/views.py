@@ -69,7 +69,7 @@ class StompView(LoginRequiredMixin, FormView):
         return super().form_valid(form)
 
 
-class StompSuccessView(LoginRequiredMixin, TemplateView):
+class StompSuccessView(TemplateView):
     template_name = 'email/success.html'
 
 

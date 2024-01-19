@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- Created By Yuan Chen
 Version 07/18/2020 -->
+{% load static %}
 <html>
 
 <footer class="footer">
@@ -42,6 +43,43 @@ Version 07/18/2020 -->
             </script>
              </span>
     </div>
+
+
+ <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">Contact Us</h1>
+                  <div class="map_icon"><img src="{% static 'images/map-icon.png' %}"><span class="paddlin_left_0">   6100 Main St, Houston, TX 77005</span></div>
+                  <div class="map_icon"><img src="{% static 'images/call-icon.png' %}"><span class="paddlin_left_0">（+1）346.448.4031</span></div>
+                  <div class="map_icon"><img src="{% static 'images/mail-icon.png' %}"><span class="paddlin_left_0"> js237@rice.edu</span></div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">Doctors</h1>
+                  <div class="hiphop_text_1">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">Useful Links</h1>
+                  <div class="Useful_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered ,</div>
+               </div>
+               <div class="col-lg-3 col-sm-6">
+                  <h1 class="adderss_text">Newsletter</h1>
+                  <input type="text" class="Enter_text" placeholder="Enter your Emil" name="Enter your Emil">
+                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                  <div class="social_icon">
+                     <ul>
+
+                        <li><a href="#"><img src="{% static 'images/fb-icon.png' %}"></a></li>
+                        <li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
+                        <li><a href="#"><img src="{% static 'images/linkedin-icon.png' %}"></a></li>
+                        <li><a href="#"><img src="{% static 'images/instagram-icon.png' %}"></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
 </footer>
+
 
 </html>
