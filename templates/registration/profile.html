@@ -1,11 +1,14 @@
 {% extends "base.html" %}
+<!-- templates/registration/login.html -->
+
 {% block title %}Profile{% endblock %}
+
 {% block content %}
     {% include 'navbar.html' %}
     <div class="container-fluid text-center">
         <h2>Contact</h2>
         <label> Email:
-            <input type="email" class="form-control" value="{{ user.email }}" disabled>
+            <input type="email" class="form-control">
         </label>
         <label> Phone:
             <input type="text" class="form-control">

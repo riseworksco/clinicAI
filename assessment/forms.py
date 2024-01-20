@@ -1,48 +1,19 @@
-import io
-
-from django.http import FileResponse
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
-
 from django import forms
 from django.conf import settings
 from django.forms import ModelForm
 from django.template.loader import render_to_string
 
 from assessment.identifiers import Sign
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail
 
 from assessment.models import PsychoemotionalScreeningRecord
 
 
-class AssessmentForm(forms.Form):
-    """
-    Generic class for assessment forms
-    """
-    TherapistEmail = forms.EmailField(label='Therapist Email')
-
-    def get_info(self):
-        pass
-
-    def createPDF(self, data):
-        buffer = io.BytesIO()
-        c = canvas.Canvas(buffer, pagesize=A4)
-        # Start writing
-        c.drawString(100, 500, data)
-        # End writing
-        c.showPage()
-        c.save()
-        pdf = buffer.getvalue()
-        buffer.close()
-        print("pdf generation called")
-        return pdf
-
-
-class StompForm(AssessmentForm):
+class StompForm(forms.Form):
     """
     Music Preference Form
     """
-    # TherapistEmail = forms.EmailField(label='Therapist Email')
+    TherapistEmail = forms.EmailField(label='Therapist Email')
     Alternative = forms.IntegerField(label='Alternative', min_value=1, max_value=5)
     Bluegrass = forms.IntegerField(label='Bluegrass', min_value=1, max_value=5)
     Blues = forms.IntegerField(label='Blues', min_value=1, max_value=5)
@@ -97,8 +68,8 @@ class StompForm(AssessmentForm):
         )
 
 
-class NeurologicScreeningEvaluationForm(AssessmentForm):
-    # TherapistEmail = forms.EmailField(label='Therapist Email')
+class NeurologicScreeningEvaluationForm(forms.Form):
+    TherapistEmail = forms.EmailField(label='Therapist Email')
     feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
                                  choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
     feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
@@ -137,25 +108,17 @@ class NeurologicScreeningEvaluationForm(AssessmentForm):
     def send(self):
         subject, msg, recipent = self.get_info()
 
-        # send_mail(
-        #     subject=subject,
-        #     message="",
-        #     html_message=msg,
-        #     from_email=settings.EMAIL_HOST_USER,
-        #     recipient_list=[recipent]
-        # )
-
-        email = EmailMessage(
-            subject,
-            "",
-            settings.EMAIL_HOST_USER,
-            [recipent],
-            reply_to=["another@example.com"],
-            headers={"Message-ID": "foo"},
+        send_mail(
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipent]
         )
 
 
-class PrePostForm(AssessmentForm):
+class PrePostForm(forms.Form):
+    TherapistEmail = forms.EmailField(label='Therapist Email')
     VITALSExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
                                            choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
     VITALSSingle = forms.CharField()
@@ -209,31 +172,13 @@ class PrePostForm(AssessmentForm):
     def send(self):
         subject, msg, recipient = self.get_info()
 
-        pdf = self.createPDF(msg)
-
-        email = EmailMessage(
+        send_mail(
             subject=subject,
-            body="",
+            message="",
+            html_message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            to=[recipient]
+            recipient_list=[recipient]
         )
-
-        email.attach('generated.pdf', pdf, 'application/pdf')
-
-        email.send(fail_silently=False)
-
-    # def createPDF(self, data):
-    #     buffer = io.BytesIO()
-    #     c = canvas.Canvas(buffer, pagesize=A4)
-    #     # Start writing
-    #     c.drawString(100, 500, data)
-    #     # End writing
-    #     c.showPage()
-    #     c.save()
-    #     pdf = buffer.getvalue()
-    #     buffer.close()
-    #     print("pdf generation called")
-    #     return pdf
 
 
 class PsychoemotionalScreeningEvaluationForm(ModelForm):

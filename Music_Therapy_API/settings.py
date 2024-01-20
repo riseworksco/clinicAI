@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-import django_heroku
+# import django_heroku
 import cloudinary
 
 from pathlib import Path
@@ -56,6 +56,10 @@ INSTALLED_APPS = [
     'chat',
     'accounts',
     'assessment',
+    'sheetRAS',
+    'sheet4AT',
+    # 'sheetCAM',
+    'sheetCAM1',
 ]
 
 MIDDLEWARE = [
@@ -142,21 +146,34 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = "/static/"
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-django_heroku.settings(locals())
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    # Add other static file paths if needed
+]
+
+
+
+# django_heroku.settings(locals())
 
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+
+
+
 
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

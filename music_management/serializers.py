@@ -12,3 +12,8 @@ class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Playlist
         fields = ['id', 'name','songs']
+
+# music_management/serializers.py
+
+
+
