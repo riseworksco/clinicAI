@@ -28,4 +28,9 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('accounts/', include('accounts.urls')),
     path('assessment/', include('assessment.urls')),
+    path('sheetRAS/', include('sheetRAS.urls')),
+    path('sheet4AT/', include('sheet4AT.urls')),
+    # path('sheetCAM/', include('sheetCAM.urls')),
+    path('sheetCAM1/', include('sheetCAM1.urls')),
+
 ]

@@ -69,7 +69,7 @@ class StompView(LoginRequiredMixin, FormView):
         return super().form_valid(form)
 
 
-class StompSuccessView(LoginRequiredMixin, TemplateView):
+class StompSuccessView(TemplateView):
     template_name = 'email/success.html'
 
 
@@ -144,10 +144,3 @@ def some_view(request):
     # present the option to save the file.
     buffer.seek(0)
     return FileResponse(buffer, as_attachment=True, filename='hello.pdf')
-
-
-def all_view(request):
-    context = {
-        'header': 'Digital Forms',
-        'therapist': request.user.username}
-    return render(request, 'assessment/all.html', context)
