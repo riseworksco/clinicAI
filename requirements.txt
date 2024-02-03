@@ -16,3 +16,4 @@ whitenoise==6.4.0
 wincertstore==0.2
 reportlab
 psycopg2==2.9.5
+whitenoise
