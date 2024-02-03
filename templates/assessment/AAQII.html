@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container-fluid text-center">
+        {{ description | escape | linebreaks }}
+    </div>
+
+    <div class="container">
+        <form id="aaqForm" class="container" action="" method="post">
+            {% csrf_token %}
+            <div class="form-group" style="margin-top: 20px;">
+                {{ form.name.label_tag }} {{ form.name }}
+            </div>
+            <div class="form-group">
+                {{ form.date.label_tag }} {{ form.date }}
+            </div>
+            <p style="font-weight: bold; margin-top: 20px;">Please rate the truth of each statement in the column on the right, using the following scale:</p>
+
+            <table class="table">
+                {% for field in questions %}
+                    <tr>
+                        <td>{{ field.label_tag }}</td>
+                        <td>{{ field }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <button id="submitFormBtn" type="submit" class="btn btn-primary">Submit</button>
+            <button id="sendMessageBtn" type="button" class="btn my-3" style="background-color: #00b7a6; color: #ffffff;">Send message</button>
+            <input type="hidden" name="submit_action" id="submitActionInput" value="submit">
+        </form>
+        <div id="totalScore"></div>
+        <div id="diagnosisResult" style="margin-top: 20px;"></div>
+        <div id="referenceText" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submitFormBtn').on('click', function(e) {  // Add 'e' here
+                e.preventDefault();  // Now 'e' is defined
+
+                var total = 0;
+                var isFormValid = true;
+
+                // Iterate through each select box and calculate total
+                $('#aaqForm select').each(function() {
+                    var answer = $(this).val();
+                    if (answer === "" || answer === null) {
+                        isFormValid = false;
+                        alert('Please answer all questions.');
+                        return false; // Break out of the loop
+                    }
+                    total += parseInt(answer, 10);
+                });
+
+                if (!isFormValid) {
+                    // If any question is not answered, do not proceed
+                    return;
+                }
+
+                // Handle form data
+                $('#totalScore').text('Total Score: ' + total);
+
+                // Display diagnosis based on total score
+                var diagnosis;
+                if (total > 24 && total <= 28) {
+                    diagnosis = "Probable current clinical distress, future distress & work absence more likely.";
+                } else if (total > 28) {
+                    diagnosis = "High likelihood of clinical distress.";
+                } else {
+                    diagnosis = "Likely non-clinical level of distress.";
+                }
+                $('#diagnosisResult').html('<strong>Diagnosis:</strong> ' + diagnosis);
+
+                // Display reference text
+                $('#referenceText').html('Reference: Average (mean) score in a clinical population was 28.3 (SD 9.9); while in a non-clinical population it was 18.51 (SD 7.05). Scores of >24-28 suggest probable current clinical distress and make future distress & work absence more likely.');
+            });
+
+
+            $('#sendMessageBtn').on('click', function() {
+            $('#submitActionInput').val('send_message');
+            $('#aaqForm').submit();  // Submit the form
+});
+
+        });
+    </script>
+{% endblock %}

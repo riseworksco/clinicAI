@@ -1,0 +1,480 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container-fluid text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+
+    <div class="container">
+        <form id="matadocForm">
+            <!-- Basic Patient Information -->
+            <div class="form-group">
+                <label for="patientName">Patient Name:</label>
+                <input type="text" class="form-control" id="patientName" placeholder="Enter patient's name">
+            </div>
+
+            <div class="form-group">
+                <label for="assessmentDate">Assessment Date:</label>
+                <input type="date" class="form-control" id="assessmentDate">
+            </div>
+
+            <!-- MATADOC Assessment Categories -->
+            <!-- Responses to Visual Stimuli -->
+            <!-- Responses to Visual Stimuli -->
+            <div class="form-group">
+                <label for="question1">1. Responses to Visual Stimuli</label>
+                <select class="form-control" id="question1">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No tracking/turning towards visual stimuli</option>
+                    <option value="1">1 - Inconsistent eye movement /head movement towards instructor/assessor</option>
+                    <option value="2">2 - Consistently follows movement of instrument/assessor with eyes</option>
+                    <option value="3">3 - Can focus alternatively on more than 1 visual stimulus</option>
+                </select>
+                <textarea class="form-control" id="question1Comments"
+                    placeholder="Comments and specify stimuli"></textarea>
+            </div>
+
+            <!-- Responses to Auditory Stimuli -->
+            <div class="form-group">
+                <label for="question2">2. Responses to Auditory Stimuli</label>
+                <select class="form-control" id="question2">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No localizing to auditory stimuli</option>
+                    <option value="1">1 - Inconsistently eye/head movement/turning towards auditory stimuli</option>
+                    <option value="2">2 - Consistently localizes to auditory stimuli</option>
+                    <option value="3">3 - Can focus alternatively on more than 1 auditory stimulus</option>
+                </select>
+                <textarea class="form-control" id="question2Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+
+
+
+
+
+            <!-- Awareness of Musical Stimuli -->
+            <div class="form-group">
+                <label for="question3">3. Awareness of Musical Stimuli</label>
+                <select class="form-control" id="question3">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No observed responses</option>
+                    <option value="1">1 - Activity unrelated to musical stimuli</option>
+                    <option value="2">2 - Responses inconsistently related to musical stimuli</option>
+                    <option value="3">3 - Responded for duration of music only</option>
+                    <option value="4">4 - Showed inconsistent interactive responses within musical exchange</option>
+                    <option value="5">5 - Showed consistent interactive responses within musical exchange</option>
+                </select>
+                <textarea class="form-control" id="question3Comments" placeholder="Comments"></textarea>
+            </div>
+
+            <!-- Response to Verbal Commands -->
+            <div class="form-group">
+                <label for="question4">4. Response to Verbal Commands</label>
+                <select class="form-control" id="question4">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No activity to verbal commands</option>
+                    <option value="1">1 - Unrelated activity to verbal commands</option>
+                    <option value="2">2 - Responded inconsistently to verbal commands</option>
+                    <option value="3">3 - Consistently followed verbal commands</option>
+                </select>
+                <textarea class="form-control" id="question4Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+            <!-- Arousal -->
+            <div class="form-group">
+                <label for="question5">5. Arousal</label>
+                <select class="form-control" id="question5">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - Showed no arousal</option>
+                    <option value="1">1 - Arousal demonstrated for less than 50% of session</option>
+                    <option value="2">2 - Arousal demonstrated between 50-90% of session</option>
+                    <option value="3">3 - Arousal throughout session</option>
+                </select>
+                <textarea class="form-control" id="question5Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+
+
+
+            <!-- Behavioral Responses to Music -->
+            <div class="form-group">
+                <label for="question6">6. Behavioral Responses to Music</label>
+                <div class="form-group">
+                    <label for="choice1">Change in facial gesture</label>
+                    <select class="form-control" id="choice1">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice2">Change in eye direction/eye contact</label>
+                    <select class="form-control" id="choice2">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice3">Change in physical movement</label>
+                    <select class="form-control" id="choice3">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice4">Change in vocalization</label>
+                    <select class="form-control" id="choice4">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="choice5">Change in respiration</label>
+                    <select class="form-control" id="choice5">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice6">Change in arousal</label>
+                    <select class="form-control" id="choice6">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <textarea class="form-control" id="question6Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Musical Response -->
+            <div class="form-group">
+                <label for="question7">7. Musical Response</label>
+                <div class="form-group">
+                    <label for="choice7">Responses linked to pulse/rhythm</label>
+                    <select class="form-control" id="choice7">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice8">Responses linked to melody/pitch</label>
+                    <select class="form-control" id="choice8">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice9" l>Responses linked to timbre</label>
+                    <select class="form-control" id="choice9">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice10">Responses linked to dynamic/intensity</label>
+                    <select class="form-control" id="choice10">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice11">Responses linked to form (e.g. phrase, silence)</label>
+                    <select class="form-control" id="choice11">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice12">Responses linked to tempo</label>
+                    <select class="form-control" id="choice12">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="choice13">Responses linked to mood of music</label>
+                    <select class="form-control" id="choice13">
+                        <option value="" selected disabled hidden>Choose response</option>
+                        <option value="1">N - No</option>
+                        <option value="2">Y - Yes</option>
+                    </select>
+                </div>
+                <textarea class="form-control" id="question7Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+
+            <!-- Vocalization -->
+            <div class="form-group">
+                <label for="question8">8. Vocalization</label>
+                <select class="form-control" id="question8">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No vocalization to musical stimuli</option>
+                    <option value="1">1 - Vocal sounds unrelated to musical stimuli</option>
+                    <option value="2">2 - Attempted vocalization but unsuccessful/increase oral movements</option>
+                    <option value="3">3 - Inconsistent vocal sounds to musical stimuli</option>
+                    <option value="4">4 - Consistently made vocal sounds to musical stimuli</option>
+                    <option value="5">5 - Attempted to sing words</option>
+                    <option value="6">6 - Sang last words of phrase/music acted as cue</option>
+                    <option value="7">7 - Sang all words to familiar songs</option>
+                    <option value="9">9 - Unable to vocalize</option>
+                </select>
+                <textarea class="form-control" id="question8Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+
+
+            <!-- Non-verbal Communication -->
+            <div class="form-group">
+                <label for="question9">9. Non-verbal Communication</label>
+                <select class="form-control" id="question9">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No interaction with others spontaneously or to verbal commands +/- prompts
+                    </option>
+                    <option value="1">1 - Requires verbal command +/- prompts for all social & non-verbal communication
+                    </option>
+                    <option value="2">2 - Inconsistent spontaneous use of social communication gestures without prompts
+                    </option>
+                    <option value="3">3 - Consistent use of spontaneous and appropriate social communication gestures
+                    </option>
+                </select>
+                <textarea class="form-control" id="question9Comments"
+                    placeholder="Comments (incl, Specify types/no. of prompts)"></textarea>
+            </div>
+            <!-- Choice-making -->
+            <div class="form-group">
+                <label for="question10">10. Choice-making</label>
+                <select class="form-control" id="question10">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No evidence of choice making</option>
+                    <option value="1">1 - Looked toward 1 object presented on its own</option>
+                    <option value="2">2 - Looked toward more than 1 object presented together in sequence</option>
+                    <option value="3">3 - Looked toward morethan 1 object presented together simultaneously</option>
+                    <option value="4">4 - Communicated preference between 2 objects</option>
+                    <option value="5">5 - Communicated preference between more than 2 objects</option>
+                </select>
+                <textarea class="form-control" id="question10Comments" placeholder="Comments"></textarea>
+
+            </div>
+
+
+
+            <!-- Motor Skills -->
+            <div class="form-group">
+                <label for="question11">11. Motor Skills</label>
+                <select class="form-control" id="question11">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No active movement</option>
+                    <option value="1">1 - Active movement but intent unknown</option>
+                    <option value="2">2 - Purposeful movement but requires verbal prompts and/or physical facilitation
+                    </option>
+                    <option value="3">3 - Spontaneous purposeful movement but requires facilitation</option>
+                    <option value="4">4 - Spontaneous purposeful independent movement</option>
+                    <option value="9">9 - Unable to move</option>
+                </select>
+                <textarea class="form-control" id="question11Comments"
+                    placeholder="Specify body part and comments"></textarea>
+            </div>
+
+            <!-- Attention to Task -->
+            <div class="form-group">
+                <label for="question12">12. Attention to Task</label>
+                <select class="form-control" id="question12">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - Did not attend to task</option>
+                    <option value="1">1 - Attended to moments of musical tasks</option>
+                    <option value="2">2 - Attended to entire musical task</option>
+                    <option value="3">3 - Attended to entire session</option>
+                </select>
+                <textarea class="form-control" id="question12Comments"
+                    placeholder="Specify tasks and duration"></textarea>
+            </div>
+
+
+            <!-- Intentional Behavior -->
+            <div class="form-group">
+                <label for="question13">13. Intentional Behavior</label>
+                <select class="form-control" id="question13">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No intentional response to musical stimuli</option>
+                    <option value="1">1 - Active response but intent could not be determined</option>
+                    <option value="2">2 - Intentional response evident but goal not achieved</option>
+                    <option value="3">3 - Intentional response evident with goal achieved</option>
+                </select>
+                <textarea class="form-control" id="question13Comments" placeholder="Comment"></textarea>
+            </div>
+
+            <!-- Emotional Response -->
+            <div class="form-group">
+                <label for="question14">14. Emotional Response</label>
+                <select class="form-control" id="question14">
+                    <option value="" selected disabled hidden>Choose response</option>
+                    <option value="0">0 - No changes in expressive behaviors</option>
+                    <option value="1">1 - Changes in expressive behaviors unrelated to stimulus</option>
+                    <option value="2">2 - Changes in expressive behaviors related to stimuli on 1 occasion</option>
+                    <option value="3">3 - Changes in expressive behaviors related to stimuli on more than 1 occasion
+                    </option>
+                </select>
+                <textarea class="form-control" id="question14Comments" placeholder="Comments"></textarea>
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+        <!-- Display Results -->
+        <div id="assessmentResults" style="margin-top: 20px;"></div>
+        <div id="totalScore"></div>
+        <div id="warning" style="color: red;"></div>
+        <div id="diagnosisResult" style="margin-top: 20px;"></div>
+        <div id="depressionSeverityInfo" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#matadocForm').on('submit', function (e) {
+                e.preventDefault(); // Prevent form default submission behavior
+
+                var isFormValid = true;
+                var diagnosticResults = [];
+
+                // Check if all questions are answered
+                for (var i = 1; i <= 14; i++) {
+                    var rating = $('#question' + i).val();
+                    if (rating === "" || rating === null || $('#patientName').val().trim() === "" || $('#assessmentDate').val().trim() === "") {
+                        alert('Please fill all blanks '); // Alert if a question is unanswered
+                        isFormValid = false;
+                        break;
+                    } else {
+                        var score = getConvertedScore(i, parseInt(rating));
+                        var diagnosis = getDiagnosis(i, score);
+                        diagnosticResults.push({ category: i, rating: rating, score: score, diagnosis: diagnosis });
+                    }
+                }
+
+                if (!isFormValid) {
+                    return; // Stop execution if the form is invalid
+                }
+
+                // Display diagnostic results for each category
+                $('#diagnosisResult').empty(); // Clear previous results
+                diagnosticResults.forEach(function (result) {
+                    $('#diagnosisResult').append('<div>Category ' + result.category + ': Rating - ' + result.rating + ', Score - ' + result.score + ', Diagnosis - ' + result.diagnosis + '</div>');
+                });
+            });
+        });
+
+        function getConvertedScore(category, rating) {
+            switch (category) {
+                case 1:
+                case 2:
+                    return rating < 2 ? 0 : 2; // Visual and Auditory
+                case 3:
+                    return rating === 5 ? 2 : (rating >= 2 && rating <= 4) ? 1 : 0; // Awareness of Musical Stimuli
+                case 4:
+                case 5:
+                    return rating === 3 ? 2 : (rating === 2) ? 1 : 0; // Verbal Commands and Arousal
+                case 6:
+                case 7:
+                    // Behavioral Response to Music and Musical Responses
+                    return calculateScoreForMusicalResponses(category, rating);
+                case 8:
+                    // Vocalization
+                    return (rating >= 4 && rating <= 7) ? 4 : (rating >= 2 && rating <= 3) ? 2 : (rating === 0 || rating === 1) ? 0 : 9;
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                    // Direct mapping for remaining categories
+                    return rating;
+                default:
+                    return 0;
+            }
+        }
+
+        function getDiagnosis(category, score) {
+            switch (category) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    // Visual, Auditory, Awareness of Musical Stimuli, Verbal Commands, and Arousal
+                    return score === 2 ? "Emerging" : score === 1 ? "M.C.S." : "V.S.";
+                case 6:
+                case 7:
+                    // Behavioral Response to Music and Musical Responses
+                    return score >= 6 ? "Emerging" : "Not Assessed";
+                case 8:
+                    // Vocalization
+                    return score === 4 ? "Emerging" : (score === 2 || score === 3) ? "M.C.S." : (score === 0 || score === 1) ? "V.S." : "Not Assessed";
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                    // Non-verbal communication, Choice-making, Motor Skills, Attention to task, Intentional Behavior, Emotional Response
+                    return score === 3 ? "Emerging" : (score === 2) ? "M.C.S." : "V.S.";
+                default:
+                    return "Not Assessed";
+            }
+        }
+
+        function calculateScoreForMusicalResponses(category, rating) {
+            // Assuming responses are stored as 'Y' or 'N' values
+            var subScore = 0;
+            for (var i = 1; i <= (category === 6 ? 6 : 7); i++) {
+                var response = $('#choice' + (category - 5 + i)).val() === 'Y' ? 2 : 1;
+                subScore += response;
+            }
+            return subScore;
+        }
+
+
+
+    </script>
+{% endblock %}
