@@ -64,6 +64,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -187,3 +188,6 @@ EMAIL_USE_TLS = True
 
 # Account Setting
 LOGOUT_REDIRECT_URL = "/"  # new
+
+# static image settings
+STATIC_ROOT = BASE_DIR / "staticfiles"
