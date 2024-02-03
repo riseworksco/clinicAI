@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container-fluid text-center">
+    {{ description |escape|linebreaks }}
+</div>
+
+<div class="container">
+    <form id="gad7Form" method="post">
+        {% csrf_token %}
+        <div class="form-group" style="margin-top: 20px;">
+            {{ form.name.label_tag }} {{ form.name }}
+        </div>
+        <div class="form-group">
+            {{ form.date.label_tag }} {{ form.date }}
+        </div>
+
+        <p style="font-weight: bold; margin-top: 20px;">Over the last 2 weeks, how often have you been bothered by the following problems?</p>
+
+        <table class="table">
+            {% for field in questions %}
+            <tr>
+                <td>{{ field.label_tag }}</td>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <button id="submitFormBtn" type="submit" class="btn btn-primary">Submit</button>
+        <button id="sendMessageBtn" type="button" class="btn my-3" style="background-color: #00b7a6; color: #ffffff;">Send message</button>
+        <input type="hidden" name="submit_action" id="submitActionInput" value="submit">
+    </form>
+    <div id="totalScore" style="margin-top: 20px;"></div>
+    <div id="anxietyLevel" style="margin-top: 20px;"></div>
+    <div id="additionalInfo" style="margin-top: 20px;"></div>
+</div>
+
+<!-- Your existing script here -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#submitFormBtn').click(function(e) {
+            e.preventDefault(); // Now 'e' is defined
+
+            var total = 0;
+            var isFormValid = true;
+
+            // Calculate total score and check if all questions are answered
+                $('#gad7Form select').each(function() {
+                    var answer = $(this).val();
+                    if (answer === "" || answer === null) {
+                        isFormValid = false;
+                        alert('Please answer all questions.');
+                        return false; // Break out of the loop
+                    }
+                    total += parseInt(answer, 7);
+                }
+
+
+                );
+
+            // 检查姓名和日期是否填写
+
+
+            if (!isFormValid) {
+                return; // 如果表单无效，停止执行
+            }
+
+            // 如果所有问题都已回答，处理表单数据
+            $('#totalScore').text('Total Score: ' + total);
+            displayAnxietyLevel(total);
+            displayAdditionalInfo(total); // 显示额外的评分信息
+        });
+
+        function displayAnxietyLevel(score) {
+            var level = "";
+            if (score < 5) level = "Minimal anxiety";
+            else if (score < 10) level = "Mild anxiety";
+            else if (score < 15) level = "Moderate anxiety";
+            else level = "Severe anxiety";
+
+            $('#anxietyLevel').html('<strong>Anxiety Level:</strong> ' + level);
+        }
+
+        function displayAdditionalInfo(score) {
+            var info = "<strong>Scoring Information:</strong><br>" +
+                "Scores of 5, 10, and 15 are cut-off points for mild, moderate, and severe anxiety, respectively.<br>" +
+                "Further evaluation is recommended when the score is 10 or greater.<br>" +
+                "Using a threshold score of 10, GAD-7 has a sensitivity of 89% and a specificity of 82% for GAD.<br>" +
+                "It is moderately good at screening for panic disorder (sensitivity 74%, specificity 81%), " +
+                "social anxiety disorder (sensitivity 72%, specificity 80%), and post-traumatic stress disorder (sensitivity 66%, specificity 81%).";
+
+            $('#additionalInfo').html(info);
+        }
+        $('#sendMessageBtn').click(function() {
+            $('#submitActionInput').val('send_message'); // Set action value for send message
+            $('#gad7Form').submit();  // Submit the form
+        });
+    })
+</script>
+{% endblock %}
