@@ -1,0 +1,844 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% include 'navbar.html' %}
+
+
+    <div class="container-fluid">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <p><b>To search for a qualified music therapist in your area, c</b><b>lick
+                in the dropdown list to highlight MT-BC in the &quot;Music Therapy
+                Credential&quot; field if you are seeking a professional music
+                therapist </b>(students will appear in your results if you do not
+                take this step)<b>, add any other search criteria you require, and
+                    click &quot;Search.&quot;</b>&nbsp;&nbsp;You are most likely to
+                find those members accepting clients by including &quot;Self/Employed/Private
+                Practice&quot; from the settings list. It is best to keep search
+                criteria broad&nbsp;for the most inclusive list. For example, start
+                your search by simply looking for individuals with music therapy
+                credentials&nbsp;in your entire state. Individuals&nbsp;may travel
+                to your area and most music therapists are trained to work with
+                multiple populations and settings so it is not necessary to include
+                these details below unless you wish to narrow your search query.</p>
+        </div>
+
+
+        <form method="post" action="./DynamicPage.aspx?Site=amta2&amp;WebCode=IndSearch" id="eWebForm">
+            <div class="aspNetHidden">
+                <input type="hidden" name="eWebSiteCode" id="eWebSiteCode" value="amta2"/>
+                <input type="hidden" name="reCaptchaVersions" id="reCaptchaVersions" value="V2"/>
+                <input type="hidden" name="__APPLICATIONPATH" id="__APPLICATIONPATH" value="/eweb"/>
+                <input type="hidden" name="NFCurrencySymbol" id="NFCurrencySymbol" value="$"/>
+                <input type="hidden" name="NFCurrencyDecimal" id="NFCurrencyDecimal" value="."/>
+                <input type="hidden" name="NFCurrencySeparator" id="NFCurrencySeparator" value=","/>
+                <input type="hidden" name="NFCurrencyCulture" id="NFCurrencyCulture" value="en-US"/>
+                <input type="hidden" name="NFDateCulture" id="NFDateCulture" value="en-US"/>
+                <input type="hidden" name="NFDateCultureFormat" id="NFDateCultureFormat" value="M/d/yyyy"/>
+                <input type="hidden" name="NFTimeCultureFormat" id="NFTimeCultureFormat" value="h:mm tt"/>
+                <input type="hidden" name="__POSTBACKCONTROL" id="__POSTBACKCONTROL" value=""/>
+                <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""/>
+                <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""/>
+                <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value=""/>
+                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                       value="/wEPDwUKMjEyMzIyMzU2Mw8WBB4LVXJsUmVmZXJyZXIFT2h0dHBzOi8vbmV0Zm9ydW0uYXZlY3RyYS5jb20vZXdlYi9EeW5hbWljUGFnZS5hc3B4P1NpdGU9YW10YTImV2ViQ29kZT1JbmRTZWFyY2geE1ZhbGlkYXRlUmVxdWVzdE1vZGUCARYCAgMPZBYCAgEPZBYCAgUPZBYGAgIPZBYCZg8WCB4FY2xhc3MFDkRlZmF1bHRQYW5lVG9wHgVhbGlnbgUETGVmdB4GdmFsaWduBQNUb3AeB2JnY29sb3JkZAIDD2QWBGYPFggfBAUDVG9wHwIFD0RlZmF1bHRQYW5lTGVmdB8DBQRMZWZ0HwVkZAIBDxYIHwQFA1RvcB8CBRJEZWZhdWx0UGFuZUNvbnRlbnQfAwUETGVmdB8FZBYCZg9kFgICAQ9kFgICAQ9kFgJmD2QWBGYPZBYCZg8WBB4JaW5uZXJodG1sBdYOPGRpdiBjbGFzcz0iUGFnZVRpdGxlIj5JbmRpdmlkdWFsIERpcmVjdG9yeSBTZWFyY2g8L2Rpdj48ZGl2IGNsYXNzPSJQYWRMZWZ0MTAiPjxodG1sPgo8aGVhZD4KCTx0aXRsZT48L3RpdGxlPgo8L2hlYWQ+Cjxib2R5Pgo8cD48Yj5UbyBzZWFyY2ggZm9yIGEgcXVhbGlmaWVkIG11c2ljIHRoZXJhcGlzdCBpbiB5b3VyIGFyZWEsIGM8L2I+PGI+bGljayBpbiB0aGUgZHJvcGRvd24gbGlzdCB0byBoaWdobGlnaHQgTVQtQkMgaW4gdGhlICZxdW90O011c2ljIFRoZXJhcHkgQ3JlZGVudGlhbCZxdW90OyBmaWVsZCBpZiB5b3UgYXJlIHNlZWtpbmcgYSBwcm9mZXNzaW9uYWwgbXVzaWMgdGhlcmFwaXN0IDwvYj4oc3R1ZGVudHMgd2lsbCBhcHBlYXIgaW4geW91ciByZXN1bHRzIGlmIHlvdSBkbyBub3QgdGFrZSB0aGlzIHN0ZXApPGI+LCBhZGQgYW55IG90aGVyIHNlYXJjaCBjcml0ZXJpYSB5b3UgcmVxdWlyZSwgYW5kIGNsaWNrICZxdW90O1NlYXJjaC4mcXVvdDs8L2I+Jm5ic3A7Jm5ic3A7WW91IGFyZSBtb3N0IGxpa2VseSB0byBmaW5kIHRob3NlIG1lbWJlcnMgYWNjZXB0aW5nIGNsaWVudHMgYnkgaW5jbHVkaW5nICZxdW90O1NlbGYvRW1wbG95ZWQvUHJpdmF0ZSBQcmFjdGljZSZxdW90OyBmcm9tIHRoZSBzZXR0aW5ncyBsaXN0LiBJdCBpcyBiZXN0IHRvIGtlZXAgc2VhcmNoIGNyaXRlcmlhIGJyb2FkJm5ic3A7Zm9yIHRoZSBtb3N0IGluY2x1c2l2ZSBsaXN0LiBGb3IgZXhhbXBsZSwgc3RhcnQgeW91ciBzZWFyY2ggYnkgc2ltcGx5IGxvb2tpbmcgZm9yIGluZGl2aWR1YWxzIHdpdGggbXVzaWMgdGhlcmFweSBjcmVkZW50aWFscyZuYnNwO2luIHlvdXIgZW50aXJlIHN0YXRlLiBJbmRpdmlkdWFscyZuYnNwO21heSB0cmF2ZWwgdG8geW91ciBhcmVhIGFuZCBtb3N0IG11c2ljIHRoZXJhcGlzdHMgYXJlIHRyYWluZWQgdG8gd29yayB3aXRoIG11bHRpcGxlIHBvcHVsYXRpb25zIGFuZCBzZXR0aW5ncyBzbyBpdCBpcyBub3QgbmVjZXNzYXJ5IHRvIGluY2x1ZGUgdGhlc2UgZGV0YWlscyBiZWxvdyB1bmxlc3MgeW91IHdpc2ggdG8gbmFycm93IHlvdXIgc2VhcmNoIHF1ZXJ5LjwvcD4KCjxwPjxpPk5vdGU6IHRoaXMgZGlyZWN0b3J5IGNvbnRhaW5zIGluZm9ybWF0aW9uIGFzIHJlcG9ydGVkIGJ5IHRoZSBpbmRpdmlkdWFscy4gSXQgaXMgbm90IGludGVuZGVkIHRvIGJlIG9mZmljaWFsIHZlcmlmaWNhdGlvbiBmb3IgTVQtQkMsIHRyYWluaW5nLCBvciBlZHVjYXRpb24gc3RhdHVzLiBQbGVhc2UgaW5xdWlyZSBvZiB0aGUgPGI+Q2VydGlmaWNhdGlvbiBCb2FyZCBmb3IgTXVzaWMgVGhlcmFwaXN0cyAod3d3LmNibXQub3JnKTwvYj4gZm9yIHZlcmlmaWNhdGlvbiBvZiBjdXJyZW50IE1ULUJDIHN0YXR1cy4mbmJzcDtNZW1iZXJzaGlwIGluIEFNVEEgZG9lcyBub3QgZW5zdXJlIHRoZSBwYXJ0aWNpcGFudCBpcyBhIEJvYXJkIENlcnRpZmllZCBNdXNpYyBUaGVyYXBpc3QuPC9pPjwvcD4KCjxwPjxzdHJvbmc+PGk+SW5mb3JtYXRpb24gaGVyZWluIGlzIGZvciB0aGUgc29sZSBwdXJwb3NlIG9mIHNlZWtpbmcgbXVzaWMgdGhlcmFweSBzZXJ2aWNlcyBhbmQgQU1UQSBidXNpbmVzcyZuYnNwO2FuZCZuYnNwO01BWSBOT1QgYmUgdXNlZCBpbiBhbnkgd2F5IGZvciBhZHZlcnRpc2luZywgcmVzZWFyY2gsIHN1cnZleXMsIHRlbGVtYXJrZXRpbmcgb3Igb3RoZXIgYnVzaW5lc3MgcHVycG9zZXMgd2l0aG91dCBwcmlvciBwZXJtaXNzaW9uIGZyb20gQU1UQTsgdG8gcHVyY2hhc2UgbGlzdHMgb2YgcGFydGljaXBhdGluZyBpbmRpdmlkdWFscyBmb3Igc3VjaCBwdXJwb3NlcywgY29udGFjdCB0aGUgQU1UQSBuYXRpb25hbCBvZmZpY2UuPC9pPjwvc3Ryb25nPjwvcD4KPC9ib2R5Pgo8L2h0bWw+CjwvZGl2Pjxici8+HgVzdHlsZQUTdmVydGljYWwtYWxpZ246VG9wO2QCAQ9kFgJmDxYCHwcFE3ZlcnRpY2FsLWFsaWduOlRvcDsWAmYPZBYEZg8WAh4HVmlzaWJsZWhkAgEPZBYEZg9kFgJmD2QWAmYPEA8WAh8IaGRkZGQCAg9kFgJmD2QWAmYPZBYSZg9kFgJmD2QWAmYPZBYCZg9kFgICAQ8QDxYCHwhoZGQWAWZkAgEPZBYCZg9kFgJmD2QWAmYPZBYCAgEPEA8WAh8IaGRkFgFmZAICD2QWAmYPZBYCZg9kFgJmD2QWAgIBDxAPFgIfCGhkZBYBZmQCAw9kFgJmD2QWAmYPZBYCZg9kFgICAQ8QDxYCHwhoZGQWAWZkAgQPZBYCZg9kFgJmD2QWAmYPZBYCAgEPEA8WAh8IaGRkFgFmZAIFD2QWAmYPZBYCZg9kFgJmD2QWAgIBDxAPFgIfCGhkZBYBZmQCBw9kFgJmD2QWAmYPZBYCZg9kFgICAQ8QDxYCHwhoZGQWAWZkAggPZBYCZg9kFgJmD2QWAmYPZBYCAgEPEA8WAh8IaGRkFgFmZAIJD2QWAmYPZBYCZg9kFgJmD2QWAgIBDxAPFgIfCGhkZBYBZmQCBA9kFgJmDxYIHwIFEURlZmF1bHRQYW5lQm90dG9tHwMFBkNlbnRlch8EBQZCb3R0b20fBWRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYDBRhjdGwzNiRpbmRfY3VzdG9tX3RleHRfMDEFGGN0bDM2JGluZF9jdXN0b21fdGV4dF8xMwUYY3RsMzYkaW5kX2N1c3RvbV90ZXh0XzE0mxpobKYca82la0k9DXnWdjwPLkmVa8MwVqaez/2GWAI="/>
+            </div>
+            <div class="container">
+                <div class="form-horizontal">
+                    <div class="form-group"><span
+                            id="ctl36_SearchLabel0"
+                            class="DataFormLabel control-label col-sm-4">First Name:&nbsp;&nbsp;</span>
+                        <div class="col-sm-8"><input name="ctl36$ind_first_name"
+                                                     type="text" maxlength="30" size="30"
+                                                     id="ctl36_ind_first_name"
+                                                     class="DataFormTextBox form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group"><span
+                            id="ctl36_SearchLabel1"
+                            class="DataFormLabel control-label col-sm-4">Last Name:&nbsp;&nbsp;</span>
+                        <div class="col-sm-8"><input
+                                name="ctl36$ind_last_name"
+                                type="text" maxlength="30" size="30"
+                                id="ctl36_ind_last_name"
+                                class="DataFormTextBox form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group"><span
+                            id="ctl36_SearchLabel5"
+                            class="DataFormLabel control-label col-sm-4">City:&nbsp;&nbsp;</span>
+                        <div class="col-sm-8">
+
+                            <input
+                                    name="ctl36$DirAddr__adr_city"
+                                    type="text" maxlength="40" size="40"
+                                    id="ctl36_DirAddr__adr_city"
+                                    class="DataFormTextBox form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group"><span
+                            id="ctl36_SearchLabel6"
+                            class="DataFormLabel control-label col-sm-4">State/Territory:&nbsp;&nbsp;</span>
+                        <div class="col-sm-8"><select
+                                name="ctl36$DirAddr__adr_state"
+                                id="ctl36_DirAddr__adr_state"
+                                class="DataFormDropDownlist form-control">
+                            <option value=""></option>
+                            <option value="AA">AA</option>
+                            <option value="AE">AE</option>
+                            <option value="AK">AK</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AR">AR</option>
+                            <option value="AS">AS</option>
+                            <option value="AZ">AZ</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DC">DC</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="GU">GU</option>
+                            <option value="HI">HI</option>
+                            <option value="IA">IA</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="MA">MA</option>
+                            <option value="MD">MD</option>
+                            <option value="ME">ME</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MO">MO</option>
+                            <option value="MP">MP</option>
+                            <option value="MS">MS</option>
+                            <option value="MT">MT</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="NE">NE</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NV">NV</option>
+                            <option value="NY">NY</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="PR">PR</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VA">VA</option>
+                            <option value="VI">VI</option>
+                            <option value="VT">VT</option>
+                            <option value="WA">WA</option>
+                            <option value="WI">WI</option>
+                            <option value="WV">WV</option>
+                            <option value="WY">WY</option>
+
+                        </select></div>
+                    </div>
+                </div>
+                <div class="form-group"><span
+                        id="ctl36_SearchLabel8"
+                        class="DataFormLabel control-label col-sm-4">Country:&nbsp;&nbsp;</span>
+                    <div class="col-sm-8"><select
+                            class="DataFormDropDownlist form-control">
+                        <option value=""></option>
+                        <option value="Afghanistan">
+                            Afghanistan
+                        </option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="American Samoa">American
+                            Samoa
+                        </option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Anguilla">Anguilla
+                        </option>
+                        <option value="Antarctica">Antarctica
+                        </option>
+                        <option value="Antigua">Antigua</option>
+                        <option value="Argentina">Argentina
+                        </option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Aruba">Aruba</option>
+                        <option value="Ascension">Ascension
+                        </option>
+                        <option value="Australia">Australia
+                        </option>
+                        <option value="Austria">Austria</option>
+                        <option value="AUSTRIA WEIN">AUSTRIA
+                            WEIN
+                        </option>
+                        <option value="Azerbaijan">Azerbaijan
+                        </option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh
+                        </option>
+                        <option value="Barbados">Barbados
+                        </option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Bermuda">Bermuda</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Bosnia">Bosnia</option>
+                        <option value="Botswana">Botswana
+                        </option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="British Virgin Islands">
+                            British Virgin Islands
+                        </option>
+                        <option value="Brunei">Brunei</option>
+                        <option value="Bulgaria">Bulgaria
+                        </option>
+                        <option value="Burkina Faso">Burkina
+                            Faso
+                        </option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Cambodia">Cambodia
+                        </option>
+                        <option value="Cameroon">Cameroon
+                        </option>
+                        <option value="Canada">Canada</option>
+                        <option value="Cape Verde">Cape Verde
+                        </option>
+                        <option value="Cayman">Cayman</option>
+                        <option value="Central African Republic">
+                            Central African Republic
+                        </option>
+                        <option value="Chad">Chad</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Colombia">Colombia
+                        </option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo">Congo</option>
+                        <option value="Cook Islands">Cook
+                            Islands
+                        </option>
+                        <option value="Costa Rica">Costa Rica
+                        </option>
+                        <option value="Côte d`Ivoire">C&#244;te
+                            d`Ivoire
+                        </option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czech Republic">Czech
+                            Republic
+                        </option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Diego Garcia">Diego
+                            Garcia
+                        </option>
+                        <option value="Djibouti ">Djibouti
+                        </option>
+                        <option value="Dominica">Dominica
+                        </option>
+                        <option value="Dominican Republic">
+                            Dominican Republic
+                        </option>
+                        <option value="East Timor">East Timor
+                        </option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="El Salvador">El
+                            Salvador
+                        </option>
+                        <option value="ENGLAND">ENGLAND</option>
+                        <option value="Equatorial Guinea ">
+                            Equatorial Guinea
+                        </option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Ethiopia">Ethiopia
+                        </option>
+                        <option value="Falkland Islands">
+                            Falkland Islands
+                        </option>
+                        <option value="Faroe Islands ">Faroe
+                            Islands
+                        </option>
+                        <option value="Fiji">Fiji</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="French Antilles">French
+                            Antilles
+                        </option>
+                        <option value="French Guiana">French
+                            Guiana
+                        </option>
+                        <option value="French Polynesia">French
+                            Polynesia
+                        </option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Gibraltar">Gibraltar
+                        </option>
+                        <option value="Great Britain">Great
+                            Britain
+                        </option>
+                        <option value="Greece">Greece</option>
+                        <option value="Greenland">Greenland
+                        </option>
+                        <option value="Grenada">Grenada</option>
+                        <option value="GT. BRITAIN">GT.
+                            BRITAIN
+                        </option>
+                        <option value="Guam">Guam</option>
+                        <option value="Guatemala ">Guatemala
+                        </option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guinea-Bissau ">
+                            Guinea-Bissau
+                        </option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="HOLLAND">HOLLAND</option>
+                        <option value="Honduras">Honduras
+                        </option>
+                        <option value="Hong Kong">Hong Kong
+                        </option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia
+                        </option>
+                        <option value="Iran">Iran</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kazakstan">Kazakstan
+                        </option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="KINGDOM BAHRAIN">KINGDOM
+                            BAHRAIN
+                        </option>
+                        <option value="Kiribati ">Kiribati
+                        </option>
+                        <option value="KOREA">KOREA</option>
+                        <option value="KOREA SOUTH">KOREA
+                            SOUTH
+                        </option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Kyrgyzstan">Kyrgyzstan
+                        </option>
+                        <option value="Laos">Laos</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Liechtenstein ">
+                            Liechtenstein
+                        </option>
+                        <option value="Lithuania">Lithuania
+                        </option>
+                        <option value="Luxembourg ">Luxembourg
+                        </option>
+                        <option value="Macau">Macau</option>
+                        <option value="Macedonia">Macedonia
+                        </option>
+                        <option value="Madagascar">Madagascar
+                        </option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Malaysia">Malaysia
+                        </option>
+                        <option value="Maldives">Maldives
+                        </option>
+                        <option value="Mali">Mali</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Marshall Islands">
+                            Marshall Islands
+                        </option>
+                        <option value="Martinique ">Martinique
+                        </option>
+                        <option value="Mauritania ">Mauritania
+                        </option>
+                        <option value="Mauritius ">Mauritius
+                        </option>
+                        <option value="Mayotte">Mayotte</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Micronesia">Micronesia
+                        </option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Mongolia">Mongolia
+                        </option>
+                        <option value="Montserrat ">Montserrat
+                        </option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique ">Mozambique
+                        </option>
+                        <option value="Myanmar ">Myanmar
+                        </option>
+                        <option value="N IRELAND">N IRELAND
+                        </option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Nauru">Nauru</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherlands">
+                            Netherlands
+                        </option>
+                        <option value="Netherlands Antilles">
+                            Netherlands Antilles
+                        </option>
+                        <option value="New Caledonia">New
+                            Caledonia
+                        </option>
+                        <option value="New Zealand">New
+                            Zealand
+                        </option>
+                        <option value="Nicaragua ">Nicaragua
+                        </option>
+                        <option value="Niger">Niger</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Niue">Niue</option>
+                        <option value="North Korea">North
+                            Korea
+                        </option>
+                        <option value="NORTHER IRELAND">NORTHER
+                            IRELAND
+                        </option>
+                        <option value="Northern Mariana Islands ">
+                            Northern Mariana Islands
+                        </option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan
+                        </option>
+                        <option value="Palau">Palau</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Papua New Guinea ">Papua
+                            New Guinea
+                        </option>
+                        <option value="Paraguay">Paraguay
+                        </option>
+                        <option value="Peru">Peru</option>
+                        <option value="Philippines">
+                            Philippines
+                        </option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal
+                        </option>
+                        <option value="Puerto Rico">Puerto
+                            Rico
+                        </option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Reunion">Reunion</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Saint Helena">Saint
+                            Helena
+                        </option>
+                        <option value="Saint Kitts and Nevis ">
+                            Saint Kitts and Nevis
+                        </option>
+                        <option value="Saint Lucia">Saint
+                            Lucia
+                        </option>
+                        <option value="Saint Pierre and Miquelon ">
+                            Saint Pierre and Miquelon
+                        </option>
+                        <option value="Saint Vincent and the Grenadines">
+                            Saint Vincent and the Grenadines
+                        </option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="San Marino">San Marino
+                        </option>
+                        <option value="Sao Tome and Principe">
+                            Sao Tome and Principe
+                        </option>
+                        <option value="SAR">SAR</option>
+                        <option value="Saudi Arabia">Saudi
+                            Arabia
+                        </option>
+                        <option value="SCOTLAND">SCOTLAND
+                        </option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Seychelles ">Seychelles
+                        </option>
+                        <option value="Sierra Leone">Sierra
+                            Leone
+                        </option>
+                        <option value="Singapore">Singapore
+                        </option>
+                        <option value="SLOVAKIA">SLOVAKIA
+                        </option>
+                        <option value="Slovenia">Slovenia
+                        </option>
+                        <option value="Solomon Islands">Solomon
+                            Islands
+                        </option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="South Africa">South
+                            Africa
+                        </option>
+                        <option value="South Korea">South
+                            Korea
+                        </option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sri Lanka">Sri Lanka
+                        </option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Suriname">Suriname
+                        </option>
+                        <option value="Swaziland ">Swaziland
+                        </option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">
+                            Switzerland
+                        </option>
+                        <option value="Syria">Syria</option>
+                        <option value="Taiwan">Taiwan</option>
+                        <option value="Tajikistan ">Tajikistan
+                        </option>
+                        <option value="Tanzania">Tanzania
+                        </option>
+                        <option value="Thailand">Thailand
+                        </option>
+                        <option value="THE NETHERLANDS">THE
+                            NETHERLANDS
+                        </option>
+                        <option value="TOBAGO">TOBAGO</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tokelau ">Tokelau
+                        </option>
+                        <option value="Tonga">Tonga</option>
+                        <option value="TRINIDAD">TRINIDAD
+                        </option>
+                        <option value="Trinidad and Tobago">
+                            Trinidad and Tobago
+                        </option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkmenistan ">
+                            Turkmenistan
+                        </option>
+                        <option value="Turks and Caicos Islands ">
+                            Turks and Caicos Islands
+                        </option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="UNITED ARAB EMI">UNITED
+                            ARAB EMI
+                        </option>
+                        <option value="United Arab Emirates">
+                            United Arab Emirates
+                        </option>
+                        <option value="United Kingdom">United
+                            Kingdom
+                        </option>
+                        <option value="United States">United
+                            States
+                        </option>
+                        <option value="United States Virgin Islands">
+                            United States Virgin Islands
+                        </option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Uzbekistan ">Uzbekistan
+                        </option>
+                        <option value="Vanuatu ">Vanuatu
+                        </option>
+                        <option value="Venezuela">Venezuela
+                        </option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Wallis and Futuna ">
+                            Wallis and Futuna
+                        </option>
+                        <option value="WEST INDIES">WEST
+                            INDIES
+                        </option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Yugoslavia">Yugoslavia
+                        </option>
+                        <option value="Zaire">Zaire</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe
+                        </option>
+
+                    </select></div>
+                </div>
+                <div class="form-group"><span
+                        id="ctl36_SearchLabel23"
+                        class="DataFormLabel control-label col-sm-4">Music Therapy Credential:&nbsp;&nbsp;</span>
+                    <div class="col-sm-8"><select size="5"
+                                                  name="ctl36$ind_custom_text_01"
+                                                  multiple="multiple"
+                                                  id="ctl36_ind_custom_text_01"
+                                                  class="DataFormListBox form-control">
+                        <option value="MT-BC">MT-BC</option>
+                        <option value="other">other</option>
+
+                    </select></div>
+                </div>
+                <div class="form-group"><span
+                        id="ctl36_SearchLabel24"
+                        class="DataFormLabel control-label col-sm-4">Settings Served:&nbsp;&nbsp;</span>
+                    <div class="col-sm-8"><select size="5"
+                                                  name="ctl36$ind_custom_text_13"
+                                                  multiple="multiple"
+                                                  id="ctl36_ind_custom_text_13"
+                                                  class="DataFormListBox form-control">
+                        <option value="Adult Day Care">Adult Day
+                            Care
+                        </option>
+                        <option value="Adult Education">Adult
+                            Education
+                        </option>
+                        <option value="Child/Adolescent Treatment Center">
+                            Child/Adolescent Treatment Center
+                        </option>
+                        <option value="Children&#39;s Day Care/Preschool">
+                            Children&#39;s Day Care/Preschool
+                        </option>
+                        <option value="Children&#39;s Hospital or Unit">
+                            Children&#39;s Hospital or Unit
+                        </option>
+                        <option value="Community Based Service">
+                            Community Based Service
+                        </option>
+                        <option value="Community Mental Health Center">
+                            Community Mental Health Center
+                        </option>
+                        <option value="Correctional Facility">
+                            Correctional Facility
+                        </option>
+                        <option value="Day Care/Treatment Center">
+                            Day Care/Treatment Center
+                        </option>
+                        <option value="Drug/Alcohol Program">
+                            Drug/Alcohol Program
+                        </option>
+                        <option value="Early Intervention Program">
+                            Early Intervention Program
+                        </option>
+                        <option value="Forensic Facility">
+                            Forensic Facility
+                        </option>
+                        <option value="General Hospital">General
+                            Hospital
+                        </option>
+                        <option value="Geriatric Facility - not nursing">
+                            Geriatric Facility - not nursing
+                        </option>
+                        <option value="Geriatric Psychiatric Unit">
+                            Geriatric Psychiatric Unit
+                        </option>
+                        <option value="Group Home">Group Home
+                        </option>
+                        <option value="Home Health Agency">Home
+                            Health Agency
+                        </option>
+                        <option value="Hospice/Bereavement Services">
+                            Hospice/Bereavement Services
+                        </option>
+                        <option value="Intermediate Care Facility (DD)">
+                            Intermediate Care Facility (DD)
+                        </option>
+                        <option value="Inpatient Psychiatric Unit">
+                            Inpatient Psychiatric Unit
+                        </option>
+                        <option value="Labor/Delivery">
+                            Labor/Delivery
+                        </option>
+                        <option value="Military Base">Military
+                            Base
+                        </option>
+                        <option value="Music Retailer">Music
+                            Retailer
+                        </option>
+                        <option value="Music Therapy Business Owner">
+                            Music Therapy Business Owner
+                        </option>
+                        <option value="Nursing Home/Assisted Living">
+                            Nursing Home/Assisted Living
+                        </option>
+                        <option value="Oncology">Oncology
+                        </option>
+                        <option value="Other">Other</option>
+                        <option value="Outpatient Clinic">
+                            Outpatient Clinic
+                        </option>
+                        <option value="Partial Hospitalization">
+                            Partial Hospitalization
+                        </option>
+                        <option value="Physical Rehabilitation">
+                            Physical Rehabilitation
+                        </option>
+                        <option value="Private Music Therapy Agency">
+                            Private Music Therapy Agency
+                        </option>
+                        <option value="School (K-12)">School
+                            (K-12)
+                        </option>
+                        <option value="Self Employed/Private Practice">
+                            Self Employed/Private Practice
+                        </option>
+                        <option value="State Institution">State
+                            Institution
+                        </option>
+                        <option value="Support Groups">Support
+                            Groups
+                        </option>
+                        <option value="University/College">
+                            University/College
+                        </option>
+                        <option value="Veterans Affairs">
+                            Veterans Affairs
+                        </option>
+                        <option value="Wellness Program/Center">
+                            Wellness Program/Center
+                        </option>
+
+                    </select></div>
+                </div>
+                <div class="form-group"><span
+                        id="ctl36_SearchLabel25"
+                        class="DataFormLabel control-label col-sm-4">Populations Served:&nbsp;&nbsp;</span>
+                    <div class="col-sm-8"><select size="5"
+                                                  name="ctl36$ind_custom_text_14"
+                                                  multiple="multiple"
+                                                  id="ctl36_ind_custom_text_14"
+                                                  class="DataFormListBox form-control">
+                        <option value="Abused/Sexually Abused">
+                            Abused/Sexually Abused
+                        </option>
+                        <option value="AIDS">AIDS</option>
+                        <option value="Alzheimer&#39;s/Dementia">
+                            Alzheimer&#39;s/Dementia
+                        </option>
+                        <option value="Autism Spectrum">Autism
+                            Spectrum
+                        </option>
+                        <option value="Behavioral Disorder">
+                            Behavioral Disorder
+                        </option>
+                        <option value="Bereavement/Grief">
+                            Bereavement/Grief
+                        </option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="Chronic Pain">Chronic
+                            Pain
+                        </option>
+                        <option value="Comatose">Comatose
+                        </option>
+                        <option value="Developmentally Disabled">
+                            Developmentally Disabled
+                        </option>
+                        <option value="Dual Diagnosed">Dual
+                            Diagnosed
+                        </option>
+                        <option value="Early Childhood">Early
+                            Childhood
+                        </option>
+                        <option value="Eating Disorders">Eating
+                            Disorders
+                        </option>
+                        <option value="Elderly Persons">Elderly
+                            Persons
+                        </option>
+                        <option value="Emotionally Disturbed">
+                            Emotionally Disturbed
+                        </option>
+                        <option value="Forensic">Forensic
+                        </option>
+                        <option value="Head Injured">Head
+                            Injured
+                        </option>
+                        <option value="Hearing Impaired">Hearing
+                            Impaired
+                        </option>
+                        <option value="Hospice/Palliative Care">
+                            Hospice/Palliative Care
+                        </option>
+                        <option value="Labor/Delivery">
+                            Labor/Delivery
+                        </option>
+                        <option value="Learning Disabled">
+                            Learning Disabled
+                        </option>
+                        <option value="Medical/Surgical">
+                            Medical/Surgical
+                        </option>
+                        <option value="Mental Health">Mental
+                            Health
+                        </option>
+                        <option value="Multiply Disabled">
+                            Multiply Disabled
+                        </option>
+                        <option value="Music Therapy College Students">
+                            Music Therapy College Students
+                        </option>
+                        <option value="Music Education College Students">
+                            Music Education College Students
+                        </option>
+                        <option value="Neurologically Impaired">
+                            Neurologically Impaired
+                        </option>
+                        <option value="Non-disabled">
+                            Non-disabled
+                        </option>
+                        <option value="Other">Other</option>
+                        <option value="Parkinsons">Parkinsons
+                        </option>
+                        <option value="Physically Disabled">
+                            Physically Disabled
+                        </option>
+                        <option value="Post Traumatic Stress Disorder">
+                            Post Traumatic Stress Disorder
+                        </option>
+                        <option value="Rett Syndrome">Rett
+                            Syndrome
+                        </option>
+                        <option value="School Age Population">
+                            School Age Population
+                        </option>
+                        <option value="Speech Impaired">Speech
+                            Impaired
+                        </option>
+                        <option value="Stroke">Stroke</option>
+                        <option value="Substance Abuse">
+                            Substance Abuse
+                        </option>
+                        <option value="Terminally Ill">
+                            Terminally Ill
+                        </option>
+                        <option value="Visually Impaired">
+                            Visually Impaired
+                        </option>
+
+                    </select></div>
+                </div>
+            </div>
+        </form>
+{% endblock %}

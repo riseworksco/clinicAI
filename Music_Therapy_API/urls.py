@@ -32,5 +32,6 @@ urlpatterns = [
     path('sheet4AT/', include('sheet4AT.urls')),
     # path('sheetCAM/', include('sheetCAM.urls')),
     path('sheetCAM1/', include('sheetCAM1.urls')),
+    path('findatherapist/', include('findatherapist.urls'))
 
 ]
