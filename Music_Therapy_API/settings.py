@@ -62,6 +62,9 @@ INSTALLED_APPS = [
     # 'sheetCAM',
     'sheetCAM1',
     'findatherapist'
+    "sheetAAQII",
+    'sheetGAD',
+    'sheetPHQ',
 ]
 
 MIDDLEWARE = [
