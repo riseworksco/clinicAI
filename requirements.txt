@@ -17,3 +17,6 @@ wincertstore==0.2
 reportlab
 psycopg2==2.9.5
 whitenoise
+djangorestframework
+markdown
+django-filter
