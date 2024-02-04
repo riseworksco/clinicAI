@@ -36,5 +36,5 @@ urlpatterns = [
     path('sheetAAQII/', include('sheetAAQII.urls')),
     path('sheetGAD/', include('sheetGAD.urls')),
     path('sheetPHQ/', include('sheetPHQ.urls')),
-    path('api', include('api.urls')),
+    path('api/', include('api.urls')),
 ]
