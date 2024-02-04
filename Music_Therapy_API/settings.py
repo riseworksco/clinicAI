@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "sheetAAQII",
     'sheetGAD',
     'sheetPHQ',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -149,7 +150,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -165,25 +165,16 @@ STORAGES = {
     },
 }
 
-
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     # Add other static file paths if needed
 ]
-
-
 
 # django_heroku.settings(locals())
 
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-
-
-
-
 
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
