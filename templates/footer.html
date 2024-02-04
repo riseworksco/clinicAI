@@ -5,80 +5,57 @@ Version 07/18/2020 -->
 <html>
 
 <footer class="footer">
-    <div class="container-fluid text-center">
-        <!-- <hr> -->
-        <p> © 2023 <img
-                src="https://res.cloudinary.com/hq8x4kz7x/image/upload/v1678922213/output-onlinepngtools_jrafo1.png"
-                alt="sojo" width="50"></p>
-        <p>
-            <a href="https://sojoai.notion.site/About-3e9d37c5ea094929a4ce9e094a27bd4a"> About</a> · <a
-                href="https://sojoai.notion.site/FAQ-157c26a9d286454f92dbcfb37b877f4b">
-            Faq</a> · <a href="https://sojoai.notion.site/Privacy-Policy-cde0ae428578489982a40c9bd91a12a4">
-            Privacy Policy</a> · <a
-                href="https://sojoai.notion.site/Term-of-Use-ef3c7c7871024ba18ff39366f4dc433a">Term of use</a> · <a
-                href="mailto: support@sojoai.com"> Contact us</a>
-        </p>
-        <p>
-            <span class="text-muted"> Created with ❤️ by RiseWorks.</span>
-            <br>
-            <span class="text-muted">
-            <a id="back-to-top" href="#">Top</a>
-            <script>
-                $(document).ready(function () {
-                    $(window).scroll(function () {
-                        if ($(this).scrollTop() > 50) {
-                            $('#back-to-top').fadeIn();
-                        } else {
-                            $('#back-to-top').fadeOut();
-                        }
-                    });
-                    // scroll body to 0px on click
-                    $('#back-to-top').click(function () {
-                        $('body,html').animate({
-                            scrollTop: 0
-                        }, 400);
-                        return false;
-                    });
-                });
-            </script>
-             </span>
-    </div>
-
-
- <div class="footer_section layout_padding">
-         <div class="container">
+    <div class="footer_section layout_padding">
+        <div class="container">
             <div class="row">
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Contact Us</h1>
-                  <div class="map_icon"><img src="{% static 'images/map-icon.png' %}"><span class="paddlin_left_0">   6100 Main St, Houston, TX 77005</span></div>
-                  <div class="map_icon"><img src="{% static 'images/call-icon.png' %}"><span class="paddlin_left_0">（+1）346.448.4031</span></div>
-                  <div class="map_icon"><img src="{% static 'images/mail-icon.png' %}"><span class="paddlin_left_0"> jack.shen@sojoai.com</span></div>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Doctors</h1>
-                  <div class="hiphop_text_1">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</div>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Useful Links</h1>
-                  <div class="Useful_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered ,</div>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h1 class="adderss_text">Newsletter</h1>
-                  <input type="text" class="Enter_text" placeholder="Enter your Emil" name="Enter your Emil">
-                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                  <div class="social_icon">
-                     <ul>
+                <div class="col-lg-3 col-sm-6">
+                    <h1 class="adderss_text">Contact Us</h1>
+                    <div class="map_icon"><img src="{% static 'images/map-icon.png' %}"><span class="paddlin_left_0">   6100 Main St, Houston, TX 77005</span>
+                    </div>
+                    <div class="map_icon"><img src="{% static 'images/call-icon.png' %}"><span class="paddlin_left_0">（+1）346.448.4031</span>
+                    </div>
+                    <div class="map_icon"><img src="{% static 'images/mail-icon.png' %}"><span class="paddlin_left_0"> jack.shen@sojoai.com</span>
+                    </div>
+                    <div class="map_icon"> © 2023 - 2024 Matrix Software LLC
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h1 class="adderss_text">Doctors</h1>
+                    <div class="hiphop_text_1">
+                        <a href="{% url 'findatherapist:index' %}"> Find A Therapist </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h1 class="adderss_text">Useful Links</h1>
+                    <div class="Useful_text">
+                        <a href="https://sojoai.notion.site/About-3e9d37c5ea094929a4ce9e094a27bd4a">About</a>
+                    </div>
+                    <div class="Useful_text">
+                        <a href="https://sojoai.notion.site/FAQ-157c26a9d286454f92dbcfb37b877f4b">Faq</a></div>
+                    <div class="Useful_text">
+                        <a href="https://sojoai.notion.site/Privacy-Policy-cde0ae428578489982a40c9bd91a12a4">Privacy
+                            Policy</a></div>
+                    <div class="Useful_text">
+                        <a href="https://sojoai.notion.site/Term-of-Use-ef3c7c7871024ba18ff39366f4dc433a">Term of
+                            use</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h1 class="adderss_text">Newsletter</h1>
+                    <input type="text" class="Enter_text" placeholder="Enter your Emil" name="Enter your Emil">
+                    <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                    <div class="social_icon">
+                        <ul>
 
-                        <li><a href="#"><img src="{% static 'images/fb-icon.png' %}"></a></li>
-                        <li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
-                        <li><a href="#"><img src="{% static 'images/linkedin-icon.png' %}"></a></li>
-                        <li><a href="#"><img src="{% static 'images/instagram-icon.png' %}"></a></li>
-                     </ul>
-                  </div>
-               </div>
+                            <li><a href="#"><img src="{% static 'images/fb-icon.png' %}"></a></li>
+                            <li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
+                            <li><a href="#"><img src="{% static 'images/linkedin-icon.png' %}"></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
+    </div>
 </footer>
 
 

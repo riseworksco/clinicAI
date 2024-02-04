@@ -18,7 +18,7 @@ from django.db import router
 from django.urls import path, include
 
 from . import views
-from .views import StompView, StompSuccessView, PsychoemotionalScreeningEvaluationView, PrePostView, \
+from assessment.views import StompView, StompSuccessView, PsychoemotionalScreeningEvaluationView, PrePostView, \
     NeurologicScreeningEvaluationView
 
 # import patient_management
