@@ -155,20 +155,19 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
+MEDIA_ROOT: str = os.path.join(BASE_DIR, "media/")
+MEDIA_URL: str = "/media/"
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    # Add other static file paths if needed
-]
 
 # django_heroku.settings(locals())
 
@@ -188,7 +187,3 @@ EMAIL_USE_TLS = True
 
 # Account Setting
 LOGOUT_REDIRECT_URL = "/"  # new
-
-# static image settings
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
