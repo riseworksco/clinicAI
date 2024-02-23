@@ -5,5 +5,5 @@ from . import views
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-    path('profile/', views.display_profile)
+    path('profile/', views.display_profile, name="profile")
 ]

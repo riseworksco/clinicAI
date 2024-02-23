@@ -41,7 +41,16 @@
                     </li>
                     {#                    <li><a class="nav-link" href="/music/songs"> Media Library</a></li>#}
                     {% if user.is_authenticated %}
-                        <li><a class="nav-link" href="/accounts/logout">{{ user.username|title }}</a>
+                        <li class="nav-link"><a href="{% url "profile" %}">
+                            <button type="button"
+                                    class="btn btn-light">
+                                {{ user.username }}</button>
+                        </a>
+                        </li>
+                        <li class="nav-link"><a href="/logout">
+                            <button type="button" class="btn btn-danger">logout
+                            </button>
+                        </a>
                         </li>
                     {% else %}
                         <li><a class="nav-link" href="{% url 'login' %}">Log in</a>
