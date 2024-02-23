@@ -57,20 +57,30 @@ class PHQModel(models.Model):
         else:
             return "Severe depression"
 
-    def send_diagnosis_email(self, recipient_email):
-        subject = 'PHQ-9 Diagnosis Result'
-        diagnosis = self.get_diagnosis()
+    def get_info(self):
+        form = self
+        description = """
+            """
         context = {
-            'name': self.name,
-            'date': self.date,
-            'diagnosis': diagnosis,
-        }
-        html_message = render_to_string('email_template.html', context)  # Make sure this template exists
+            'form': form,
+            'header': 'PHQForm/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/stomp.html', context)
+
+        print(form.data)
+        recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
+
+        return 'PHQForm/Evaluation', result, recipient
+
+    def send(self):
+        subject, msg, recipient = self.get_info()
+
         send_mail(
-            subject,
-            '',  # Email body (plain text) is empty because we use HTML
-            settings.EMAIL_HOST_USER,
-            [recipient_email],
-            html_message=html_message,
-            fail_silently=False,
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipient]
         )
+
