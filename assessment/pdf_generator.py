@@ -37,6 +37,7 @@ def link_callback(uri, rel):
         )
     return path
 
+
 def render_pdf(request):
     template_path = 'download/user_printer.html'
     context = {'myvar': 'this is your template context'}
@@ -49,8 +50,8 @@ def render_pdf(request):
 
     # create a pdf
     pisa_status = pisa.CreatePDF(
-       html, dest=response, link_callback=link_callback)
+        html, dest=response, link_callback=link_callback)
     # if error then show some funny view
     if pisa_status.err:
-       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
