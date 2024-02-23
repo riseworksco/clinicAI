@@ -38,7 +38,7 @@ def link_callback(uri, rel):
     return path
 
 def render_pdf(request):
-    template_path = 'user_printer.html'
+    template_path = 'download/user_printer.html'
     context = {'myvar': 'this is your template context'}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
