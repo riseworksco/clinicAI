@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <link rel="stylesheet" type="text/css"
@@ -33,8 +33,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="shortcut icon"
           href="https://res.cloudinary.com/hq8x4kz7x/image/upload/v1678922213/output-onlinepngtools_jrafo1.png">
-
-
+    <script src="https://kit.fontawesome.com/81ae2adf0a.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
             $('.vendor-carousel').slick({
@@ -73,33 +72,6 @@
         body {
             margin: 0;
             font-family: "Lato", sans-serif;
-        }
-
-        .sidebar {
-            margin: 0;
-            padding: 0;
-            width: 200px;
-            background-color: #e8ecf2;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-        }
-
-        .sidebar a {
-            display: block;
-            color: black;
-            padding: 16px;
-            text-decoration: none;
-        }
-
-        .sidebar a.active {
-            background-color: #dbe0e7;
-            color: #ef5742;
-        }
-
-        .sidebar a:hover:not(.active) {
-            background-color: #dbe0e7;
-            color: #ef5742;
         }
 
         div.content {
@@ -161,12 +133,8 @@
 {% block content %}
 
 {% endblock %}
-{% include 'footer.html' %}
+{#{% include 'footer.html' %}#}
 {% block scripts %}
-
-
 {% endblock %}
 </body>
-
-
 </html>

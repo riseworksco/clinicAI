@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <div>
-
-        We sent your message to {{ ToEmail }}
+    {% include "navbar.html" %}
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <div class="container">
+        {#        We sent your message to {{ ToEmail }}#}
+        <section class="mail-seccess section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 col-12">
+                        <!-- Error Inner -->
+                        <div class="success-inner">
+                            <h1><i class="fa-regular fa-envelope"></i><span>Your Mail Sent Successfully!</span></h1>
+                            <p>Aenean eget sollicitudin lorem, et pretium felis. Nullam euismod diam libero, sed dapibus
+                                leo laoreet ut. Suspendisse potenti. Phasellus urna lacus</p>
+                            <a href="#" class="btn btn-primary btn-lg">Go Home</a>
+                        </div>
+                        <!--/ End Error Inner -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
 {% endblock %}
