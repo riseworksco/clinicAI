@@ -6,9 +6,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image"
                                               src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
-                                              height="100"width="40" focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>
-
-
+                                              width="50" focusable="false" aria-hidden="true"> <span>{{ header }}</span></a>
         <ul class="navbar-nav">
 
 
@@ -44,7 +42,7 @@
                     </li>
                     <li><a class="nav-link" href="/music/songs"> Media Library</a></li>
                     {% if user.is_authenticated %}
-                        <li><a class="nav-link" href="/accounts/logout">Log out</a>
+                        <li><a class="nav-link" href="/accounts/logout">{{ user.username|title }}</a>
                         </li>
                     {% else %}
                         <li><a class="nav-link" href=" {% url 'login' %}">Log in</a>

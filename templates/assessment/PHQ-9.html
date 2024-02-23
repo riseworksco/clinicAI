@@ -1,14 +1,13 @@
-{% extends "base.html" %}
+{% extends "assessment/base.html" %}
 {% load crispy_forms_tags %}
 {% block title %}{{ header }}{% endblock %}
 {% block content %}
-    {% include 'navbar.html' %}
     <div class="container-fluid text-center">
         {{ description |escape|linebreaks }}
     </div>
 
     <div class="container">
-        <form id="phq9Form" method="post" >
+        <form id="phq9Form" method="post">
             {% csrf_token %}
             <div class="form-group" style="margin-top: 20px;">
                 {{ form.name.label_tag }} {{ form.name }}
@@ -18,7 +17,8 @@
                 {{ form.date.label_tag }} {{ form.date }}
             </div>
 
-            <p style="font-weight: bold; margin-top: 20px;">Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>
+            <p style="font-weight: bold; margin-top: 20px;">Over the last 2 weeks, how often have you been bothered by
+                any of the following problems?</p>
 
             <table class="table">
                 {% for field in questions %}
@@ -30,7 +30,9 @@
             </table>
 
             <button id="submitFormBtn" type="submit" class="btn btn-primary">Submit</button>
-            <button id="sendMessageBtn" type="button" class="btn btn-success my-3" style="background-color: #00b7a6; color: #ffffff;">Send message</button>
+            <button id="sendMessageBtn" type="button" class="btn btn-success my-3"
+                    style="background-color: #00b7a6; color: #ffffff;">Send message
+            </button>
             <input type="hidden" name="submit_action" id="submitActionInput" value="submit">
         </form>
         <div id="totalScore"></div>
@@ -43,15 +45,15 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('#submitFormBtn').on('click', function(e) {  // Add 'e' here
+        $(document).ready(function () {
+            $('#submitFormBtn').on('click', function (e) {  // Add 'e' here
                 e.preventDefault();  // Now 'e' is defined
 
                 var total = 0;
                 var isFormValid = true;
 
                 // Iterate through each select box and calculate total
-                $('#phq9Form select').each(function() {
+                $('#phq9Form select').each(function () {
                     var answer = $(this).val();
                     if (answer === "" || answer === null) {
                         isFormValid = false;
@@ -79,7 +81,7 @@
                 // 显示抑郁症严重程度信息
                 displayDepressionSeverityInfo();
             });
-    
+
             function getDiagnosis(score) {
                 if (score <= 4) return "Minimal depression";
                 if (score <= 9) return "Mild depression";
@@ -89,7 +91,7 @@
 
 
             }
-    
+
             function displayDepressionSeverityInfo() {
                 var severityInfo = `
                     <strong>Depression Severity:</strong>
@@ -105,11 +107,11 @@
             }
 
 
-            $('#sendMessageBtn').click(function(){
+            $('#sendMessageBtn').click(function () {
 
-            $('#submitActionInput').val('send_message');
-            $('#phq9Form').submit();  // Submit the form
-});
+                $('#submitActionInput').val('send_message');
+                $('#phq9Form').submit();  // Submit the form
+            });
 
 
         });

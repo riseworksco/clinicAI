@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/fontawesome.min.css"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css" rel="stylesheet"
+          type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.0/dist/echarts.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.21/build/jquery.datetimepicker.min.css"
+          rel="stylesheet">
+    <script
+            src="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.21/build/jquery.datetimepicker.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/za9Otgl.png?1">
+    <title>Assessment</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #e8ecf2;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar a.active {
+            background-color: #dbe0e7;
+            color: #ef5742;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #dbe0e7;
+            color: #ef5742;
+        }
+
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+    </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom" style="background-color: white;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img alt="" class="vt-logo-image"
+                                              src="https://res.cloudinary.com/hq8x4kz7x/image/upload/c_crop,h_289,w_500/v1678922213/output-onlinepngtools_jrafo1.png"
+                                              height="50" focusable="false" aria-hidden="true">
+            <span>{{ header }}</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{% url "assessment:index" %}" id="dropdown01"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Digital Forms</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Neurologic
+                            Screening Evaluation</a>
+                        <a class="dropdown-item" href="{% url "assessment:pre_post_tests" %}">Pre Post Tests</a>
+                        <a class="dropdown-item" href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">Psychoemotional
+                            Screening Evaluation</a>
+                        <a class="dropdown-item" href="{% url "assessment:stomp" %}">Music Preference</a>
+                        <a class="dropdown-item" href="{% url "sheetRAS:RAS" %}">RAS Evaluation</a>
+                        <a class="dropdown-item" href="{% url "sheet4AT:sheet4AT" %}">4AT Evaluation</a>
+                        <a class="dropdown-item" href="{% url "sheetCAM1:CAM1" %}">4AT Evaluation</a>
+                        <a class="dropdown-item" href="{% url "sheetAAQII:AAQII" %}">AAQII Evaluation</a>
+                        <a class="dropdown-item" href="{% url "sheetGAD:GAD" %}">GAD-7 Evaluation</a>
+                        <a class="dropdown-item" href="{% url "sheetPHQ:PHQ" %}">PHQ9 Evaluation</a>
+
+                    </div>
+                </li>
+                <li><a class="nav-link" href="/accounts/logout/"><i
+                        class="bi-box-arrow-down"></i>{{ user.username|title }}
+                </a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+</html>
+<div class="sidebar">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link active" href="/pc/dashboard/billList">
+                <span data-feather="file"></span>
+                Create Assessment
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/pc/dashboard/accountList">
+                <span data-feather="shopping-cart"></span>
+                FAQ
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/accounting/historyrecord/import/">
+                <span data-feather="bar-chart-2"></span>
+                History
+            </a>
+        </li>
+    </ul>
+    <div class="footer" style="bottom: 0">
+        <div class="container-fluid text-center">
+            <span class="text-muted"> 2024 Matrix Software</span>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="ml-sm-auto col-lg-10 pt-3 px-4">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
