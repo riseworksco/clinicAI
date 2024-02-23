@@ -11,23 +11,8 @@ from django.views.generic import FormView, TemplateView
 from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
     PsychoemotionalScreeningEvaluationForm
 
+from assessment.pdf_generator import render_pdf
 
-# Create your views here.
-# @login_required(login_url='/accounts/login/')
-# def stomp(request):
-#     form = StompForm()
-#     # rendered_form = form.render("form_snippet.html")
-#     description = """
-#         Please indicate your basic preference for each of the following genres using the scale provided.
-# 1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7
-# Dislike Dislike Dislike a Neither like Like a Like Like
-#     """
-#     context = {
-#         'form': form,
-#         'header': 'STOMP-Revised',
-#         'description': description,
-#         'therapist': request.user.username}
-#     return render(request, 'assessment/stomp.html', context)
 
 
 @login_required(login_url='/accounts/login/')

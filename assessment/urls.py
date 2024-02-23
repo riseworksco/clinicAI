@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.db import router
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 from . import views
 from assessment.views import StompView, StompSuccessView, PsychoemotionalScreeningEvaluationView, PrePostView, \
@@ -26,6 +26,8 @@ app_name = 'assessment'
 
 urlpatterns = [
     # path('stomp/', views.stomp, name='stomp'),
+    re_path(r"^$", views.index),
+    re_path(r"^download/$", views.render_pdf),
     path('', views.index, name='index'),
     path('stomp/', StompView.as_view(), name="stomp"),
     path('success/', StompSuccessView.as_view(), name="success"),
@@ -35,5 +37,5 @@ urlpatterns = [
          name="pre_post_tests"),
     path('Psychoemotional_Screening_Evaluation/', PsychoemotionalScreeningEvaluationView.as_view(),
          name="Psychoemotional_Screening_Evaluation"),
-    path('pdf/',views.some_view,name='pdf')
+    path('pdf/', views.some_view, name='pdf')
 ]

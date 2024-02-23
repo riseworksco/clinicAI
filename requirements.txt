@@ -20,3 +20,4 @@ whitenoise
 djangorestframework
 markdown
 django-filter
+xhtml2pdf
