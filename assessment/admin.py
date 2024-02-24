@@ -54,6 +54,7 @@ admin.site.register(PsychoemotionalScreeningRecord, PsychoemotionalScreeningReco
 
 class CatCatFlowsheetRecordAdmin(admin.ModelAdmin):
     pass
+#
 
 
 admin.site.register(CatCatFlowsheetRecord, CatCatFlowsheetRecordAdmin)
