@@ -2,5 +2,29 @@
 {% load crispy_forms_tags %}
 {% block title %}{{ header }}{% endblock %}
 {% block content %}
-    <h1>Test</h1>
+    <div class="form-group">
+        <label for="patientName">Patient Name:</label>
+        <input type="text" class="form-control" id="patientName" placeholder="Enter patient's name">
+    </div>
+    <label> Assessment Form Name:
+        <select class="form-control">
+            <option class="dropdown-item" href="{% url "assessment:Neurologic_Screening_Evaluation" %}">Neurologic
+                Screening Evaluation
+            </option>
+            <option class="dropdown-item" href="{% url "assessment:pre_post_tests" %}">Pre Post Tests</option>
+            <option class="dropdown-item" href="{% url "assessment:Psychoemotional_Screening_Evaluation" %}">
+                Psychoemotional
+                Screening Evaluation
+            </option>
+            <option class="dropdown-item" href="{% url "assessment:stomp" %}">Music Preference</option>
+            <option class="dropdown-item" href="{% url "sheetRAS:RAS" %}">RAS Evaluation</option>
+            <option class="dropdown-item" href="{% url "sheet4AT:sheet4AT" %}">4AT Evaluation</option>
+            <option class="dropdown-item" href="{% url "sheetCAM1:CAM1" %}">4AT Evaluation</option>
+            <option class="dropdown-item" href="{% url "sheetAAQII:AAQII" %}">AAQII Evaluation</option>
+            <option class="dropdown-item" href="{% url "sheetGAD:GAD" %}">GAD-7 Evaluation</option>
+            <option class="dropdown-item" href="{% url "sheetPHQ:PHQ" %}">PHQ9 Evaluation</option>
+            </div>
+        </select>
+    </label>
+    <button class="btn btn-primary my-3" type="submit">Create</button>
 {% endblock %}
