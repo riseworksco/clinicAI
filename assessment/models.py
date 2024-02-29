@@ -1,6 +1,7 @@
 from django.db import models
 
 from patient_management.models import Doctor, Patient
+import datetime
 
 
 # Create your models here.
@@ -171,3 +172,38 @@ class CatCatFlowsheetRecord(models.Model):
     type4_value = models.CharField('treatment post', max_length=30)
     type4_epic = models.CharField('No', max_length=30)
     type4_smf = models.IntegerField()
+
+
+class ATModel(models.Model):
+    patientName = models.CharField(max_length=255)
+    patientNumber = models.CharField(max_length=255)
+    birthDate = models.DateField(default=datetime.date.today)
+    my_datetime_field = models.DateTimeField()
+    TesterName = models.CharField(max_length=255)
+
+    ALERTNESS_CHOICES = [
+        ('0', '0 - Normal (fully alert, but not agitated, throughout assessment)'),
+        ('0', '0 - Mild sleepiness for <10 seconds after waking, then normal'),
+        ('4', '4 - Clearly abnormal'),
+    ]
+    AMT4_CHOICES = [
+        ('0', '0 - No mistakes'),
+        ('1', '1- 1 mistake'),
+        ('2', '2 or more mistakes/untestable'),
+    ]
+    ATTENTION_CHOICES = [
+        ('0', '0 - Achieves 7 months or more correctly'),
+        ('1', '1 - Starts but scores <7 months / refuses to start'),
+        ('2', '2 - Untestable (cannot start because unwell, drowsy, inattentive)'),
+    ]
+    ACUTE_CHANGE_CHOICES = [
+        ('0', '0 - No)'),
+        ('4', '4 - Yes'),
+    ]
+
+    question1 = models.CharField(max_length=1, choices=ALERTNESS_CHOICES, default='0')
+    question2 = models.CharField(max_length=1, choices=AMT4_CHOICES, default='0')
+    question3 = models.CharField(max_length=1, choices=ATTENTION_CHOICES, default='0')
+    question4 = models.CharField(max_length=1, choices=ACUTE_CHANGE_CHOICES, default='0')
+
+    AtScore = models.FloatField()

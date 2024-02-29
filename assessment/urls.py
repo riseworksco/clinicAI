@@ -19,7 +19,7 @@ from django.urls import path, include, re_path
 
 from . import views
 from assessment.views import StompView, StompSuccessView, PsychoemotionalScreeningEvaluationView, PrePostView, \
-    NeurologicScreeningEvaluationView
+    NeurologicScreeningEvaluationView, AT4View
 
 # import patient_management
 app_name = 'assessment'
@@ -37,5 +37,8 @@ urlpatterns = [
          name="pre_post_tests"),
     path('Psychoemotional_Screening_Evaluation/', PsychoemotionalScreeningEvaluationView.as_view(),
          name="Psychoemotional_Screening_Evaluation"),
-    path('pdf/', views.some_view, name='pdf')
+    path('pdf/', views.some_view, name='pdf'),
+    path('sheet4AT/', AT4View.as_view(),
+         name="sheet4AT"),
 ]
+
