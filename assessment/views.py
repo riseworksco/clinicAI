@@ -11,6 +11,18 @@ from django.views.generic import FormView, TemplateView
 from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
     PsychoemotionalScreeningEvaluationForm
 
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.urls import reverse_lazy
+from django.views.generic import FormView, TemplateView
+
+from sheet4AT.forms import ATForm
+
 from assessment.pdf_generator import render_pdf
 
 
@@ -132,17 +144,7 @@ def some_view(request):
 
 
 
-import io
-from django.http import FileResponse
-from reportlab.pdfgen import canvas
 
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-
-from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView
-
-from sheet4AT.forms import ATForm
 class AT4View(FormView):
     template_name = 'assessment/AT4.html'
     form_class = ATForm

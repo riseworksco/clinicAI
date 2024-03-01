@@ -8,6 +8,14 @@ from django.core.mail import send_mail
 
 from assessment.models import PsychoemotionalScreeningRecord
 
+from django import forms
+from django.conf import settings
+from django.forms import ModelForm
+from django.template.loader import render_to_string
+
+from assessment.identifiers import Sign
+from django.core.mail import send_mail
+
 
 class StompForm(forms.Form):
     """
@@ -193,13 +201,7 @@ class PsychoemotionalScreeningEvaluationForm(ModelForm):
 
 
 
-from django import forms
-from django.conf import settings
-from django.forms import ModelForm
-from django.template.loader import render_to_string
 
-from assessment.identifiers import Sign
-from django.core.mail import send_mail
 
 
 
