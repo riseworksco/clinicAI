@@ -145,7 +145,7 @@ def some_view(request):
 
 
 
-class AT4View(FormView):
+class AT4View(LoginRequiredMixin, FormView):
     template_name = 'assessment/AT4.html'
     form_class = ATForm
     success_url = reverse_lazy('assessment:success')
