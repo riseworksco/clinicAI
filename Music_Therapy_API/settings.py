@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     'assessment',
     'sheetRAS',
     'sheet4AT',
-    # 'sheetCAM',
     'sheetCAM1',
     'findatherapist',
     "sheetAAQII",

@@ -12,16 +12,16 @@ class Doctor(models.Model):
         primary_key=True,
     )
 
-    type1_value = models.CharField('eval', max_length=30)
-    type1_epic = models.CharField('No', max_length=30)
-    type1_smf = models.IntegerField()
-
-    MusicTherapyCredential = models.CharField('eval', max_length=30)
-    BachelorDegree = models.CharField('eval', max_length=30)
-    MastersDegree = models.CharField('eval', max_length=30)
-    DoctorateDegree = models.CharField('eval', max_length=30)
-    OtherLicenseCredential = models.CharField('eval', max_length=30)
-    OtherTrainingDesignation = models.CharField('eval', max_length=30)
+    # type1_value = models.CharField('eval', max_length=30, null=True)
+    # type1_epic = models.CharField('No', max_length=30,null=True)
+    # type1_smf = models.IntegerField(null=True)
+    #
+    # MusicTherapyCredential = models.CharField('eval', max_length=30,null=True)
+    # BachelorDegree = models.CharField('eval', max_length=30, null=True)
+    # MastersDegree = models.CharField('eval', max_length=30, null=True)
+    # DoctorateDegree = models.CharField('eval', max_length=30, null=True)
+    # OtherLicenseCredential = models.CharField('eval', max_length=30, null=True)
+    # OtherTrainingDesignation = models.CharField('eval', max_length=30,null=True)
     # JobTitleType: Director / Admin. / Supervisor, Music
     # Therapist
     # Age

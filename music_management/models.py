@@ -23,7 +23,7 @@ class Song(models.Model):
 class Playlist(models.Model):
     id = models.CharField(max_length=100, primary_key=True)
     name = models.CharField(max_length=100, null=True)
-    songs = models.ManyToManyField(Song, null=True)
+    songs = models.ManyToManyField(Song)
 
     class Meta:
         ordering = ['name']

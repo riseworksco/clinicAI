@@ -16,7 +16,8 @@
             <div class="form-group">
                 {{ form.date.label_tag }} {{ form.date }}
             </div>
-            <p style="font-weight: bold; margin-top: 20px;">Please rate the truth of each statement in the column on the right, using the following scale:</p>
+            <p style="font-weight: bold; margin-top: 20px;">Please rate the truth of each statement in the column on the
+                right, using the following scale:</p>
 
             <table class="table">
                 {% for field in questions %}
@@ -28,7 +29,10 @@
             </table>
 
             <button id="submitFormBtn" type="submit" class="btn btn-primary">Submit</button>
-            <button id="sendMessageBtn" type="button" class="btn my-3" style="background-color: #00b7a6; color: #ffffff;">Send message</button>
+            <button id="sendMessageBtn" type="button" class="btn my-3"
+                    style="background-color: #00b7a6; color: #ffffff;">Send message
+            </button>
+            <a href="" download>Download Book Catalog (PDF)</a>
             <input type="hidden" name="submit_action" id="submitActionInput" value="submit">
         </form>
         <div id="totalScore"></div>
@@ -37,15 +41,15 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('#submitFormBtn').on('click', function(e) {  // Add 'e' here
+        $(document).ready(function () {
+            $('#submitFormBtn').on('click', function (e) {  // Add 'e' here
                 e.preventDefault();  // Now 'e' is defined
 
                 var total = 0;
                 var isFormValid = true;
 
                 // Iterate through each select box and calculate total
-                $('#aaqForm select').each(function() {
+                $('#aaqForm select').each(function () {
                     var answer = $(this).val();
                     if (answer === "" || answer === null) {
                         isFormValid = false;
@@ -79,10 +83,10 @@
             });
 
 
-            $('#sendMessageBtn').on('click', function() {
-            $('#submitActionInput').val('send_message');
-            $('#aaqForm').submit();  // Submit the form
-});
+            $('#sendMessageBtn').on('click', function () {
+                $('#submitActionInput').val('send_message');
+                $('#aaqForm').submit();  // Submit the form
+            });
 
         });
     </script>

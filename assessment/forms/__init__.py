@@ -2,6 +2,9 @@ from django import forms
 from django.conf import settings
 from django.forms import ModelForm
 from django.template.loader import render_to_string
+from django.http import FileResponse
+from django.core.mail import EmailMessage
+from reportlab.pdfgen import canvas
 
 from assessment.identifiers import Sign
 from django.core.mail import send_mail
@@ -48,7 +51,6 @@ class StompForm(forms.Form):
 
     def get_info(self):
         form = self
-        # rendered_form = form.render("form_snippet.html")
         description = """
                 Please indicate your basic preference for each of the following genres using the scale provided.
         1-----------------2-----------------3-----------------4-----------------5-----------------6-----------------7
@@ -60,20 +62,47 @@ class StompForm(forms.Form):
             'description': description, }
 
         result = render_to_string('email/stomp.html', context)
-        # print(form.data)
         recipient = form.data['TherapistEmail']
         return 'STOMP-Revised', result, recipient
 
     def send(self):
         subject, msg, recipent = self.get_info()
-
-        send_mail(
+        pdf = self.generate_pdf_file().getbuffer()
+        email = EmailMessage(
             subject=subject,
-            message="",
-            html_message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[recipent]
+            to=[recipent],
         )
+        email.attach("music_preferences.pdf", pdf, "application/pdf")
+        email.send()
+
+    def generate_pdf_file(self):
+        from io import BytesIO
+
+        buffer = BytesIO()
+        p = canvas.Canvas(buffer)
+
+        # Create a PDF document
+        p.drawString(100, 750, "Music Preference Form")
+
+        x = 100
+        y = 700
+        for key in self.data.keys():
+            if key != "csrfmiddlewaretoken":
+                p.drawString(100, y, f"{key}: {str(self.data[key])}")
+                y -= 20
+
+        p.showPage()
+        p.save()
+
+        buffer.seek(0)
+        return buffer
+
+    def generate_pdf(self):
+        response = FileResponse(self.generate_pdf_file(),
+                                as_attachment=True,
+                                filename='music_preference_form.pdf')
+        return response
 
 
 class NeurologicScreeningEvaluationForm(forms.Form):
