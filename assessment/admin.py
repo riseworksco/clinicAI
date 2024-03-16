@@ -6,6 +6,7 @@ from .models import PHQ2
 from .models import PHQ9
 from .models import PsychoemotionalScreeningRecord
 from .models import CatCatFlowsheetRecord
+from .models import ATModel
 
 
 # Register your models here.
@@ -58,3 +59,12 @@ class CatCatFlowsheetRecordAdmin(admin.ModelAdmin):
 
 
 admin.site.register(CatCatFlowsheetRecord, CatCatFlowsheetRecordAdmin)
+
+
+
+class ATModelAdmin(admin.ModelAdmin):
+    pass
+#
+
+
+admin.site.register(ATModel, ATModelAdmin)

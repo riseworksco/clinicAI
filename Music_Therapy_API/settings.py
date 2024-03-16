@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 import django_heroku
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 from pathlib import Path
 
@@ -189,3 +191,10 @@ EMAIL_USE_TLS = True
 
 # Account Setting
 LOGOUT_REDIRECT_URL = "/"  # new
+
+# adding config
+cloudinary.config(
+    cloud_name="hq8x4kz7x",
+    api_key="966542976818381",
+    api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y"
+)

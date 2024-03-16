@@ -11,7 +11,20 @@ from django.views.generic import FormView, TemplateView
 from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
     PsychoemotionalScreeningEvaluationForm
 
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.urls import reverse_lazy
+from django.views.generic import FormView, TemplateView
+
+from sheet4AT.forms import ATForm
+
 from assessment.pdf_generator import render_pdf
+
 
 
 @login_required(login_url='/accounts/login/')
@@ -30,6 +43,17 @@ Description for the form
     return render(request, 'assessment/neurologic_screening_evaluation.html', context)
 
 
+# @login_required(login_url='/accounts/login/')
+# def pre_post_form(request):
+#     form = PrePostForm()
+#     # rendered_form = form.render("form_snippet.html")
+#     description = """
+# Description for the form
+#         """
+#     context = {'form': form, 'header': 'Pre/Post Tests', 'description': description}
+#     return render(request, 'assessment/pre_post_form.html', context)
+
+
 # Stomp Form related views
 class StompView(LoginRequiredMixin, FormView):
     template_name = 'assessment/stomp.html'
@@ -39,11 +63,7 @@ class StompView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         # Calls the custom send method
         form.send()
-        return form.generate_pdf()
-        # return super().form_valid(form)
-
-    def generate_pdf(self, form):
-        return form.generate_pdf()
+        return super().form_valid(form)
 
 
 class StompSuccessView(TemplateView):
@@ -98,7 +118,6 @@ class NeurologicScreeningEvaluationView(LoginRequiredMixin, FormView):
         form.send()
         return super().form_valid(form)
 
-
 class NeurologicScreeningEvaluationSuccessView(LoginRequiredMixin, TemplateView):
     template_name = 'email/success.html'
 
@@ -122,3 +141,17 @@ def some_view(request):
     # present the option to save the file.
     buffer.seek(0)
     return FileResponse(buffer, as_attachment=True, filename='hello.pdf')
+
+
+
+
+class AT4View(LoginRequiredMixin, FormView):
+    template_name = 'assessment/AT4.html'
+    form_class = ATForm
+    success_url = reverse_lazy('assessment:success')
+
+    def form_valid(self, form):
+        # Calls the custom send method
+        print(12)
+        form.send()
+        return super().form_valid(form)

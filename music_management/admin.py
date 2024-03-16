@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Song, Playlist
+from .models import Song, Playlist, Record
 
 
 # Register your models here.
@@ -10,6 +10,10 @@ class SongAdmin(admin.ModelAdmin):
 
 class PlaylistAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(Record)
+class RecordAdmin(admin.ModelAdmin):
+    list_display = ("id", "video")
 
 
 admin.site.register(Song, SongAdmin)
