@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
 from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
-    PsychoemotionalScreeningEvaluationForm
+    PsychoemotionalScreeningEvaluationForm, ATNForm
 
 import io
 from django.http import FileResponse
@@ -21,7 +21,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
-from sheet4AT.forms import ATForm
+#from sheet4AT.forms import ATForm
 
 from assessment.pdf_generator import render_pdf
 
@@ -145,9 +145,9 @@ def some_view(request):
 
 
 
-class AT4View(LoginRequiredMixin, FormView):
+class AT4NView(LoginRequiredMixin, FormView):
     template_name = 'assessment/AT4.html'
-    form_class = ATForm
+    form_class = ATNForm
     success_url = reverse_lazy('assessment:success')
 
     def form_valid(self, form):
