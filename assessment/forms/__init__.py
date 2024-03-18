@@ -9,7 +9,7 @@ from reportlab.pdfgen import canvas
 from assessment.identifiers import Sign
 from django.core.mail import send_mail
 
-from assessment.models import PsychoemotionalScreeningRecord
+from assessment.models import PsychoemotionalScreeningRecord, ATNModel
 
 from django import forms
 from django.conf import settings
@@ -234,7 +234,7 @@ class PsychoemotionalScreeningEvaluationForm(ModelForm):
 
 
 
-class ATForm(forms.Form):
+class ATNForm(forms.Form):
 
     patientName = forms.CharField(widget=forms.TextInput(attrs={'class': 'emailinput form-control'}))
     patientNumber = forms.CharField(widget=forms.TextInput(attrs={'class': 'emailinput form-control'}))
@@ -319,14 +319,14 @@ class ATForm(forms.Form):
             """
         context = {
             'form': form,
-            'header': 'RasForm/Evaluation',
+            'header': 'ATFormN',
             'description': description, }
 
         result = render_to_string('email/stomp.html', context)
 
         print(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
-        return 'RasForm/Evaluation', result
+        return 'ATFormN', result
 
     def send(self):
         subject, msg, = self.get_info()
