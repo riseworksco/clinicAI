@@ -174,7 +174,7 @@ class CatCatFlowsheetRecord(models.Model):
     type4_smf = models.IntegerField()
 
 
-class ATModel(models.Model):
+class ATNModel(models.Model):
     patientName = models.CharField(max_length=255)
     patientNumber = models.CharField(max_length=255)
     birthDate = models.DateField(default=datetime.date.today)
