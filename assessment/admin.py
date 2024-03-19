@@ -7,6 +7,7 @@ from .models import PHQ9
 from .models import PsychoemotionalScreeningRecord
 from .models import CatCatFlowsheetRecord
 from .models import ATNModel
+from .models import AAQ2Model
 
 
 # Register your models here.
@@ -64,7 +65,14 @@ admin.site.register(CatCatFlowsheetRecord, CatCatFlowsheetRecordAdmin)
 
 class ATNModelAdmin(admin.ModelAdmin):
     pass
-
+#
 
 
 admin.site.register(ATNModel, ATNModelAdmin)
+
+
+class AAQ2ModelAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(AAQ2Model, AAQ2ModelAdmin)
