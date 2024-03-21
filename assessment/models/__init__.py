@@ -180,7 +180,7 @@ class CatCatFlowsheetRecord(models.Model):
     type4_smf = models.IntegerField()
 
 
-class ATNModel(models.Model):
+class AT4Model(models.Model):
     patientName = models.CharField(max_length=255)
     patientNumber = models.CharField(max_length=255)
     birthDate = models.DateField(default=datetime.date.today)
@@ -213,6 +213,54 @@ class ATNModel(models.Model):
     question4 = models.CharField(max_length=1, choices=ACUTE_CHANGE_CHOICES, default='0')
 
     AtScore = models.FloatField()
+
+    # TherapistEmail = forms.EmailField(label='Therapist Email')
+    # feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature1Single = forms.CharField()
+    # feature2 = forms.ChoiceField(label="Feature 2: Inattention",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature2ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature2Single = forms.CharField()
+    # feature3 = forms.ChoiceField(label="Feature 3: Altered Level of Consciousness",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature3ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature3Single = forms.CharField()
+    # feature4 = forms.ChoiceField(label="Feature 4: Disorganized Thinking",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature4ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature4Single = forms.CharField()
+
+    def get_info(self):
+        form = self
+        description = """
+            """
+        context = {
+            'form': form,
+            'header': 'RasForm/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/stomp.html', context)
+
+        print(form.cleaned_data)
+        # recipient = form.data['TherapistEmail']
+        return 'RasForm/Evaluation', result
+
+    def send(self):
+        subject, msg, = self.get_info()
+
+        # send_mail(
+        #     subject=subject,
+        #     message="",
+        #     html_message=msg,
+        #     from_email=settings.EMAIL_HOST_USER,
+        #     recipient_list=[recipent]
+        # )
 
 
 class AAQ2Model(models.Model):
@@ -278,4 +326,274 @@ class AAQ2Model(models.Model):
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[recipient]
         )
+
+
+class CAM1Model(models.Model):
+    patientName = models.CharField(max_length=255)
+    my_datetime_field = models.DateTimeField()
+    checkbox1 = models.BooleanField(default=False)
+    checkbox2 = models.BooleanField(default=False)
+    checkbox3 = models.BooleanField(default=False)
+    checkbox4 = models.BooleanField(default=False)
+    checkbox5 = models.BooleanField(default=False, verbose_name='CAM-ICU POSITIVE')
+    checkbox6 = models.BooleanField(default=False, verbose_name='CAM-ICU NEGATIVE')
+
+    # TherapistEmail = forms.EmailField(label='Therapist Email')
+    # feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature1Single = forms.CharField()
+    # feature2 = forms.ChoiceField(label="Feature 2: Inattention",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature2ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature2Single = forms.CharField()
+    # feature3 = forms.ChoiceField(label="Feature 3: Altered Level of Consciousness",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature3ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature3Single = forms.CharField()
+    # feature4 = forms.ChoiceField(label="Feature 4: Disorganized Thinking",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature4ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature4Single = forms.CharField()
+
+    def get_info(self):
+        form = self
+        description = """
+            """
+        context = {
+            'form': form,
+            'header': 'RasForm/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/stomp.html', context)
+
+        print(form.data)
+        # recipient = form.data['TherapistEmail']
+        return 'RasForm/Evaluation', result
+
+    def send(self):
+        subject, msg, = self.get_info()
+
+        # send_mail(
+        #     subject=subject,
+        #     message="",
+        #     html_message=msg,
+        #     from_email=settings.EMAIL_HOST_USER,
+        #     recipient_list=[recipent]
+        # )
+
+
+
+
+class GAD7Model(models.Model):
+    name = models.CharField(max_length=255)
+    date = models.DateField(auto_now_add=True)
+
+    QUESTION_CHOICES = [
+        (0, "Not at all"),
+        (1, "Several days"),
+        (2, "Over half the days"),
+        (3, "Nearly every day")
+    ]
+
+    question1 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question2 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question3 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question4 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question5 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question6 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question7 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    question8 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
+    email = models.EmailField()  # Assuming you're collecting emails. Add this field if necessary.
+
+    def calculate_total_score(self):
+        total = sum([
+            getattr(self, f'question{i}') for i in range(1, 8)
+        ])
+        return total
+
+    def get_anxiety_level(self):
+        total_score = self.calculate_total_score()
+        if total_score < 5:
+            return "Minimal anxiety or none at all."
+        elif total_score < 10:
+            return "Mild anxiety."
+        elif total_score < 15:
+            return "Moderate anxiety."
+        else:
+            return "Severe anxiety."
+
+    def get_info(self):
+        description = """
+            Your anxiety level has been evaluated.
+        """
+        context = {
+            'name': self.name,
+            'date': self.date,
+            'total_score': self.calculate_total_score(),
+            'anxiety_level': self.get_anxiety_level(),
+            'description': description,
+        }
+
+        result = render_to_string('email/template.html', context)  # Ensure this template exists
+        recipient = self.email  # Ensure you have a field to capture the recipient's email
+        return 'GAD7Form/Evaluation', result, recipient
+
+    def send(self):
+        subject, msg, recipient = self.get_info()
+        send_mail(
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipient]
+        )
+
+
+
+
+class PHQ9Model(models.Model):
+    name = models.CharField(max_length=255)
+    date = models.DateField(default=date.today)
+
+    QUESTION_CHOICES = [
+        ('0', "Not at all"),
+        ('1', "Several days"),
+        ('2', "More than half the days"),
+        ('3', "Nearly every day")
+    ]
+
+    question1 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question2 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question3 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question4 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question5 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question6 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question7 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question8 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question9 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+    question10 = models.CharField(max_length=1, choices=QUESTION_CHOICES, default='0')
+
+    def save(self, *args, **kwargs):
+        # Custom validation logic before saving (if needed)
+        self.full_clean()  # Calls the model's clean method
+        super().save(*args, **kwargs)  # Don't forget to call the superclass method!
+
+    def clean(self):
+        # Example validation: ensure 'name' field is not empty
+        if not self.name:
+            raise ValidationError({'name': "Name cannot be empty."})
+        # Add more validation as needed
+
+    def calculate_total_score(self):
+        total = 0
+        # Adjust the range according to the actual number of questions
+        for i in range(1, 11):  # Assuming there are 10 questions
+            total += int(getattr(self, f'question{i}', '0'))
+        return total
+
+    def get_diagnosis(self):
+        total_score = self.calculate_total_score()
+        if total_score <= 4:
+            return "Minimal depression"
+        elif total_score <= 9:
+            return "Mild depression"
+        elif total_score <= 14:
+            return "Moderate depression"
+        elif total_score <= 19:
+            return "Moderately severe depression"
+        else:
+            return "Severe depression"
+
+    def get_info(self):
+        form = self
+        description = """
+            """
+        context = {
+            'form': form,
+            'header': 'PHQForm/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/stomp.html', context)
+
+        print(form.data)
+        recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
+
+        return 'PHQForm/Evaluation', result, recipient
+
+    def send(self):
+        subject, msg, recipient = self.get_info()
+
+        send_mail(
+            subject=subject,
+            message="",
+            html_message=msg,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[recipient]
+        )
+
+
+
+
+
+class RASModel(models.Model):
+    patientName = models.CharField(max_length=255)
+    initialWalk = models.FloatField()
+    firstWalkSteps = models.FloatField()
+    firstWalkSeconds = models.FloatField()
+    firstCadence = models.FloatField()
+    firstVelocity = models.FloatField()
+    firstStrideLength = models.FloatField()
+
+    # TherapistEmail = forms.EmailField(label='Therapist Email')
+    # feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature1ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature1Single = forms.CharField()
+    # feature2 = forms.ChoiceField(label="Feature 2: Inattention",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature2ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature2Single = forms.CharField()
+    # feature3 = forms.ChoiceField(label="Feature 3: Altered Level of Consciousness",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature3ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature3Single = forms.CharField()
+    # feature4 = forms.ChoiceField(label="Feature 4: Disorganized Thinking",
+    #                              choices=[(Sign.Positive, "Positive"), (Sign.Negative, "Negative")])
+    # feature4ExistsInEPIC = forms.ChoiceField(label="Exists in Epic",
+    #                                          choices=[(Sign.Positive, "Yes"), (Sign.Negative, "No")])
+    # feature4Single = forms.CharField()
+
+    def get_info(self):
+        form = self
+        description = """
+            """
+        context = {
+            'form': form,
+            'header': 'RasForm/Evaluation',
+            'description': description, }
+
+        result = render_to_string('email/stomp.html', context)
+
+        print(form.data)
+        # recipient = form.data['TherapistEmail']
+        return 'RasForm/Evaluation', result
+
+    def send(self):
+        subject, msg, = self.get_info()
+
+        # send_mail(
+        #     subject=subject,
+        #     message="",
+        #     html_message=msg,
+        #     from_email=settings.EMAIL_HOST_USER,
+        #     recipient_list=[recipent]
+        # )
 
