@@ -6,8 +6,12 @@ from .models import PHQ2
 from .models import PHQ9
 from .models import PsychoemotionalScreeningRecord
 from .models import CatCatFlowsheetRecord
-from .models import ATNModel
-
+from .models import AT4Model
+from .models import AAQ2Model
+from .models import CAM1Model
+from .models import GAD7Model
+from .models import PHQ9Model
+from .models import RASModel
 
 # Register your models here.
 
@@ -62,9 +66,45 @@ admin.site.register(CatCatFlowsheetRecord, CatCatFlowsheetRecordAdmin)
 
 
 
-class ATNModelAdmin(admin.ModelAdmin):
+class AT4ModelAdmin(admin.ModelAdmin):
+    pass
+#
+
+
+admin.site.register(AT4Model, AT4ModelAdmin)
+
+
+class AAQ2ModelAdmin(admin.ModelAdmin):
     pass
 
 
+admin.site.register(AAQ2Model, AAQ2ModelAdmin)
 
-admin.site.register(ATNModel, ATNModelAdmin)
+
+class CAM1ModelAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(CAM1Model, CAM1ModelAdmin)
+
+
+#class GAD7ModelAdmin(admin.ModelAdmin):
+#    pass
+
+
+#admin.site.register(GAD7Model, GAD7ModelAdmin)
+
+
+#class PHQ9ModelAdmin(admin.ModelAdmin):
+#    pass
+
+
+#admin.site.register(PHQ9Model, PHQ9ModelAdmin)
+
+
+
+class RASModelAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(RASModel, RASModelAdmin)

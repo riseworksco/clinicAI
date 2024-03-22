@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
 from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
-    PsychoemotionalScreeningEvaluationForm, ATNForm
+    PsychoemotionalScreeningEvaluationForm, AT4Form, AAQ2Form, CAM1Form, GAD7Form, PHQ9Form,RASForm
 
 import io
 from django.http import FileResponse
@@ -145,9 +145,9 @@ def some_view(request):
 
 
 
-class AT4NView(LoginRequiredMixin, FormView):
+class AT4View(LoginRequiredMixin, FormView):
     template_name = 'assessment/AT4.html'
-    form_class = ATNForm
+    form_class = AT4Form
     success_url = reverse_lazy('assessment:success')
 
     def form_valid(self, form):
@@ -155,3 +155,103 @@ class AT4NView(LoginRequiredMixin, FormView):
         print(12)
         form.send()
         return super().form_valid(form)
+
+
+class AAQ2View(FormView):
+    template_name = 'assessment/AAQII.html'  # 确保模板路径正确
+    form_class = AAQ2Form
+    success_url = reverse_lazy('assessment:success')  # 更新这里以匹配您的URL配置
+
+    def get_context_data(self, **kwargs):
+        # 调用基类方法获取上下文
+        context = super().get_context_data(**kwargs)
+
+        # 如果表单存在于上下文中，添加问题字段到上下文
+        if 'form' in context:
+            form = context['form']
+            # 创建包含所有问题字段的列表
+            context['questions'] = [form[f'question{i}'] for i in range(1, 8)]
+
+        return context
+
+    def form_valid(self, form):
+        # 这里可以添加您的表单处理逻辑
+        # 例如，您可以在这里计算总分并保存结果，或者执行其他操作
+        total_score = form.calculate_total_score()
+
+        # 可以根据需要添加额外逻辑
+        # ...
+        form.send()
+        return super().form_valid(form)
+
+
+class CAM1View(FormView):
+    template_name = 'assessment/CAM.html'
+    form_class = CAM1Form
+    success_url = reverse_lazy('assessment:success')
+
+    def form_valid(self, form):
+        # Calls the custom send method
+        form.send()
+        return super().form_valid(form)
+
+
+class GAD7View(FormView):
+    template_name = 'assessment/GAD-7.html'
+    form_class = GAD7Form
+    success_url = reverse_lazy('assessment:success')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'form' in context:
+            form = context['form']
+            context['questions'] = [form[f'question{i}'] for i in range(1, 9)]  # Include question8 if it exists
+        return context
+
+    def form_valid(self, form):
+        total_score = form.calculate_total_score()
+        anxiety_level = form.get_anxiety_level(total_score)
+        # You might want to do something with total_score and anxiety_level here,
+        # like saving them to the database.
+
+        form.send()  # Send your email
+
+        # Optionally, store values in session if you want to use them after redirect
+        self.request.session['total_score'] = total_score
+        self.request.session['anxiety_level'] = anxiety_level
+
+        return super().form_valid(form)  # Redirect to success_url
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+
+class PHQ9View(FormView):
+    template_name = 'assessment/PHQ-9.html'
+    form_class = PHQ9Form
+    success_url = reverse_lazy('assessment:success')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'form' in context:
+            # Manually add each question field to the context
+            context['questions'] = [context['form'][f'question{i}'] for i in range(1, 11)]
+        return context
+
+    def form_valid(self, form):
+        form .send()  # Send your email
+        return super().form_valid(form)  # Redirect to success_url
+
+
+
+class RASView(FormView):
+    template_name = 'assessment/test1.html'
+    form_class = RASForm
+    success_url = reverse_lazy('assessment:success')
+
+    def form_valid(self, form):
+        # Calls the custom send method
+        form.send()
+        return super().form_valid(form)
+
+
