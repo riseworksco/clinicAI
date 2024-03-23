@@ -11,7 +11,7 @@ pytz==2022.7.1
 six==1.16.0
 sqlparse
 tzdata
-urllib3==1.26.15
+urllib3==1.26.18
 whitenoise==6.4.0
 wincertstore==0.2
 reportlab
