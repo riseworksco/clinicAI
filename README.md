@@ -1,5 +1,7 @@
 # SOJO: A platform that makes music-therapist-patient interactions easier before, between, and after sessions.
 
+![example workflow](https://github.com/sojoai/Music-Therapy-API/actions/workflows/django.yml/badge.svg)
+
 ## Team
 
 ![image](https://github.com/chenyuan99/Music-Therapy-API/assets/25518100/3ca6646b-eee8-474e-a574-dd530d344190)
