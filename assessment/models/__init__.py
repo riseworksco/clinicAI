@@ -485,7 +485,7 @@ class PHQ9Model(models.Model):
 
     def clean(self):
         cleaned_data = super().clean()
-        # 这里可以添加自定义验证逻辑
+
         return cleaned_data
 
     def calculate_total_score(self):
