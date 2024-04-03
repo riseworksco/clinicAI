@@ -8,21 +8,21 @@ class TestPHQ2ModelWithoutDB(TestCase):
         phq2_instance.q1_value = 2
         phq2_instance.q2_value = 1
 
-        # 假设calculate_total_score方法返回所有问题值的和
+
         phq2_instance.calculate_total_score.return_value = 3
 
-        # 假设get_interpretation方法根据总分返回解释
+
         expected_interpretation = "Minimal depression"
         phq2_instance.get_interpretation.return_value = expected_interpretation
 
-        # 计算总分
+
         total_score = phq2_instance.calculate_total_score()
         self.assertEqual(total_score, 3, "The total score calculation should be correct")
 
-        # 获取解释
+
         interpretation = phq2_instance.get_interpretation(total_score)
         self.assertEqual(interpretation, expected_interpretation, "The interpretation should match the total score")
 
-        # 验证方法是否被调用
+
         phq2_instance.calculate_total_score.assert_called_once_with()
         phq2_instance.get_interpretation.assert_called_once_with(total_score)
