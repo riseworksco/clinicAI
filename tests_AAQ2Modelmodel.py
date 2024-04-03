@@ -5,7 +5,7 @@ import datetime
 
 class TestAAQ2ModelWithoutDB(unittest.TestCase):
     def setUp(self):
-        # 创建一个模拟的AAQ2Model实例
+
         self.aaq2_mock = Mock()
         self.aaq2_mock.name = 'Test User'
         self.aaq2_mock.date = datetime.date.today()
@@ -17,10 +17,10 @@ class TestAAQ2ModelWithoutDB(unittest.TestCase):
         self.aaq2_mock.question6 = '6'
         self.aaq2_mock.question7 = '7'
 
-        # 模拟calculate_total_score方法
+
         self.aaq2_mock.calculate_total_score.return_value = 28
 
-        # 模拟get_diagnosis方法
+
         self.aaq2_mock.get_diagnosis.return_value = "Probable current clinical distress, future distress & work absence more likely."
 
     def test_calculate_total_score(self):
