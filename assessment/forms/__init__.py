@@ -771,12 +771,11 @@ class PHQ9Form(forms.Form):
 
     def calculate_total_score(self):
         total = 0
-        for i in range(1, 9):
+        for i in range(1, 10):
             total += int(self.cleaned_data.get(f'question{i}', 0))
         return total
 
-    def get_diagnosis(self, total_score):
-        total_score = self.cleaned_data['total_score']
+    def get_diagnosis(self, total_score):  # 注意这里我们将total_score作为参数传递
         if total_score <= 4:
             return "Minimal depression"
         elif total_score <= 9:
@@ -790,17 +789,20 @@ class PHQ9Form(forms.Form):
 
     def get_info(self):
         form = self
-        description = """
-            """
+        total_score = self.calculate_total_score()  # 计算总分
+        diagnosis = self.get_diagnosis(total_score)  # 使用总分调用get_diagnosis
+
+        description = f"Diagnosis: {diagnosis}"
         context = {
             'form': form,
             'header': 'PHQForm/Evaluation',
-            'description': description, }
+            'description': description,
+        }
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
-        recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
+        print(form.cleaned_data)
+        recipient = self.cleaned_data.get('email')
 
         return 'PHQForm/Evaluation', result, recipient
 
