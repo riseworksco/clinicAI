@@ -7,7 +7,7 @@ import datetime
 class TestPHQ9ModelWithoutDB(unittest.TestCase):
 
     def setUp(self):
-        # 创建一个模拟的PHQ9Model实例
+
         self.phq9_mock = Mock()
         self.phq9_mock.name = 'Test User'
         self.phq9_mock.date = datetime.date.today()
@@ -20,12 +20,12 @@ class TestPHQ9ModelWithoutDB(unittest.TestCase):
         self.phq9_mock.question7 = '3'
         self.phq9_mock.question8 = '1'
         self.phq9_mock.question9 = '2'
-        # 假设question10不用于总分计算
 
-        # 模拟calculate_total_score方法
+
+
         self.phq9_mock.calculate_total_score.return_value = 17
 
-        # 模拟get_diagnosis方法
+
         self.phq9_mock.get_diagnosis.return_value = "Moderate depression"
 
     def test_calculate_total_score(self):
@@ -39,7 +39,7 @@ class TestPHQ9ModelWithoutDB(unittest.TestCase):
         self.assertEqual(diagnosis, "Moderate depression")
 
     def test_clean_method_raises_validation_error(self):
-        # 模拟clean方法，当name为空时抛出ValidationError
+
         self.phq9_mock.clean.side_effect = ValidationError({'name': "Name cannot be empty."})
         with self.assertRaises(ValidationError):
             self.phq9_mock.clean()
