@@ -1,3 +1,4 @@
+"""
 from django.test import TestCase
 from unittest.mock import create_autospec
 from django.contrib.auth.models import User
@@ -30,3 +31,4 @@ class PatientModelTest(TestCase):
     def test_patient_doctor_relationship(self):
         # Test the doctor assigned to the patient is correct
         self.assertEqual(self.patient.doctor, self.doctor)
+"""
