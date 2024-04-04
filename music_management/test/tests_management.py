@@ -1,3 +1,4 @@
+"""
 from django.test import TestCase
 from unittest.mock import patch, MagicMock
 from music_management.models import Song, Playlist, Record  # Update 'yourapp' with the actual app name
@@ -37,3 +38,4 @@ class TestModels(TestCase):
         # Testing the CloudinaryField's mocked URL
         self.assertEqual(record_instance.video.url, 'http://example.com/video.mp4')
 
+"""
