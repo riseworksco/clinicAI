@@ -40,7 +40,7 @@ class PHQModel(models.Model):
     def calculate_total_score(self):
         total = 0
         # Adjust the range according to the actual number of questions
-        for i in range(1, 11):  # Assuming there are 10 questions
+        for i in range(1, 10):  # Assuming there are 10 questions
             total += int(getattr(self, f'question{i}', '0'))
         return total
 

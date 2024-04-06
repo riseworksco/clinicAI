@@ -484,20 +484,17 @@ class PHQ9Model(models.Model):
         super().save(*args, **kwargs)  # Don't forget to call the superclass method!
 
     def clean(self):
-        # Example validation: ensure 'name' field is not empty
-        if not self.name:
-            raise ValidationError({'name': "Name cannot be empty."})
-        # Add more validation as needed
+        cleaned_data = super().clean()
+
+        return cleaned_data
 
     def calculate_total_score(self):
         total = 0
-        # Adjust the range according to the actual number of questions
-        for i in range(1, 11):  # Assuming there are 10 questions
-            total += int(getattr(self, f'question{i}', '0'))
+        for i in range(1, 10):
+            total += int(self.cleaned_data.get(f'question{i}', 0))
         return total
 
-    def get_diagnosis(self):
-        total_score = self.calculate_total_score()
+    def get_diagnosis(self, total_score):  # 注意这里我们将total_score作为参数传递
         if total_score <= 4:
             return "Minimal depression"
         elif total_score <= 9:
