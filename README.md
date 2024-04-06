@@ -2,6 +2,8 @@
 
 ![example workflow](https://github.com/sojoai/Music-Therapy-API/actions/workflows/django.yml/badge.svg)
 
+<a href="https://www.producthunt.com/posts/sojo-music-therapist-copilot?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-sojo&#0045;music&#0045;therapist&#0045;copilot" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=449369&theme=light" alt="SOJO&#0032;Music&#0032;Therapist&#0032;Copilot - a&#0032;software&#0032;toolbox&#0032;for&#0032;music&#0032;therapists | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ## Team
 
 ![image](https://github.com/chenyuan99/Music-Therapy-API/assets/25518100/3ca6646b-eee8-474e-a574-dd530d344190)
