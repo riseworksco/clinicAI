@@ -21,3 +21,4 @@ djangorestframework
 markdown
 django-filter
 xhtml2pdf
+coverage
