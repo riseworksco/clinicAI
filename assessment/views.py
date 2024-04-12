@@ -1,4 +1,6 @@
 import io
+import logging
+
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 
@@ -152,7 +154,7 @@ class AT4View(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         # Calls the custom send method
-        print(12)
+        logging.info(12)
         form.send()
         return super().form_valid(form)
 

@@ -1,3 +1,5 @@
+import logging
+
 from django.db import models
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -45,7 +47,7 @@ class RasModel(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 

@@ -1,3 +1,5 @@
+import logging
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -38,7 +40,7 @@ def display_patients(request):
         'items': items,
         'header': 'Patient Progress Tracker',
     }
-    print(items)
+    logging.info(items)
     return render(request, "patient/dashboard.html", context)
 
 

@@ -1,3 +1,5 @@
+import logging
+
 from django.db import models
 
 from patient_management.models import Doctor, Patient
@@ -247,7 +249,7 @@ class AT4Model(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.cleaned_data)
+        logging.info(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 
@@ -311,7 +313,7 @@ class AAQ2Model(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
 
         return 'AAQIIForm/Evaluation', result, recipient
@@ -371,7 +373,7 @@ class CAM1Model(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 
@@ -520,7 +522,7 @@ class PHQ9Model(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
 
         return 'PHQForm/Evaluation', result, recipient
@@ -582,7 +584,7 @@ class RASModel(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 

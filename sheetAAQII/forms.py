@@ -1,3 +1,5 @@
+import logging
+
 from django import forms
 from datetime import date
 from django.template.loader import render_to_string
@@ -93,7 +95,7 @@ class AAQIIForm(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
 
         return 'AAQIIForm/Evaluation', result, recipient
