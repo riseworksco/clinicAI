@@ -1,9 +1,11 @@
 
-from django.test import SimpleTestCase, override_settings
-from django.core import mail
-from assessment.forms import AT4Form
 from unittest.mock import patch
+
 from django.conf import settings
+from django.core import mail
+from django.test import SimpleTestCase, override_settings
+
+from assessment.forms import AT4Form
 
 
 class TestAT4Form(SimpleTestCase):

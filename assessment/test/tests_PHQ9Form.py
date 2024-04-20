@@ -1,9 +1,12 @@
 
 
-from django.test import SimpleTestCase
-from assessment.forms import PHQ9Form
-from unittest.mock import patch
 from datetime import date
+from unittest.mock import patch
+
+from django.test import SimpleTestCase
+
+from assessment.forms import PHQ9Form
+
 
 class TestPHQ9Form(SimpleTestCase):
     def setUp(self):

@@ -1,7 +1,9 @@
-from django.test import SimpleTestCase
-from assessment.forms import StompForm
-from unittest.mock import patch, MagicMock, ANY  # 导入ANY
 from io import BytesIO  # 导入BytesIO以进行类型检查
+from unittest.mock import ANY, MagicMock, patch  # 导入ANY
+
+from django.test import SimpleTestCase
+
+from assessment.forms import StompForm
 
 
 class TestStompForm(SimpleTestCase):

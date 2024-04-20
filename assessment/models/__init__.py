@@ -1,15 +1,13 @@
+import datetime
 import logging
+from datetime import date
 
+from django.conf import settings
+from django.core.mail import send_mail
 from django.db import models
+from django.template.loader import render_to_string
 
 from patient_management.models import Doctor, Patient
-import datetime
-from datetime import date
-from django.db import models
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.conf import settings
-
 
 
 # Create your models here.

@@ -1,10 +1,11 @@
 import logging
+from datetime import date
 
 from django import forms
-from datetime import date
-from django.template.loader import render_to_string
-from django.core.mail import send_mail
 from django.conf import settings  # Add this import
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 
 class AAQIIForm(forms.Form):
     # 定义姓名和日期字段

@@ -1,6 +1,6 @@
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView
-from django.shortcuts import render
 
 from .forms import GAD7Form
 

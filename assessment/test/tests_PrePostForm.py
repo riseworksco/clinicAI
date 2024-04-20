@@ -1,6 +1,8 @@
-from django.test import SimpleTestCase
-from assessment.forms import PrePostForm
 from unittest.mock import patch
+
+from django.test import SimpleTestCase
+
+from assessment.forms import PrePostForm
 from assessment.identifiers import Sign
 
 

@@ -1,16 +1,16 @@
 import io
 import logging
 
-from django.http import FileResponse
-from reportlab.pdfgen import canvas
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.http import FileResponse
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
+from reportlab.pdfgen import canvas
 
 from sheet4AT.forms import ATForm
+
+
 class AT4View(FormView):
     template_name = 'assessment/AT4.html'
     form_class = ATForm

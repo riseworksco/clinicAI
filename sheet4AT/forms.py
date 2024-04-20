@@ -2,12 +2,11 @@ import logging
 
 from django import forms
 from django.conf import settings
+from django.core.mail import send_mail
 from django.forms import ModelForm
 from django.template.loader import render_to_string
 
 from assessment.identifiers import Sign
-from django.core.mail import send_mail
-
 
 
 class ATForm(forms.Form):

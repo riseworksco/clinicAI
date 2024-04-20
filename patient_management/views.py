@@ -1,15 +1,13 @@
 import logging
 
+# Create your views here.
+from django.contrib.auth.models import Group, User
 from django.http import HttpResponse
 from django.shortcuts import render
-
-# Create your views here.
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework import permissions, viewsets
 
 from .models import Patient
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import GroupSerializer, UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):

@@ -1,11 +1,8 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-
 # Create your views here.
 from django.conf import settings
-from django.core.mail import EmailMessage
-from django.core.mail import send_mail
-
+from django.core.mail import EmailMessage, send_mail
+from django.http import HttpResponse
+from django.shortcuts import render
 
 # def send_email(subject, body, email):
 # try:

@@ -1,5 +1,6 @@
-from .models import Song, Playlist
 from rest_framework import serializers
+
+from .models import Playlist, Song
 
 
 class SongSerializer(serializers.HyperlinkedModelSerializer):

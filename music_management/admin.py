@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Song, Playlist, Record
 
+from .models import Playlist, Record, Song
 
 # Register your models here.
 
