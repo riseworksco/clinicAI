@@ -40,4 +40,4 @@ class PsychoemotionalScreeningEvaluationFormTest(TestCase):
             self.assertIsInstance(new_record, PsychoemotionalScreeningRecord)
             self.assertEqual(new_record.doctor, self.doctor)
             self.assertEqual(new_record.patient, self.patient)
-"""""
+""" ""

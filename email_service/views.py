@@ -16,5 +16,14 @@ from django.shortcuts import render
 
 
 def send_test(request):
-    return HttpResponse(send_mail("SOJO Support Test", "test-body", 'support@sojoai.com', ['cysbc1999@gmail.com'],
-                                  auth_user="support@sojoai.com", auth_password="Lovelife099!", fail_silently=False))
+    return HttpResponse(
+        send_mail(
+            "SOJO Support Test",
+            "test-body",
+            "support@sojoai.com",
+            ["cysbc1999@gmail.com"],
+            auth_user="support@sojoai.com",
+            auth_password="Lovelife099!",
+            fail_silently=False,
+        )
+    )

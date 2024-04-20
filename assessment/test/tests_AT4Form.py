@@ -1,4 +1,3 @@
-
 from unittest.mock import patch
 
 from django.conf import settings
@@ -11,17 +10,17 @@ from assessment.forms import AT4Form
 class TestAT4Form(SimpleTestCase):
     def setUp(self):
         self.valid_data = {
-            'TherapistEmail': 'therapist@example.com',
-            'patientName': 'John Doe',
-            'patientNumber': '12345',
-            'birthDate': '2000-01-01',
-            'my_datetime_field': '2000-01-01T12:00',
-            'TesterName': 'Tester',
-            'question1': '0',
-            'question2': '0',
-            'question3': '0',
-            'question4': '0',
-            'AtScore': 0.0,
+            "TherapistEmail": "therapist@example.com",
+            "patientName": "John Doe",
+            "patientNumber": "12345",
+            "birthDate": "2000-01-01",
+            "my_datetime_field": "2000-01-01T12:00",
+            "TesterName": "Tester",
+            "question1": "0",
+            "question2": "0",
+            "question3": "0",
+            "question4": "0",
+            "AtScore": 0.0,
         }
 
     def test_form_is_valid(self):
@@ -55,4 +54,4 @@ class TestAT4Form(SimpleTestCase):
         self.assertIn('RasForm/Evaluation', result)
 
 
-"""""
+""" ""

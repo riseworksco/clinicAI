@@ -4,12 +4,14 @@ from .models import Playlist, Record, Song
 
 # Register your models here.
 
+
 class SongAdmin(admin.ModelAdmin):
     pass
 
 
 class PlaylistAdmin(admin.ModelAdmin):
     pass
+
 
 @admin.register(Record)
 class RecordAdmin(admin.ModelAdmin):

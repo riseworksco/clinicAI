@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.db import router
 from django.urls import include, path
@@ -20,21 +21,21 @@ from django.urls import include, path
 # import patient_management
 
 urlpatterns = [
-    path('', include('app.urls')),
-    path('email/', include('email_service.urls')),
-    path('admin/', admin.site.urls),
-    path('patient/', include('patient_management.urls')),
-    path('music/', include('music_management.urls')),
-    path('chat/', include('chat.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('assessment/', include('assessment.urls')),
-    path('sheetRAS/', include('sheetRAS.urls')),
-    path('sheet4AT/', include('sheet4AT.urls')),
+    path("", include("app.urls")),
+    path("email/", include("email_service.urls")),
+    path("admin/", admin.site.urls),
+    path("patient/", include("patient_management.urls")),
+    path("music/", include("music_management.urls")),
+    path("chat/", include("chat.urls")),
+    path("accounts/", include("accounts.urls")),
+    path("assessment/", include("assessment.urls")),
+    path("sheetRAS/", include("sheetRAS.urls")),
+    path("sheet4AT/", include("sheet4AT.urls")),
     # path('sheetCAM/', include('sheetCAM.urls')),
-    path('sheetCAM1/', include('sheetCAM1.urls')),
-    path('findatherapist/', include('findatherapist.urls')),
-    path('sheetAAQII/', include('sheetAAQII.urls')),
-    path('sheetGAD/', include('sheetGAD.urls')),
-    path('sheetPHQ/', include('sheetPHQ.urls')),
-    path('api/', include('api.urls')),
+    path("sheetCAM1/", include("sheetCAM1.urls")),
+    path("findatherapist/", include("findatherapist.urls")),
+    path("sheetAAQII/", include("sheetAAQII.urls")),
+    path("sheetGAD/", include("sheetGAD.urls")),
+    path("sheetPHQ/", include("sheetPHQ.urls")),
+    path("api/", include("api.urls")),
 ]

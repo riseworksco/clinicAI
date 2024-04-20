@@ -1,5 +1,3 @@
-
-
 from datetime import date
 from unittest.mock import patch
 
@@ -11,18 +9,18 @@ from assessment.forms import PHQ9Form
 class TestPHQ9Form(SimpleTestCase):
     def setUp(self):
         self.form_data = {
-            'name': 'John Doe',
-            'date': date.today(),
-            'question1': '1',
-            'question2': '2',
-            'question3': '3',
-            'question4': '1',
-            'question5': '2',
-            'question6': '3',
-            'question7': '1',
-            'question8': '2',
-            'question9': '3',
-            'question10': '1'
+            "name": "John Doe",
+            "date": date.today(),
+            "question1": "1",
+            "question2": "2",
+            "question3": "3",
+            "question4": "1",
+            "question5": "2",
+            "question6": "3",
+            "question7": "1",
+            "question8": "2",
+            "question9": "3",
+            "question10": "1",
         }
 
     def test_form_is_valid(self):
@@ -56,4 +54,4 @@ class TestPHQ9Form(SimpleTestCase):
             self.assertIn('PHQForm/Evaluation', kwargs['subject'])
             self.assertIn('recipient_list', kwargs)
             self.assertTrue(len(kwargs['recipient_list']) == 1)
-"""""
+""" ""
