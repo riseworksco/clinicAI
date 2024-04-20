@@ -121,7 +121,7 @@ class PHQForm(forms.Form):
 
     def calculate_total_score(self):
         total = 0
-        for i in range(1, 9):
+        for i in range(1, 10):
             total += int(self.cleaned_data.get(f'question{i}', 0))
         return total
 
