@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.db import router
-from django.urls import path, include, re_path
+from django.urls import include, path, re_path
+
+from assessment.views import (AAQ2View, AT4View, CAM1View, GAD7View,
+                              NeurologicScreeningEvaluationView, PHQ9View,
+                              PrePostView,
+                              PsychoemotionalScreeningEvaluationView, RASView,
+                              StompSuccessView, StompView)
 
 from . import views
-from assessment.views import StompView, StompSuccessView, PsychoemotionalScreeningEvaluationView, PrePostView, \
-    NeurologicScreeningEvaluationView, AT4View, AAQ2View, CAM1View, GAD7View, PHQ9View, RASView
 
 # import patient_management
 app_name = 'assessment'

@@ -1,8 +1,11 @@
-from django.db import models
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.conf import settings
 import datetime
+import logging
+
+from django.conf import settings
+from django.core.mail import send_mail
+from django.db import models
+from django.template.loader import render_to_string
+
 
 class ATModel(models.Model):
     patientName = models.CharField(max_length=255)
@@ -72,7 +75,7 @@ class ATModel(models.Model):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.cleaned_data)
+        logging.info(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 

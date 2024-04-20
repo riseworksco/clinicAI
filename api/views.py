@@ -2,8 +2,8 @@ from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
 from api.serializers import GroupSerializer, UserSerializer
-
 from music_management.views import PlaylistViewSet, SongViewSet
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

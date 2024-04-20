@@ -1,17 +1,8 @@
 from django.contrib import admin
-from .models import Stomp
-from .models import GAD2
-from .models import GAD7
-from .models import PHQ2
-from .models import PHQ9
-from .models import PsychoemotionalScreeningRecord
-from .models import CatCatFlowsheetRecord
-from .models import AT4Model
-from .models import AAQ2Model
-from .models import CAM1Model
-from .models import GAD7Model
-from .models import PHQ9Model
-from .models import RASModel
+
+from .models import (GAD2, GAD7, PHQ2, PHQ9, AAQ2Model, AT4Model, CAM1Model,
+                     CatCatFlowsheetRecord, GAD7Model, PHQ9Model,
+                     PsychoemotionalScreeningRecord, RASModel, Stomp)
 
 # Register your models here.
 

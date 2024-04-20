@@ -1,8 +1,11 @@
-from django import forms
+import logging
 from datetime import date
-from django.template.loader import render_to_string
-from django.core.mail import send_mail
+
+from django import forms
 from django.conf import settings  # Add this import
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 
 class AAQIIForm(forms.Form):
     # 定义姓名和日期字段
@@ -93,7 +96,7 @@ class AAQIIForm(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
 
         return 'AAQIIForm/Evaluation', result, recipient

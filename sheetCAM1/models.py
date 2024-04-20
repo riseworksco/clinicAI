@@ -1,8 +1,10 @@
-from django.db import models
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.conf import settings
 import datetime
+
+from django.conf import settings
+from django.core.mail import send_mail
+from django.db import models
+from django.template.loader import render_to_string
+
 
 class CAMModel(models.Model):
     patientName = models.CharField(max_length=255)

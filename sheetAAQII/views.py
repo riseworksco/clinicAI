@@ -1,10 +1,9 @@
-from django.urls import reverse_lazy
-from django.views.generic import FormView
-from .forms import AAQIIForm  # 确保这个路径正确对应到您的表单类
-from django.urls import reverse_lazy, reverse
-from django.views.generic import FormView
 from django.http import HttpResponseRedirect
-from .forms import AAQIIForm
+from django.urls import reverse, reverse_lazy
+from django.views.generic import FormView
+
+from .forms import AAQIIForm  # 确保这个路径正确对应到您的表单类
+
 
 class AAQIIView(FormView):
     template_name = 'assessment/AAQII.html'  # 确保模板路径正确

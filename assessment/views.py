@@ -1,29 +1,23 @@
 import io
-from django.http import FileResponse
-from reportlab.pdfgen import canvas
+import logging
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import FileResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
-
-from assessment.forms import StompForm, NeurologicScreeningEvaluationForm, PrePostForm, \
-    PsychoemotionalScreeningEvaluationForm, AT4Form, AAQ2Form, CAM1Form, GAD7Form, PHQ9Form,RASForm
-
-import io
-from django.http import FileResponse
 from reportlab.pdfgen import canvas
 
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-
-from django.urls import reverse_lazy
-from django.views.generic import FormView, TemplateView
+from assessment.forms import (AAQ2Form, AT4Form, CAM1Form, GAD7Form,
+                              NeurologicScreeningEvaluationForm, PHQ9Form,
+                              PrePostForm,
+                              PsychoemotionalScreeningEvaluationForm, RASForm,
+                              StompForm)
+from assessment.pdf_generator import render_pdf
 
 #from sheet4AT.forms import ATForm
 
-from assessment.pdf_generator import render_pdf
 
 
 
@@ -152,7 +146,7 @@ class AT4View(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         # Calls the custom send method
-        print(12)
+        logging.info(12)
         form.send()
         return super().form_valid(form)
 

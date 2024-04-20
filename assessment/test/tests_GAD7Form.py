@@ -1,9 +1,12 @@
 
-from django.test import SimpleTestCase
-from django.forms import ValidationError
-from assessment.forms import GAD7Form
-from unittest.mock import patch
 from datetime import date
+from unittest.mock import patch
+
+from django.forms import ValidationError
+from django.test import SimpleTestCase
+
+from assessment.forms import GAD7Form
+
 
 class TestGAD7Form(SimpleTestCase):
     def setUp(self):

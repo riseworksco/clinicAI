@@ -1,7 +1,9 @@
+import logging
+
 from django.shortcuts import render
-from .models import Song, Playlist
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework import permissions, viewsets
+
+from .models import Playlist, Song
 from .serializers import PlaylistSerializer, SongSerializer
 
 
@@ -30,7 +32,7 @@ def display_songs(request):
         'items': items,
         'header': 'Multimedia Library'
     }
-    print(items)
+    logging.info(items)
     return render(request, "music/songs.html", context)
 
 

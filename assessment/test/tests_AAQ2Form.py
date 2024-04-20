@@ -1,9 +1,11 @@
-from django.test import SimpleTestCase, override_settings
-from django.core import mail
-from assessment.forms import AAQ2Form
-from unittest.mock import patch
-from datetime import date
 import datetime
+from datetime import date
+from unittest.mock import patch
+
+from django.core import mail
+from django.test import SimpleTestCase, override_settings
+
+from assessment.forms import AAQ2Form
 
 
 class TestAAQ2Form(SimpleTestCase):

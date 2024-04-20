@@ -1,24 +1,16 @@
+import logging
+from datetime import date
+
 from django import forms
 from django.conf import settings
+from django.core.mail import EmailMessage, send_mail
 from django.forms import ModelForm
-from django.template.loader import render_to_string
 from django.http import FileResponse
-from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 from reportlab.pdfgen import canvas
 
 from assessment.identifiers import Sign
-from django.core.mail import send_mail
-
 from assessment.models import PsychoemotionalScreeningRecord
-
-from django import forms
-from django.conf import settings
-from django.forms import ModelForm
-from django.template.loader import render_to_string
-
-from assessment.identifiers import Sign
-from django.core.mail import send_mail
-from datetime import date
 
 
 class StompForm(forms.Form):
@@ -139,7 +131,7 @@ class NeurologicScreeningEvaluationForm(forms.Form):
             'description': description, }
 
         result = render_to_string('email/stomp.html', context)
-        print(form.data)
+        logging.info(form.data)
         recipient = form.data['TherapistEmail']
         return 'Neurologic Screening/Evaluation', result, recipient
 
@@ -203,7 +195,7 @@ class PrePostForm(forms.Form):
             'description': description, }
 
         result = render_to_string('email/stomp.html', context)
-        print(form.data)
+        logging.info(form.data)
         recipient = form.data['TherapistEmail']
         return 'Pre/Post Tests', result, recipient
 
@@ -325,7 +317,7 @@ class AT4Form(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.cleaned_data)
+        logging.info(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 
@@ -430,7 +422,7 @@ class AAQ2Form(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
 
         return 'AAQIIForm/Evaluation', result, recipient
@@ -525,7 +517,7 @@ class CAM1Form(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 
@@ -638,7 +630,7 @@ class GAD7Form(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         recipient = self.cleaned_data.get('email')  # Replace 'email' with your field name
 
         return 'GAD7Form/Evaluation', result, recipient
@@ -801,7 +793,7 @@ class PHQ9Form(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.cleaned_data)
+        logging.info(form.cleaned_data)
         recipient = self.cleaned_data.get('email')
 
         return 'PHQForm/Evaluation', result, recipient
@@ -868,7 +860,7 @@ class RASForm(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.data)
+        logging.info(form.data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 

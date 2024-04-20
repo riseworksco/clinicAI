@@ -1,7 +1,8 @@
 
-from django.test import TestCase
+from django.test import SimpleTestCase, TestCase
+
 from assessment.forms import RASForm
-from django.test import SimpleTestCase
+
 
 class RASFormTest(SimpleTestCase):
     def setUp(self):

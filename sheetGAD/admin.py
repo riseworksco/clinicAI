@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import GAD7Submission
 
+from .models import GAD7Submission
 
 # Register your models here.
 

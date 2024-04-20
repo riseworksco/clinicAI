@@ -1,11 +1,12 @@
+import logging
+
 from django import forms
 from django.conf import settings
+from django.core.mail import send_mail
 from django.forms import ModelForm
 from django.template.loader import render_to_string
 
 from assessment.identifiers import Sign
-from django.core.mail import send_mail
-
 
 
 class ATForm(forms.Form):
@@ -98,7 +99,7 @@ class ATForm(forms.Form):
 
         result = render_to_string('email/stomp.html', context)
 
-        print(form.cleaned_data)
+        logging.info(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
         return 'RasForm/Evaluation', result
 

@@ -1,7 +1,10 @@
-from django.test import SimpleTestCase
-from assessment.forms import CAM1Form
-from unittest.mock import patch
 import datetime
+from unittest.mock import patch
+
+from django.test import SimpleTestCase
+
+from assessment.forms import CAM1Form
+
 
 class TestCAM1Form(SimpleTestCase):
     def setUp(self):
