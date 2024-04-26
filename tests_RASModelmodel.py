@@ -1,5 +1,7 @@
 from unittest import TestCase, mock
+
 from django.template.loader import render_to_string
+
 from assessment.models import RASModel
 
 

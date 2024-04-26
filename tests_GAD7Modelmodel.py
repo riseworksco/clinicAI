@@ -1,5 +1,5 @@
-from unittest import TestCase, mock
 from datetime import date
+from unittest import TestCase, mock
 
 
 @mock.patch("assessment.models.GAD7Model")

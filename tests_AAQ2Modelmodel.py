@@ -1,6 +1,6 @@
+import datetime
 import unittest
 from unittest.mock import Mock
-import datetime
 
 
 class TestAAQ2ModelWithoutDB(unittest.TestCase):

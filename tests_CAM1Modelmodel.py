@@ -1,7 +1,6 @@
 import unittest
-from unittest.mock import patch
 from datetime import datetime
-
+from unittest.mock import patch
 
 from assessment.models import CAM1Model
 

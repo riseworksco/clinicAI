@@ -1,7 +1,8 @@
+import datetime
 import unittest
 from unittest.mock import Mock
+
 from django.core.exceptions import ValidationError
-import datetime
 
 
 class TestPHQ9ModelWithoutDB(unittest.TestCase):

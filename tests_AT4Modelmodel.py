@@ -1,5 +1,6 @@
-from unittest import TestCase, mock
 import datetime
+from unittest import TestCase, mock
+
 from assessment.models import AT4Model
 
 
