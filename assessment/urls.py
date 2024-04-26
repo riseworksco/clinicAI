@@ -18,19 +18,11 @@ from django.contrib import admin
 from django.db import router
 from django.urls import include, path, re_path
 
-from assessment.views import (
-    AAQ2View,
-    AT4View,
-    CAM1View,
-    GAD7View,
-    NeurologicScreeningEvaluationView,
-    PHQ9View,
-    PrePostView,
-    PsychoemotionalScreeningEvaluationView,
-    RASView,
-    StompSuccessView,
-    StompView,
-)
+from assessment.views import (AAQ2View, AT4View, CAM1View, GAD7View,
+                              NeurologicScreeningEvaluationView, PHQ9View,
+                              PrePostView,
+                              PsychoemotionalScreeningEvaluationView, RASView,
+                              StompSuccessView, StompView)
 
 from . import views
 

@@ -9,18 +9,11 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 from reportlab.pdfgen import canvas
 
-from assessment.forms import (
-    AAQ2Form,
-    AT4Form,
-    CAM1Form,
-    GAD7Form,
-    NeurologicScreeningEvaluationForm,
-    PHQ9Form,
-    PrePostForm,
-    PsychoemotionalScreeningEvaluationForm,
-    RASForm,
-    StompForm,
-)
+from assessment.forms import (AAQ2Form, AT4Form, CAM1Form, GAD7Form,
+                              NeurologicScreeningEvaluationForm, PHQ9Form,
+                              PrePostForm,
+                              PsychoemotionalScreeningEvaluationForm, RASForm,
+                              StompForm)
 from assessment.pdf_generator import render_pdf
 
 # from sheet4AT.forms import ATForm

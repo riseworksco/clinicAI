@@ -17,6 +17,7 @@ import cloudinary
 import cloudinary.api
 import cloudinary.uploader
 import django_heroku
+import google.generativeai as genai
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -184,7 +185,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.office365.com"
 EMAIL_HOST_USER = "support@sojoai.com"
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = "riseworks"
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
@@ -198,3 +199,9 @@ cloudinary.config(
     api_key="966542976818381",
     api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y",
 )
+
+## gemini config
+# Or use `os.getenv('GOOGLE_API_KEY')` to fetch an environment variable.
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
+genai.configure(api_key=GOOGLE_API_KEY)
