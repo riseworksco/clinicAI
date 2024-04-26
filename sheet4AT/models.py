@@ -13,34 +13,35 @@ class ATModel(models.Model):
     birthDate = models.DateField(default=datetime.date.today)
     my_datetime_field = models.DateTimeField()
     TesterName = models.CharField(max_length=255)
-    
+
     ALERTNESS_CHOICES = [
-        ('0', '0 - Normal (fully alert, but not agitated, throughout assessment)'),
-        ('0', '0 - Mild sleepiness for <10 seconds after waking, then normal'),
-        ('4', '4 - Clearly abnormal'),
+        ("0", "0 - Normal (fully alert, but not agitated, throughout assessment)"),
+        ("0", "0 - Mild sleepiness for <10 seconds after waking, then normal"),
+        ("4", "4 - Clearly abnormal"),
     ]
     AMT4_CHOICES = [
-        ('0', '0 - No mistakes'),
-        ('1', '1- 1 mistake'),
-        ('2', '2 or more mistakes/untestable'),
+        ("0", "0 - No mistakes"),
+        ("1", "1- 1 mistake"),
+        ("2", "2 or more mistakes/untestable"),
     ]
     ATTENTION_CHOICES = [
-        ('0', '0 - Achieves 7 months or more correctly'),
-        ('1', '1 - Starts but scores <7 months / refuses to start'),
-        ('2', '2 - Untestable (cannot start because unwell, drowsy, inattentive)'),
+        ("0", "0 - Achieves 7 months or more correctly"),
+        ("1", "1 - Starts but scores <7 months / refuses to start"),
+        ("2", "2 - Untestable (cannot start because unwell, drowsy, inattentive)"),
     ]
     ACUTE_CHANGE_CHOICES = [
-        ('0', '0 - No)'),
-        ('4', '4 - Yes'),
+        ("0", "0 - No)"),
+        ("4", "4 - Yes"),
     ]
 
-    question1 = models.CharField(max_length=1, choices=ALERTNESS_CHOICES, default='0')
-    question2 = models.CharField(max_length=1, choices=AMT4_CHOICES, default='0')
-    question3 = models.CharField(max_length=1, choices=ATTENTION_CHOICES, default='0')
-    question4 = models.CharField(max_length=1, choices=ACUTE_CHANGE_CHOICES, default='0')
-    
-    AtScore = models.FloatField()
+    question1 = models.CharField(max_length=1, choices=ALERTNESS_CHOICES, default="0")
+    question2 = models.CharField(max_length=1, choices=AMT4_CHOICES, default="0")
+    question3 = models.CharField(max_length=1, choices=ATTENTION_CHOICES, default="0")
+    question4 = models.CharField(
+        max_length=1, choices=ACUTE_CHANGE_CHOICES, default="0"
+    )
 
+    AtScore = models.FloatField()
 
     # TherapistEmail = forms.EmailField(label='Therapist Email')
     # feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
@@ -69,18 +70,22 @@ class ATModel(models.Model):
         description = """
             """
         context = {
-            'form': form,
-            'header': 'RasForm/Evaluation',
-            'description': description, }
+            "form": form,
+            "header": "RasForm/Evaluation",
+            "description": description,
+        }
 
-        result = render_to_string('email/stomp.html', context)
+        result = render_to_string("email/stomp.html", context)
 
         logging.info(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
-        return 'RasForm/Evaluation', result
+        return "RasForm/Evaluation", result
 
     def send(self):
-        subject, msg, = self.get_info()
+        (
+            subject,
+            msg,
+        ) = self.get_info()
 
         # send_mail(
         #     subject=subject,

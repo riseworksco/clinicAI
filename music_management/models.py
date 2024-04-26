@@ -13,7 +13,7 @@ class Song(models.Model):
     music_link = models.CharField(max_length=100, null=True)
 
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]
 
     def __str__(self):
         return self.title
@@ -25,14 +25,15 @@ class Playlist(models.Model):
     songs = models.ManyToManyField(Song)
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
 
+
 class Record(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    video = CloudinaryField('video')
+    video = CloudinaryField("video")
     author = models.CharField(max_length=100, null=True)
 
     class Meta:

@@ -6,20 +6,16 @@ from .models import Playlist, Song
 class SongSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Song
-        fields = ['id', 'title', 'youtube_link', 'music_link']
+        fields = ["id", "title", "youtube_link", "music_link"]
 
 
 class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Playlist
-        fields = ['id', 'name','songs']
-
-# music_management/serializers.py
-
-
+        fields = ["id", "name", "songs"]
 
 
 # music_management/serializers.py
 
 
-
+# music_management/serializers.py

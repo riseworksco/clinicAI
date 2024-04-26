@@ -11,60 +11,82 @@ from assessment.identifiers import Sign
 
 class ATForm(forms.Form):
 
-    patientName = forms.CharField(widget=forms.TextInput(attrs={'class': 'emailinput form-control'}))
-    patientNumber = forms.CharField(widget=forms.TextInput(attrs={'class': 'emailinput form-control'}))
+    patientName = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "emailinput form-control"})
+    )
+    patientNumber = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "emailinput form-control"})
+    )
     birthDate = forms.DateField(
-        label='Choose a date',
-        widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-        input_formats=['%Y-%m-%d'],  # Specify the input format if needed
+        label="Choose a date",
+        widget=forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+        input_formats=["%Y-%m-%d"],  # Specify the input format if needed
     )
 
     my_datetime_field = forms.DateTimeField(
-        label='Choose a date and time',
-        widget=forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
-        input_formats=['%Y-%m-%dT%H:%M'],  # Specify the input format if needed
+        label="Choose a date and time",
+        widget=forms.DateTimeInput(
+            attrs={"class": "form-control", "type": "datetime-local"}
+        ),
+        input_formats=["%Y-%m-%dT%H:%M"],  # Specify the input format if needed
     )
 
-    TesterName = forms.CharField(widget=forms.TextInput(attrs={'class': 'emailinput form-control'}))
+    TesterName = forms.CharField(
+        widget=forms.TextInput(attrs={"class": "emailinput form-control"})
+    )
 
-    question1 = forms.ChoiceField(label='1. ALERTNESS',
-                                  choices=[('0', '0 - Normal (fully alert, but not agitated, throughout assessment)'),
-                                           ('0', '0 - Mild sleepiness for <10 seconds after waking, then normal	'),
-                                           ('4', '4 - Clearly abnormal')],
-                                  widget=forms.Select(attrs={
+    question1 = forms.ChoiceField(
+        label="1. ALERTNESS",
+        choices=[
+            ("0", "0 - Normal (fully alert, but not agitated, throughout assessment)"),
+            ("0", "0 - Mild sleepiness for <10 seconds after waking, then normal	"),
+            ("4", "4 - Clearly abnormal"),
+        ],
+        widget=forms.Select(
+            attrs={
+                "oninput": "performDivision()",
+            }
+        ),
+    )
+    question2 = forms.ChoiceField(
+        label="2. AMT4",
+        choices=[
+            ("0", "0 - No mistakes"),
+            ("1", "1- 1 mistake	"),
+            ("2", "2 or more mistakes/untestable	"),
+        ],
+        widget=forms.Select(
+            attrs={
+                "oninput": "performDivision()",
+            }
+        ),
+    )
+    question3 = forms.ChoiceField(
+        label="3. ATTENTION——Months of the year backwards",
+        choices=[
+            ("0", "0 - Achieves 7 months or more correctly"),
+            ("1", "1 - Starts but scores <7 months / refuses to start"),
+            ("2", "2 - Untestable (cannot start because unwell, drowsy, inattentive)	"),
+        ],
+        widget=forms.Select(
+            attrs={
+                "oninput": "performDivision()",
+            }
+        ),
+    )
+    question4 = forms.ChoiceField(
+        label="4. ACUTE CHANGE OR FLUCTUATING COURSE",
+        choices=[("0", "0 - No)"), ("4", "4 - Yes")],
+        widget=forms.Select(
+            attrs={
+                "oninput": "performDivision()",
+            }
+        ),
+    )
 
-                                      'oninput': 'performDivision()',
-                                  })
-                                  )
-    question2 = forms.ChoiceField(label='2. AMT4',
-                                  choices=[('0', '0 - No mistakes'),
-                                           ('1', '1- 1 mistake	'),
-                                           ('2', '2 or more mistakes/untestable	')],
-                                  widget=forms.Select(attrs={
-
-                                      'oninput': 'performDivision()',
-                                  })
-                                  )
-    question3 = forms.ChoiceField(label='3. ATTENTION——Months of the year backwards',
-                                  choices=[('0', '0 - Achieves 7 months or more correctly'),
-                                           ('1', '1 - Starts but scores <7 months / refuses to start'),
-                                           ('2', '2 - Untestable (cannot start because unwell, drowsy, inattentive)	')],
-                                  widget=forms.Select(attrs={
-
-                                      'oninput': 'performDivision()',
-                                  })
-                                  )
-    question4 = forms.ChoiceField(label='4. ACUTE CHANGE OR FLUCTUATING COURSE',
-                                  choices=[('0', '0 - No)'),
-                                           ('4', '4 - Yes')],
-                                  widget=forms.Select(attrs={
-
-                                      'oninput': 'performDivision()',
-                                  })
-                                  )
-
-    AtScore = forms.FloatField(label='4AT SCORE', )
-
+    AtScore = forms.FloatField(
+        label="4AT SCORE",
+    )
 
     # TherapistEmail = forms.EmailField(label='Therapist Email')
     # feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
@@ -93,18 +115,22 @@ class ATForm(forms.Form):
         description = """
             """
         context = {
-            'form': form,
-            'header': 'RasForm/Evaluation',
-            'description': description, }
+            "form": form,
+            "header": "RasForm/Evaluation",
+            "description": description,
+        }
 
-        result = render_to_string('email/stomp.html', context)
+        result = render_to_string("email/stomp.html", context)
 
         logging.info(form.cleaned_data)
         # recipient = form.data['TherapistEmail']
-        return 'RasForm/Evaluation', result
+        return "RasForm/Evaluation", result
 
     def send(self):
-        subject, msg, = self.get_info()
+        (
+            subject,
+            msg,
+        ) = self.get_info()
 
         # send_mail(
         #     subject=subject,
@@ -113,4 +139,3 @@ class ATForm(forms.Form):
         #     from_email=settings.EMAIL_HOST_USER,
         #     recipient_list=[recipent]
         # )
-

@@ -12,9 +12,9 @@ from sheet4AT.forms import ATForm
 
 
 class AT4View(FormView):
-    template_name = 'assessment/AT4.html'
+    template_name = "assessment/AT4.html"
     form_class = ATForm
-    success_url = reverse_lazy('assessment:success')
+    success_url = reverse_lazy("assessment:success")
 
     def form_valid(self, form):
         # Calls the custom send method

@@ -5,10 +5,8 @@ from django.urls import include, path
 from . import views
 from .views import CAMView
 
-app_name = 'sheetCAM1'
+app_name = "sheetCAM1"
 
 urlpatterns = [
-
-    path('sheetCAM1/', CAMView.as_view(),
-         name="CAM1"),
+    path("sheetCAM1/", CAMView.as_view(), name="CAM1"),
 ]

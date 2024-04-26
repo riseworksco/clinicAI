@@ -7,4 +7,4 @@ from django.shortcuts import render
 def index(request):
     context = defaultdict()
     context["header"] = "Find A Therapist"
-    return render(request, "findatherapist/index.html",context)
+    return render(request, "findatherapist/index.html", context)

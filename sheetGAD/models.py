@@ -12,7 +12,7 @@ class GAD7Submission(models.Model):
         (0, "Not at all"),
         (1, "Several days"),
         (2, "Over half the days"),
-        (3, "Nearly every day")
+        (3, "Nearly every day"),
     ]
 
     question1 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
@@ -23,12 +23,12 @@ class GAD7Submission(models.Model):
     question6 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
     question7 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
     question8 = models.IntegerField(choices=QUESTION_CHOICES, default=0)
-    email = models.EmailField()  # Assuming you're collecting emails. Add this field if necessary.
+    email = (
+        models.EmailField()
+    )  # Assuming you're collecting emails. Add this field if necessary.
 
     def calculate_total_score(self):
-        total = sum([
-            getattr(self, f'question{i}') for i in range(1, 8)
-        ])
+        total = sum([getattr(self, f"question{i}") for i in range(1, 8)])
         return total
 
     def get_anxiety_level(self):
@@ -47,16 +47,20 @@ class GAD7Submission(models.Model):
             Your anxiety level has been evaluated.
         """
         context = {
-            'name': self.name,
-            'date': self.date,
-            'total_score': self.calculate_total_score(),
-            'anxiety_level': self.get_anxiety_level(),
-            'description': description,
+            "name": self.name,
+            "date": self.date,
+            "total_score": self.calculate_total_score(),
+            "anxiety_level": self.get_anxiety_level(),
+            "description": description,
         }
 
-        result = render_to_string('email/template.html', context)  # Ensure this template exists
-        recipient = self.email  # Ensure you have a field to capture the recipient's email
-        return 'GAD7Form/Evaluation', result, recipient
+        result = render_to_string(
+            "email/template.html", context
+        )  # Ensure this template exists
+        recipient = (
+            self.email
+        )  # Ensure you have a field to capture the recipient's email
+        return "GAD7Form/Evaluation", result, recipient
 
     def send(self):
         subject, msg, recipient = self.get_info()
@@ -65,5 +69,5 @@ class GAD7Submission(models.Model):
             message="",
             html_message=msg,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[recipient]
+            recipient_list=[recipient],
         )

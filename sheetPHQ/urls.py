@@ -5,10 +5,8 @@ from django.urls import include, path
 from . import views
 from .views import PHQView
 
-app_name = 'sheetPHQ'
+app_name = "sheetPHQ"
 
 urlpatterns = [
-
-    path('PHQ/', PHQView.as_view(),
-         name="PHQ"),
+    path("PHQ/", PHQView.as_view(), name="PHQ"),
 ]

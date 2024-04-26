@@ -4,6 +4,7 @@ from .models import GAD7Submission
 
 # Register your models here.
 
+
 class GAD7SubmissionAdmin(admin.ModelAdmin):
     pass
 

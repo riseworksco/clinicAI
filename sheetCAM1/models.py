@@ -13,8 +13,8 @@ class CAMModel(models.Model):
     checkbox2 = models.BooleanField(default=False)
     checkbox3 = models.BooleanField(default=False)
     checkbox4 = models.BooleanField(default=False)
-    checkbox5 = models.BooleanField(default=False, verbose_name='CAM-ICU POSITIVE')
-    checkbox6 = models.BooleanField(default=False, verbose_name='CAM-ICU NEGATIVE')
+    checkbox5 = models.BooleanField(default=False, verbose_name="CAM-ICU POSITIVE")
+    checkbox6 = models.BooleanField(default=False, verbose_name="CAM-ICU NEGATIVE")
 
     # TherapistEmail = forms.EmailField(label='Therapist Email')
     # feature1 = forms.ChoiceField(label="Feature 1: Acute Onset or Fluctuating Course",
@@ -43,18 +43,22 @@ class CAMModel(models.Model):
         description = """
             """
         context = {
-            'form': form,
-            'header': 'RasForm/Evaluation',
-            'description': description, }
+            "form": form,
+            "header": "RasForm/Evaluation",
+            "description": description,
+        }
 
-        result = render_to_string('email/stomp.html', context)
+        result = render_to_string("email/stomp.html", context)
 
         print(form.data)
         # recipient = form.data['TherapistEmail']
-        return 'RasForm/Evaluation', result
+        return "RasForm/Evaluation", result
 
     def send(self):
-        subject, msg, = self.get_info()
+        (
+            subject,
+            msg,
+        ) = self.get_info()
 
         # send_mail(
         #     subject=subject,

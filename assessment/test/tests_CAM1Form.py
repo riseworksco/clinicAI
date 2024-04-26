@@ -9,19 +9,21 @@ from assessment.forms import CAM1Form
 class TestCAM1Form(SimpleTestCase):
     def setUp(self):
         self.valid_data = {
-            'patientName': 'John Doe',
-            'my_datetime_field': datetime.datetime.now().strftime('%Y-%m-%dT%H:%M'),
-            'checkbox1': True,
-            'checkbox2': False,
-            'checkbox3': True,
-            'checkbox4': False,
-            'checkbox5': True,  # Assuming this is the positive condition
-            'checkbox6': False,  # And this is the negative condition
+            "patientName": "John Doe",
+            "my_datetime_field": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M"),
+            "checkbox1": True,
+            "checkbox2": False,
+            "checkbox3": True,
+            "checkbox4": False,
+            "checkbox5": True,  # Assuming this is the positive condition
+            "checkbox6": False,  # And this is the negative condition
         }
 
     def test_form_is_valid(self):
         form = CAM1Form(data=self.valid_data)
         self.assertTrue(form.is_valid())
+
+
 """""
     @patch('assessment.forms.send_mail')
     def test_send_method(self, mock_send_mail):

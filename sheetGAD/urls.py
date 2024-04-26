@@ -5,10 +5,8 @@ from django.urls import include, path
 from . import views
 from .views import GADView
 
-app_name = 'sheetGAD'
+app_name = "sheetGAD"
 
 urlpatterns = [
-
-    path('GAD/', GADView.as_view(),
-         name="GAD"),
+    path("GAD/", GADView.as_view(), name="GAD"),
 ]

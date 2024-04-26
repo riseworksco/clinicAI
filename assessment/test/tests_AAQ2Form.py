@@ -11,15 +11,15 @@ from assessment.forms import AAQ2Form
 class TestAAQ2Form(SimpleTestCase):
     def setUp(self):
         self.valid_data = {
-            'name': 'John Doe',
-            'date': date.today(),
-            'question1': '1',
-            'question2': '2',
-            'question3': '3',
-            'question4': '4',
-            'question5': '5',
-            'question6': '6',
-            'question7': '7',
+            "name": "John Doe",
+            "date": date.today(),
+            "question1": "1",
+            "question2": "2",
+            "question3": "3",
+            "question4": "4",
+            "question5": "5",
+            "question6": "6",
+            "question7": "7",
         }
 
     def test_form_is_valid(self):
@@ -38,6 +38,8 @@ class TestAAQ2Form(SimpleTestCase):
             total_score = form.calculate_total_score()
             diagnosis = form.get_diagnosis(total_score)
             self.assertIn("Probable current clinical distress", diagnosis)
+
+
 """""
     @patch('assessment.forms.send_mail')
     def test_send_email(self, mock_send_mail):
@@ -63,4 +65,4 @@ class TestAAQ2Form(SimpleTestCase):
         self.assertEqual(recipient, 'therapist@example.com')  # Make sure this matches the actual recipient field
 
 
-"""""
+""" ""

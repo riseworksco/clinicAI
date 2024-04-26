@@ -1,10 +1,23 @@
 from django.contrib import admin
 
-from .models import (GAD2, GAD7, PHQ2, PHQ9, AAQ2Model, AT4Model, CAM1Model,
-                     CatCatFlowsheetRecord, GAD7Model, PHQ9Model,
-                     PsychoemotionalScreeningRecord, RASModel, Stomp)
+from .models import (
+    GAD2,
+    GAD7,
+    PHQ2,
+    PHQ9,
+    AAQ2Model,
+    AT4Model,
+    CAM1Model,
+    CatCatFlowsheetRecord,
+    GAD7Model,
+    PHQ9Model,
+    PsychoemotionalScreeningRecord,
+    RASModel,
+    Stomp,
+)
 
 # Register your models here.
+
 
 class StompAdmin(admin.ModelAdmin):
     pass
@@ -50,15 +63,18 @@ admin.site.register(PsychoemotionalScreeningRecord, PsychoemotionalScreeningReco
 
 class CatCatFlowsheetRecordAdmin(admin.ModelAdmin):
     pass
+
+
 #
 
 
 admin.site.register(CatCatFlowsheetRecord, CatCatFlowsheetRecordAdmin)
 
 
-
 class AT4ModelAdmin(admin.ModelAdmin):
     pass
+
+
 #
 
 
@@ -79,19 +95,18 @@ class CAM1ModelAdmin(admin.ModelAdmin):
 admin.site.register(CAM1Model, CAM1ModelAdmin)
 
 
-#class GAD7ModelAdmin(admin.ModelAdmin):
+# class GAD7ModelAdmin(admin.ModelAdmin):
 #    pass
 
 
-#admin.site.register(GAD7Model, GAD7ModelAdmin)
+# admin.site.register(GAD7Model, GAD7ModelAdmin)
 
 
-#class PHQ9ModelAdmin(admin.ModelAdmin):
+# class PHQ9ModelAdmin(admin.ModelAdmin):
 #    pass
 
 
-#admin.site.register(PHQ9Model, PHQ9ModelAdmin)
-
+# admin.site.register(PHQ9Model, PHQ9ModelAdmin)
 
 
 class RASModelAdmin(admin.ModelAdmin):

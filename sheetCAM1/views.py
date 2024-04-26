@@ -11,9 +11,9 @@ from sheetCAM1.forms import CAMForm
 
 
 class CAMView(FormView):
-    template_name = 'assessment/CAM.html'
+    template_name = "assessment/CAM.html"
     form_class = CAMForm
-    success_url = reverse_lazy('assessment:success')
+    success_url = reverse_lazy("assessment:success")
 
     def form_valid(self, form):
         # Calls the custom send method

@@ -6,15 +6,17 @@ from .forms import GAD7Form
 
 
 class GADView(FormView):
-    template_name = 'assessment/GAD-7.html'
+    template_name = "assessment/GAD-7.html"
     form_class = GAD7Form
-    success_url = reverse_lazy('assessment:success')
+    success_url = reverse_lazy("assessment:success")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if 'form' in context:
-            form = context['form']
-            context['questions'] = [form[f'question{i}'] for i in range(1, 9)]  # Include question8 if it exists
+        if "form" in context:
+            form = context["form"]
+            context["questions"] = [
+                form[f"question{i}"] for i in range(1, 9)
+            ]  # Include question8 if it exists
         return context
 
     def form_valid(self, form):
@@ -26,8 +28,8 @@ class GADView(FormView):
         form.send()  # Send your email
 
         # Optionally, store values in session if you want to use them after redirect
-        self.request.session['total_score'] = total_score
-        self.request.session['anxiety_level'] = anxiety_level
+        self.request.session["total_score"] = total_score
+        self.request.session["anxiety_level"] = anxiety_level
 
         return super().form_valid(form)  # Redirect to success_url
 
