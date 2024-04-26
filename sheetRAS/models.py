@@ -42,18 +42,22 @@ class RasModel(models.Model):
         description = """
             """
         context = {
-            'form': form,
-            'header': 'RasForm/Evaluation',
-            'description': description, }
+            "form": form,
+            "header": "RasForm/Evaluation",
+            "description": description,
+        }
 
-        result = render_to_string('email/stomp.html', context)
+        result = render_to_string("email/stomp.html", context)
 
         logging.info(form.data)
         # recipient = form.data['TherapistEmail']
-        return 'RasForm/Evaluation', result
+        return "RasForm/Evaluation", result
 
     def send(self):
-        subject, msg, = self.get_info()
+        (
+            subject,
+            msg,
+        ) = self.get_info()
 
         # send_mail(
         #     subject=subject,
@@ -62,4 +66,3 @@ class RasModel(models.Model):
         #     from_email=settings.EMAIL_HOST_USER,
         #     recipient_list=[recipent]
         # )
-

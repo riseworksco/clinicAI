@@ -5,10 +5,8 @@ from django.urls import include, path
 from . import views
 from .views import RASView
 
-app_name = 'sheetRAS'
+app_name = "sheetRAS"
 
 urlpatterns = [
-
-    path('RAS/', RASView.as_view(),
-         name="RAS"),
+    path("RAS/", RASView.as_view(), name="RAS"),
 ]

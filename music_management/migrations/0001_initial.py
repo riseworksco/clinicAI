@@ -7,31 +7,39 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Song',
+            name="Song",
             fields=[
-                ('id', models.CharField(max_length=100, primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=100, null=True)),
-                ('youtube_link', models.CharField(max_length=100, null=True)),
-                ('music_link', models.CharField(max_length=100, null=True)),
+                (
+                    "id",
+                    models.CharField(max_length=100, primary_key=True, serialize=False),
+                ),
+                ("title", models.CharField(max_length=100, null=True)),
+                ("youtube_link", models.CharField(max_length=100, null=True)),
+                ("music_link", models.CharField(max_length=100, null=True)),
             ],
             options={
-                'ordering': ['title'],
+                "ordering": ["title"],
             },
         ),
         migrations.CreateModel(
-            name='Playlist',
+            name="Playlist",
             fields=[
-                ('id', models.CharField(max_length=100, primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=100, null=True)),
-                ('songs', models.ManyToManyField(null=True, to='music_management.song')),
+                (
+                    "id",
+                    models.CharField(max_length=100, primary_key=True, serialize=False),
+                ),
+                ("name", models.CharField(max_length=100, null=True)),
+                (
+                    "songs",
+                    models.ManyToManyField(null=True, to="music_management.song"),
+                ),
             ],
             options={
-                'ordering': ['name'],
+                "ordering": ["name"],
             },
         ),
     ]
