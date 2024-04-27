@@ -1,5 +1,5 @@
 # Create your views here.
-from django.conf import settings
+from Music_Therapy_API import settings
 from django.core.mail import EmailMessage, send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -20,9 +20,9 @@ def send_test(request):
         send_mail(
             "SOJO Support Test",
             "test-body",
-            "support@sojoai.com",
+            settings.EMAIL_HOST_USER,
             ["cysbc1999@gmail.com"],
-            auth_user="support@sojoai.com",
+            auth_user=settings.EMAIL_HOST_USER,
             auth_password="Lovelife099!",
             fail_silently=False,
         )
