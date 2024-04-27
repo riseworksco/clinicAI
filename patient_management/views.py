@@ -6,8 +6,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import permissions, viewsets
 
-from .models import Patient
-from .serializers import GroupSerializer, UserSerializer
+from patient_management.models import Patient, SessionRecord
+from patient_management.serializers import GroupSerializer, UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -44,10 +44,22 @@ def display_patients(request):
     return render(request, "patient/dashboard.html", context)
 
 
-def view_patient(request, patient_username):
+def display_patient(request, patient_username):
     patient = Patient.objects.get(user__username=patient_username)
+    records = SessionRecord.objects.filter(user__username=patient_username)
     context = {
         "item": patient,
         "header": patient_username,
+        "records": records
     }
     return render(request, "patient/patient_detail.html", context)
+
+
+def view_records(request):
+    items = SessionRecord.objects.filter(doctor=request.user.id)
+    context = {
+        "items": items,
+        "header": "Patient Progress Tracker",
+    }
+    logging.info(items)
+    return render(request, "patient/dashboard.html", context)

@@ -21,3 +21,4 @@ django-filter
 xhtml2pdf
 coverage
 google-generativeai
+google-cloud-speech

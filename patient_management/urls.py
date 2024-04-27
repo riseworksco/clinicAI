@@ -13,7 +13,7 @@ urlpatterns = [
     path("", views.display_patients, name="index"),
     re_path(
         r"^view_patient/(?P<patient_username>[-\w]+)$",
-        views.view_patient,
+        views.display_patient,
         name="view_patient",
     ),
     path("api/", include(router.urls)),
