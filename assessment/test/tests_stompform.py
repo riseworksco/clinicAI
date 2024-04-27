@@ -4,6 +4,7 @@ from unittest.mock import ANY, MagicMock, patch  # 导入ANY
 from django.test import SimpleTestCase
 
 from assessment.forms import StompForm
+from assessment.models.stomp_model import Stomp
 
 
 class TestStompForm(SimpleTestCase):
