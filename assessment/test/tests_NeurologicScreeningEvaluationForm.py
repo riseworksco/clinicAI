@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
-from assessment.forms import NeurologicScreeningEvaluationForm
+from assessment.forms.neurologic_screening_evaluation_form import NeurologicScreeningEvaluationForm
 from assessment.identifiers import Sign
 
 
