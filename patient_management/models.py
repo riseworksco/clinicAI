@@ -97,11 +97,13 @@ def transcribe(
 
 
 class SessionRecord(models.Model):
-    date = models.CharField(max_length=100)
-    patient_id = models.IntegerField(blank=False)
-    doctor_id = models.IntegerField(blank=False)
-    session_id = models.IntegerField(blank=False)
-    doctor_name = models.CharField(max_length=100, blank=False)
+    start_time = models.DateTimeField(default=None)
+    end_time = models.DateTimeField(default=None)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     notes = models.CharField(max_length=500, blank=False)
     transcripts = models.CharField(max_length=500, blank=False)
     voice_recording_url = models.CharField(max_length=500, blank=False)
+
+    def transcript(self):
+        return transcribe(audio_file=self.voice_recording_url)

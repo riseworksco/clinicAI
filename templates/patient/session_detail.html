@@ -1,0 +1,36 @@
+{% extends "assessment/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+
+
+
+    <div class="container text-center">
+        {{ description |escape|linebreaks }}
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+
+        {% for field in form %}
+            <div class="fieldWrapper">
+                <tr>
+                    {{ field.errors }}
+                    <td>
+                        {{ field.label_tag }}
+                    </td>
+                    <td>{{ field.value }}
+                    </td>
+                </tr>
+            </div>
+
+        {% endfor %}
+    </table>
+
+    <audio controls>
+        <source src="" type="audio/mp3">
+    </audio>
+
+{% endblock %}

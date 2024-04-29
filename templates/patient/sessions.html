@@ -1,0 +1,39 @@
+{% extends "assessment/base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block title %}{{ header }}{% endblock %}
+{% block content %}
+
+    <div class="row text-center">
+        <div class="col-md-12">
+            <a href="/add-application/" class="btn btn-outline-primary">Add New Record</a>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Next Appointment</th>
+            <th>Manage</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for item in items %}
+            <tr>
+                <td>{{ item.patient.user.get_full_name }}</td>
+                <td>{{ item.start_time }}</td>
+                <td>{{ item.end_time }}e</td>
+                <td data-label="Action">
+                    <a href="session/{{ item.id }}" class="btn btn-outline-info btn-sm" role="button">View</a>
+                    <a href="" class="btn btn-outline-info btn-sm" role="button">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

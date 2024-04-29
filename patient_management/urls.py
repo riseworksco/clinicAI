@@ -17,5 +17,10 @@ urlpatterns = [
         name="view_patient",
     ),
     path("api/", include(router.urls)),
-    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path("sessions", views.display_sessions, name="sessions"),
+    re_path(
+        r"^session/(?P<session_id>[-\w]+)$",
+        views.display_session,
+        name="session",
+    ),
 ]

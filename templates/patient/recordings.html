@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            .list {
+                margin-bottom: 10px;
+            }
+
+            .audio-item {
+                color: #000;
+                padding: 10px;
+                border-bottom: 1px solid #45B29D;
+                cursor: pointer;
+            }
+
+            .audio-item.active {
+                background-color: #334D5C;
+                color: #EFC94C;
+            }
+
+            audio {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
+
+        <title>Polarity S3 Cloud Player by scriptshit</title>
+        <script type='text/javascript'>
+
+            //<![CDATA[
+            window.onload = function () {
+                var BUCKET = "https://polaritymusic.s3.amazonaws.com/";
+
+                // play this!
+                var playFilename = function (filename, event) {
+                    $(".audio-item").removeClass("active");
+                    $(event.target).addClass("active");
+                    var url = BUCKET + filename;
+                    var audio = $("audio");
+                    $("audio > source").attr("src", url);
+                    audio[0].pause();
+                    audio[0].load();
+                    audio[0].play();
+                };
+
+                // append a item to the list
+                var appendList = function (filename) {
+                    var item = $("<div class='audio-item'>" + filename + "</div>");
+                    item.on("click", playFilename.bind(null, filename));
+                    $(".list").append(item);
+                };
+
+                // ajax the aws bucket
+                var loadList = function () {
+                    $.ajax({
+                        type: "GET",
+                        url: BUCKET
+                    }).done(function (data, status, xhr) {
+                        var files = [];
+
+                        // traverse xml and collect files
+                        $(data).find("Contents").each(function (item) {
+                            var filename = $(this).find('Key').text();
+                            var modified = $(this).find('LastModified').text();
+                            // only add mp3 files :)
+                            if (filename.match(/.mp3/)) {
+                                files.push({
+                                    modified: modified,
+                                    filename: filename
+                                });
+                            }
+                        });
+
+                        // sort files by date
+                        files.sort(function (a, b) {
+                            return new Date(b.modified) - new Date(a.modified);
+                        });
+                        // build dom list
+                        $.each(files, function (index, file) {
+                            appendList(file.filename);
+                        });
+
+                    });
+                };
+
+                // start the app!
+                loadList();
+
+            }; //]]>
+        </script>
+    </head>
+
+    <body>
+    <div class="list"></div>
+    <audio controls>
+        <source src="" type="audio/mp3">
+    </audio>
+{% endblock %}

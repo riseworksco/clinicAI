@@ -8,6 +8,7 @@ from rest_framework import permissions, viewsets
 
 from patient_management.models import Patient, SessionRecord
 from patient_management.serializers import GroupSerializer, UserSerializer
+from patient_management.forms import SessionRecordForm
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -55,11 +56,20 @@ def display_patient(request, patient_username):
     return render(request, "patient/patient_detail.html", context)
 
 
-def view_records(request):
+def display_sessions(request):
     items = SessionRecord.objects.filter(doctor=request.user.id)
     context = {
         "items": items,
         "header": "Patient Progress Tracker",
     }
     logging.info(items)
-    return render(request, "patient/dashboard.html", context)
+    return render(request, "patient/sessions.html", context)
+
+
+def display_session(request, session_id):
+    session = SessionRecord.objects.get(id=session_id)
+    form = SessionRecordForm(instance=session)
+    context = {
+        "form": form,
+    }
+    return render(request, "patient/session_detail.html", context)
