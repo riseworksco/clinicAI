@@ -1,6 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from google.cloud.speech_v2 import SpeechClient
+from google.cloud.speech_v2.types import cloud_speech
+
 from music_management.models import Playlist
 
 
@@ -57,3 +60,50 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+# def transcribe(gcs_uri: str = "gs://cloud-samples-data/speech/brooklyn_bridge.raw") -> speech.RecognizeResponse:
+def transcribe(
+        project_id: str = "sojo-api-380801",
+        model: str = "gemini",
+        audio_file: str = "gs://cloud-samples-data/speech/brooklyn_bridge.raw",
+):
+    # Instantiates a client
+    client = SpeechClient()
+
+    # Reads a file as bytes
+    with open(audio_file, "rb") as f:
+        content = f.read()
+
+    config = cloud_speech.RecognitionConfig(
+        auto_decoding_config=cloud_speech.AutoDetectDecodingConfig(),
+        language_codes=["en-US"],
+        model=model,
+    )
+
+    request = cloud_speech.RecognizeRequest(
+        recognizer=f"projects/{project_id}/locations/global/recognizers/_",
+        config=config,
+        content=content,
+    )
+
+    # Transcribes the audio into text
+    response = client.recognize(request=request)
+
+    for result in response.results:
+        print(f"Transcript: {result.alternatives[0].transcript}")
+
+    return response
+
+
+class SessionRecord(models.Model):
+    start_time = models.DateTimeField(default=None)
+    end_time = models.DateTimeField(default=None)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
+    notes = models.CharField(max_length=500, blank=False)
+    transcripts = models.CharField(max_length=500, blank=False)
+    voice_recording_url = models.CharField(max_length=500, blank=False)
+
+    def transcript(self):
+        return transcribe(audio_file=self.voice_recording_url)
