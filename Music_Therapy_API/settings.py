@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-1e3^*@tzw_wx1-_g9a^yhklm+-jotva27k8c2aooo@4sdo7%_t
 cloudinary.config(
     cloud_name="hq8x4kz7x",
     api_key="966542976818381",
-    api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y",
+    api_secret=secrets.CLOUDINARY_API_SECRET,
     secure=True,
 )
 
