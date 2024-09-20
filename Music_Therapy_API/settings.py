@@ -13,10 +13,22 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+# Set your Cloudinary credentials
+# ==============================
+from dotenv import load_dotenv
+load_dotenv()
+
+
+# Import the Cloudinary libraries
+# ==============================
 import cloudinary
 import cloudinary.api
 import cloudinary.uploader
-import django_heroku
+
+
+# Import to format the JSON responses
+# ==============================
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +39,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-1e3^*@tzw_wx1-_g9a^yhklm+-jotva27k8c2aooo@4sdo7%_t"
 
-cloudinary.config(
-    cloud_name="hq8x4kz7x",
-    api_key="966542976818381",
-    api_secret=secrets.CLOUDINARY_API_SECRET,
-    secure=True,
-)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -172,8 +178,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # Add other static file paths if needed
 ]
-
-# django_heroku.settings(locals())
 
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 

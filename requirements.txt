@@ -4,7 +4,6 @@ cloudinary
 dj-database-url==1.2.0
 Django
 django-crispy-forms==1.14.0
-django-heroku==0.3.1
 djangorestframework==3.14.0
 gunicorn==20.1.0
 pytz==2022.7.1
@@ -15,10 +14,11 @@ urllib3==1.26.18
 whitenoise==6.4.0
 wincertstore==0.2
 reportlab
-psycopg2==2.9.5
+psycopg2-binary
 whitenoise
 djangorestframework
 markdown
 django-filter
 xhtml2pdf
 coverage
+python-dotenv
