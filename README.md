@@ -48,4 +48,4 @@ prompt_message = "You are a music therapist. you are about treat {$patient name}
 
 We would like to thank everyone talk to us and share their insights and feedback.
 
-2023-2024 Matrix Software LLC All Rights Reserved
+©️ 2024 Riseworks
