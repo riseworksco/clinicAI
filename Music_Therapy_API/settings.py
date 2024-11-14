@@ -117,16 +117,6 @@ WSGI_APPLICATION = "Music_Therapy_API.wsgi.application"
 #     }
 # }
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "daojv8o34q3a95",
-        "USER": "olqthjoopbooci",
-        "PASSWORD": "b961d98493c514fd77ae961db38851f22eb4f940d5a458d70dee6b4e6a6c61d1",
-        "HOST": "ec2-44-207-60-135.compute-1.amazonaws.com",
-        "PORT": "5432",
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
