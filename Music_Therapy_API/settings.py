@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
 import os
 from pathlib import Path
+import django_heroku
 
 # Set your Cloudinary credentials
 # ==============================
@@ -202,3 +202,6 @@ cloudinary.config(
     api_key="966542976818381",
     api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y",
 )
+
+# Heroku: Update database configuration from $DATABASE_URL.
+django_heroku.settings(locals())
