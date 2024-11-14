@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
 import os
 from pathlib import Path
+import django_heroku
 
 # Set your Cloudinary credentials
 # ==============================
@@ -110,23 +110,13 @@ WSGI_APPLICATION = "Music_Therapy_API.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "daojv8o34q3a95",
-        "USER": "olqthjoopbooci",
-        "PASSWORD": "b961d98493c514fd77ae961db38851f22eb4f940d5a458d70dee6b4e6a6c61d1",
-        "HOST": "ec2-44-207-60-135.compute-1.amazonaws.com",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -202,3 +192,6 @@ cloudinary.config(
     api_key="966542976818381",
     api_secret="RG481KhaHu4VZzhqj2gPLhUZR0Y",
 )
+
+# Heroku: Update database configuration from $DATABASE_URL.
+django_heroku.settings(locals())

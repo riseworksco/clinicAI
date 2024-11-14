@@ -1,12 +1,13 @@
 asgiref
 certifi
 cloudinary
-dj-database-url==1.2.0
-Django
+django>=5.1.1,<5.2
+dj-database-url>=2,<3
 django-crispy-forms==1.14.0
 djangorestframework==3.15.2
-gunicorn==22.0.0
-pytz==2022.7.1
+gunicorn>=23,<24
+pytz==2020.5
+django-heroku
 six==1.16.0
 sqlparse
 tzdata
@@ -14,7 +15,6 @@ urllib3==1.26.19
 whitenoise==6.4.0
 wincertstore==0.2
 reportlab
-psycopg2-binary
 whitenoise
 djangorestframework
 markdown
@@ -22,3 +22,4 @@ django-filter
 xhtml2pdf
 coverage
 python-dotenv
+whitenoise[brotli]>=6,<7
